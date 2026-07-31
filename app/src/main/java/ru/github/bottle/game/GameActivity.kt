@@ -171,26 +171,44 @@ class GameActivity : AppCompatActivity() {
      // Применяет тему в зависимости от выбранного режима
     private fun applyTheme(mode: GameMode) {
         // 1. Меняем фоновое изображение
-        val backgroundRes = when (mode) {
-            GameMode.CHILDREN -> R.drawable.background_children
-            GameMode.TEEN -> R.drawable.background_teen
-            GameMode.ADULT -> R.drawable.background_adult
-            GameMode.ADULT_PLUS -> R.drawable.background_adult_plus
+        val backgroundRes = try {
+            when (mode) {
+                GameMode.CHILDREN -> R.drawable.background_children
+                GameMode.TEEN -> R.drawable.background_teen
+                GameMode.ADULT -> R.drawable.background_adult
+                GameMode.ADULT_PLUS -> R.drawable.background_adult_plus
+            }
+        } catch (e: Exception) {
+            android.R.color.white
         }
 
+
         // Применяем фон с плавной анимацией
-        animateBackgroundChange(backgroundRes)
+         try {
+             animateBackgroundChange(backgroundRes)
+         } catch (e: Exception) {
+             // Если анимация не работает, просто ставим цвет
+             binding.root.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
+         }
 
         // 2. Меняем иконку бутылки
-        val bottleRes = when (mode) {
-            GameMode.CHILDREN -> R.drawable.ic_bottle_children
-            GameMode.TEEN -> R.drawable.ic_bottle_teen
-            GameMode.ADULT -> R.drawable.ic_bottle_adult
-            GameMode.ADULT_PLUS -> R.drawable.ic_bottle_adult_plus
+        val bottleRes = try {
+            when (mode) {
+                GameMode.CHILDREN -> R.drawable.ic_bottle_children
+                GameMode.TEEN -> R.drawable.ic_bottle_teen
+                GameMode.ADULT -> R.drawable.ic_bottle_adult
+                GameMode.ADULT_PLUS -> R.drawable.ic_bottle_adult_plus
+            }
+        } catch (e: Exception) {
+            R.drawable.ic_bottle_teen
         }
 
         // Применяем иконку с анимацией
-        animateBottleChange(bottleRes)
+         try {
+             animateBottleChange(bottleRes)
+         } catch (e: Exception) {
+             // Если иконки нет, оставляем текущую
+         }
     }
 
     // Плавная смена фонового изображения
