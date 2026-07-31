@@ -80,8 +80,8 @@ class RegisterActivity : AppCompatActivity() {
             binding.etAge.error = "Введите корректный возраст"
             return false
         }
-        if (ageInt < 10) {
-            binding.etAge.error = "Возраст должен быть от 10 лет"
+        if (ageInt < 5) {
+            binding.etAge.error = "Возраст должен быть от 5 лет"
             return false
         }
         if (ageInt > 120) {
@@ -115,14 +115,10 @@ class RegisterActivity : AppCompatActivity() {
 
                 userRepository.saveUser(user)
 
-                // Показываем сообщение в зависимости от возраста
-                val message = if (age >= 18) {
-                    "Регистрация успешна! Доступны все режимы"
-                } else {
-                    "Регистрация успешна! Доступен только детский режим (до 18 лет)"
-                }
-
-                Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Регистрация успешна!",
+                    Toast.LENGTH_LONG).show()
 
                 // Закрываем регистрацию и возвращаемся к логину
                 finish()

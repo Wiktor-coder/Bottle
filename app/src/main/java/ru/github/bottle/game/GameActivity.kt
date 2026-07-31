@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Vibrator
-import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
@@ -29,10 +28,6 @@ import ru.github.bottle.models.User
 import ru.github.bottle.utils.TasksProvider
 import kotlin.random.Random
 
-
-
-    private const val TAG = "GameActivity"
-
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private lateinit var userRepository: UserRepository
@@ -44,6 +39,16 @@ class GameActivity : AppCompatActivity() {
     private var tasksCompleted = 0
     private var settingsDialog: AlertDialog? = null
     private var currentUser: User? = null
+
+    companion object {
+        private const val KEY_CURRENT_MODE = "current_mode"
+        private const val KEY_CURRENT_ROTATION = "current_rotation"
+        private const val KEY_TASKS_COMPLETED = "tasks_completed"
+
+        fun getIntent(context: Context): Intent {
+            return Intent(context, GameActivity::class.java)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +81,6 @@ class GameActivity : AppCompatActivity() {
         outState.putSerializable(KEY_CURRENT_MODE, currentMode)
         outState.putFloat(KEY_CURRENT_ROTATION, currentRotation)
         outState.putInt(KEY_TASKS_COMPLETED, tasksCompleted)
-        Log.d(TAG, "Состояние сохранено: режим=${currentMode.displayName}, вращение=$currentRotation, заданий=$tasksCompleted")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -86,7 +90,6 @@ class GameActivity : AppCompatActivity() {
         currentRotation = savedInstanceState.getFloat(KEY_CURRENT_ROTATION)
         tasksCompleted = savedInstanceState.getInt(KEY_TASKS_COMPLETED)
         binding.ivBottle.rotation = currentRotation
-        Log.d(TAG, "Состояние восстановлено: режим=${currentMode.displayName}, вращение=$currentRotation, заданий=$tasksCompleted")
     }
 
     // Обработка изменения конфигурации (поворот экрана)
@@ -94,7 +97,6 @@ class GameActivity : AppCompatActivity() {
         super.onConfigurationChanged(newConfig)
         // При повороте экрана ничего не перезагружаем
         // Все данные уже сохранены в переменных
-        Log.d(TAG, "Configuration changed: orientation=${newConfig.orientation}")
     }
 
     private suspend fun checkUserAndSetup() {
@@ -107,8 +109,6 @@ class GameActivity : AppCompatActivity() {
         }
 
         currentUser = user
-
-        Log.d(TAG, "Пользователь: ${user.username}, Возраст: ${user.age}, Гость: ${user.isGuest}")
 
         // Если режим не был восстановлен из savedInstanceState, берем из репозитория
         if (currentMode == GameMode.CHILDREN) {
@@ -136,8 +136,6 @@ class GameActivity : AppCompatActivity() {
             // Проверяем доступные режимы в зависимости от возраста
             val savedMode = userRepository.getGameMode()
 
-            Log.d(TAG, "Сохраненный режим: ${savedMode.displayName}")
-
             // Проверяем, доступен ли сохраненный режим
             if (user.canAccessMode(savedMode)) {
                 currentMode = savedMode
@@ -150,8 +148,6 @@ class GameActivity : AppCompatActivity() {
                     else -> GameMode.CHILDREN
                 }
                 userRepository.setGameMode(currentMode)
-
-                Log.d(TAG, "Режим изменен на: ${currentMode.displayName}")
 
                 Toast.makeText(
                     this,
@@ -252,32 +248,23 @@ class GameActivity : AppCompatActivity() {
     private fun updateButtonsAvailability() {
         val user = currentUser ?: return
 
-        Log.d(TAG, "Обновление доступности кнопок. Возраст: ${user.age}, Гость: ${user.isGuest}")
-
         // Детский режим доступен всем
         binding.btnModeChildren.isEnabled = true
 
         // Подростковый режим доступен с 10 лет
-        val teenAvailable = user.canAccessMode(GameMode.TEEN)
         binding.btnModeTeen.isEnabled = user.canAccessMode(GameMode.TEEN)
-        Log.d(TAG, "Подростковый режим доступен: $teenAvailable")
 
         // Взрослый режим доступен с 16 лет
-        val adultAvailable = user.canAccessMode(GameMode.ADULT)
         binding.btnModeAdult.isEnabled = user.canAccessMode(GameMode.ADULT)
-        Log.d(TAG, "Взрослый режим доступен: $adultAvailable")
 
         // Режим 18+ доступен с 18 лет
-        val adultPlusAvailable = user.canAccessMode(GameMode.ADULT_PLUS)
         binding.btnModeAdultPlus.isEnabled = user.canAccessMode(GameMode.ADULT_PLUS)
-        Log.d(TAG, "Режим 18+ доступен: $adultPlusAvailable")
 
         // Для гостей блокируем все кроме детского
         if (user.isGuest) {
             binding.btnModeTeen.isEnabled = false
             binding.btnModeAdult.isEnabled = false
             binding.btnModeAdultPlus.isEnabled = false
-            Log.d(TAG, "Гостевой режим: все кроме детского заблокированы")
         }
     }
 
@@ -301,12 +288,6 @@ class GameActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     val user = userRepository.getUser()
 
-                    Log.d(TAG, "Попытка переключения на режим: ${newMode.displayName}")
-                    if (user != null) {
-                        Log.d(TAG, "Текущий пользователь: ${user.username}, Возраст: ${user.age}, Гость: ${user.isGuest}")
-                        Log.d(TAG, "canAccessMode(${newMode.displayName}) = ${user.canAccessMode(newMode)}")
-                    }
-
                     if (user != null && user.canAccessMode(newMode)) {
                         currentMode = newMode
                         userRepository.setGameMode(currentMode)
@@ -317,7 +298,6 @@ class GameActivity : AppCompatActivity() {
                             "Режим: ${newMode.displayName}",
                             Toast.LENGTH_SHORT
                         ).show()
-                        Log.d(TAG, "Режим успешно переключен на: ${newMode.displayName}")
                     } else {
                         val message = if (user != null) {
                             user.getUnlockMessage(newMode)
@@ -329,7 +309,6 @@ class GameActivity : AppCompatActivity() {
                             message,
                             Toast.LENGTH_LONG
                         ).show()
-                        Log.d(TAG, "Переключение отклонено: $message")
                         updateButtonsState()
                     }
                 }
@@ -539,12 +518,5 @@ class GameActivity : AppCompatActivity() {
         settingsDialog?.dismiss()
     }
 
-    companion object {
-        private const val KEY_CURRENT_MODE = "current_mode"
-        private const val KEY_CURRENT_ROTATION = "current_rotation"
-        private const val KEY_TASKS_COMPLETED = "tasks_completed"
-        fun getIntent(context: Context): Intent {
-            return Intent(context, GameActivity::class.java)
-        }
-    }
+
 }

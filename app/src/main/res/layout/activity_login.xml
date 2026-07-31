@@ -85,15 +85,15 @@
             android:layout_marginVertical="24dp" />
 
         <!-- Тестовый вход (для разработки) -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTestLogin"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Тестовый вход (18+)"
-            android:textAllCaps="false"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:cornerRadius="8dp"
-            android:layout_marginTop="8dp" />
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnTestLogin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:text="Тестовый вход (18+)"-->
+<!--            android:textAllCaps="false"-->
+<!--            style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--            app:cornerRadius="8dp"-->
+<!--            android:layout_marginTop="8dp" />-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuest"

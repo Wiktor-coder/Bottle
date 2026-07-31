@@ -6,10 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import ru.github.bottle.databinding.ActivityLoginBinding
 import ru.github.bottle.data.repository.UserRepository
+import ru.github.bottle.databinding.ActivityLoginBinding
 import ru.github.bottle.game.GameActivity
-import ru.github.bottle.models.User
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -54,24 +53,24 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Тестовый вход
-        binding.btnTestLogin.setOnClickListener {
-            lifecycleScope.launch {
-                val testUser = User(
-                    id = System.currentTimeMillis().toString(),
-                    email = "test@test.com",
-                    username = "Тестовый пользователь",
-                    age = 25,
-                    isGuest = false
-                )
-                userRepository.saveUser(testUser)
-                Toast.makeText(
-                    this@LoginActivity,
-                    "Тестовый вход (18+) выполнен",
-                    Toast.LENGTH_LONG
-                ).show()
-                navigateToGame()
-            }
-        }
+//        binding.btnTestLogin.setOnClickListener {
+//            lifecycleScope.launch {
+//                val testUser = User(
+//                    id = System.currentTimeMillis().toString(),
+//                    email = "test@test.com",
+//                    username = "Тестовый пользователь",
+//                    age = 25,
+//                    isGuest = false
+//                )
+//                userRepository.saveUser(testUser)
+//                Toast.makeText(
+//                    this@LoginActivity,
+//                    "Тестовый вход (18+) выполнен",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//                navigateToGame()
+//            }
+//        }
     }
 
     private fun validateInput(email: String, password: String): Boolean {
@@ -106,23 +105,16 @@ class LoginActivity : AppCompatActivity() {
                         "Добро пожаловать, ${user.username}! Доступен только детский режим"
                     }
 
-                    Toast.makeText(this@LoginActivity, message, Toast.LENGTH_LONG).show()
-                    navigateToGame()
-                } else {
-                    // Для демонстрации: если пользователь не найден, создаем нового
-                    // В реальном приложении здесь был бы запрос к серверу
-                    val newUser = User(
-                        id = System.currentTimeMillis().toString(),
-                        email = email,
-                        username = "Пользователь",
-                        age = 25, // Для теста устанавливаем возраст 25 лет
-                        isGuest = false
-                    )
-
-                    userRepository.saveUser(newUser)
                     Toast.makeText(
                         this@LoginActivity,
-                        "Добро пожаловать! (Тестовый вход)",
+                        message,
+                        Toast.LENGTH_LONG
+                    ).show()
+                    navigateToGame()
+                } else {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Пользователь не найден. Проверьте email или зарегистрируйтесь.",
                         Toast.LENGTH_LONG
                     ).show()
                     navigateToGame()
@@ -148,7 +140,11 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
                 navigateToGame()
             } catch (e: Exception) {
-                Toast.makeText(this@LoginActivity, "Ошибка: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Ошибка: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
