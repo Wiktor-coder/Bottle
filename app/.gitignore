@@ -317,15 +317,6 @@ build/generated/
 app/build/generated/
 
 # ====================
-# Screenshots
-# ====================
-screenshots/
-*.png
-*.jpg
-*.jpeg
-*.gif
-
-# ====================
 # Environment files
 # ====================
 .env

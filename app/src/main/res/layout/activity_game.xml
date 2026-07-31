@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="30dp"
-    android:background="@drawable/background_children">
+    android:background="@color/white">
 
     <!-- Toolbar с прозрачным фоном -->
     <com.google.android.material.appbar.MaterialToolbar
