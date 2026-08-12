@@ -1,6 +1,6 @@
 # 🍾 Игра "Бутылочка"
 
-[![CI](https://github.com/ВАШ_АККАУНТ/bottle-game/actions/workflows/ci.yml/badge.svg)](https://github.com/ВАШ_АККАУНТ/bottle-game/actions/workflows/ci.yml)
+[![CI](https://github.com/Wiktor-coder/Bottle/actions/runs/31589825024/job/94091968871)](https://github.com/Wiktor-coder/Bottle/actions/runs/31589825024/job/94091968871)
 
 Мобильное приложение "Игра в бутылочку" с возрастными режимами и заданиями для разных категорий игроков.
 
@@ -16,7 +16,7 @@
 ## 🎮 Функционал
 
 - ✅ Регистрация и вход (гостевой режим)
-- ✅ 4 режима с разными заданиями
+- ✅ 5 режимов с разными заданиями
 - ✅ Вращение бутылки с анимацией
 - ✅ Смена темы оформления в зависимости от режима
 - ✅ Сохранение прогресса при повороте экрана
@@ -29,9 +29,9 @@
 |-------------|---------------|-----------|
 | ![Login](screenshots/login_screen.png) | ![Game](screenshots/game_screen.png) | ![Settings](screenshots/settings_screen.png) |
 
-| Детский режим | Подростковый | Взрослый | 18+ |
-|---------------|--------------|----------|-----|
-| ![Children](screenshots/children_mode.png) | ![Teen](screenshots/teen_mode.png) | ![Adult](screenshots/adult_mode.png) | ![AdultPlus](screenshots/adult_plus_mode.png) |
+| Детский режим | Подростковый | Взрослый | 18+ | Секс                             |
+|---------------|--------------|----------|-----|----------------------------------|
+| ![Children](screenshots/children_mode.png) | ![Teen](screenshots/teen_mode.png) | ![Adult](screenshots/game_screen.png) | ![AdultPlus](screenshots/adult_plus_mode.png) | ![Sex](screenshots/game_sex.png) |
 
 ## 🛠️ Технологии
 
@@ -52,10 +52,10 @@
 ### Локальная сборка
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/ВАШ_АККАУНТ/bottle-game.git
+git clone https://github.com/Wiktor-coder/Bottle
 
 # Перейти в папку проекта
-cd bottle-game
+cd Bottle
 
 # Собрать Debug APK
 ./gradlew assembleDebug
