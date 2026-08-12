@@ -20,12 +20,43 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+      # ✅ Кэшируем зависимости Gradle для ускорения сборки
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
+      # ✅ Даем права на выполнение gradlew
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      # ✅ Запускаем только unit-тесты (без сборки всего приложения)
+      - name: Run unit tests
+        run: ./gradlew test
+
+      # ✅ Сохраняем отчеты о тестах как артефакт
+      - name: Upload test reports
+        if: always()  # Загружаем даже если тесты упали
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            app/build/reports/tests/
+            app/build/test-results/
+
+      # ✅ Собираем APK только если тесты прошли успешно
+      - name: Build APK
+        if: success()  # Строим только если тесты прошли
+        run: ./gradlew assembleDebug
+
+      # ✅ Загружаем APK
       - name: Upload APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: app-debug

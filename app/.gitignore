@@ -326,3 +326,7 @@ app/build/generated/
 secrets.properties
 secret.properties
 keystore.properties
+
+# Тесты
+app/build/reports/
+app/build/test-results/
