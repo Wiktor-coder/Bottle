@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Создать аккаунт"
+            android:text="@string/register_title"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/primary"
@@ -26,26 +26,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Зарегистрируйтесь, чтобы получить доступ ко всем режимам"
+            android:text="@string/register_subtitle"
             android:textSize="14sp"
             android:textColor="@android:color/black"
             android:gravity="center"
             android:layout_marginBottom="24dp" />
-
-        <!-- Email -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Имя пользователя -->
         <com.google.android.material.textfield.TextInputLayout
@@ -58,7 +43,7 @@
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Имя пользователя"
+                android:hint="@string/register_username_hint"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,30 +59,39 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Пароль"
+                android:hint="@string/register_password_hint"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Возраст -->
+        <!-- Дата рождения (кликабельное поле) -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_marginBottom="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:clickable="true"
+            android:focusable="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAge"
+                android:id="@+id/etBirthDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Возраст"
-                android:inputType="number" />
+                android:hint="@string/register_birthdate_hint"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="12dp" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Подсказка о возрасте -->
         <TextView
+            android:id="@+id/tvAgeHint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="* Для доступа ко всем режимам необходимо быть старше 18 лет"
+            android:text="@string/register_age_hint_default"
             android:textSize="12sp"
             android:textColor="@android:color/black"
             android:layout_marginBottom="16dp"
@@ -108,7 +102,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Зарегистрироваться"
+            android:text="@string/register_button"
             android:textAllCaps="false"
             app:cornerRadius="8dp" />
 
@@ -117,7 +111,7 @@
             android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Уже есть аккаунт? Войти"
+            android:text="@string/register_login_link"
             android:layout_marginTop="16dp"
             android:textColor="@color/primary"
             android:clickable="true"

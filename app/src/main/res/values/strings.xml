@@ -1,3 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Бутылочка</string>
+
+    <!-- Общие -->
+    <string name="ok">OK</string>
+    <string name="cancel">Отмена</string>
+    <string name="close">Закрыть</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+    <!-- Login -->
+    <string name="login_title">Вход</string>
+    <string name="login_username_hint">Имя пользователя</string>
+    <string name="login_password_hint">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="login_register_link">Нет аккаунта? Зарегистрироваться</string>
+    <string name="login_guest_button">Продолжить как гость</string>
+    <string name="login_invalid_username">Введите имя пользователя</string>
+    <string name="login_invalid_password">Введите пароль</string>
+    <string name="login_user_not_found">Пользователь не найден</string>
+    <string name="login_wrong_password">Неверный пароль</string>
+    <string name="login_error">Ошибка входа</string>
+    <string name="login_welcome_guest">Добро пожаловать, Гость! Доступен только детский режим</string>
+    <string name="login_welcome_user">Добро пожаловать, %s! Доступны все режимы</string>
+    <string name="login_welcome_user_children">Добро пожаловать, %s! Доступен только детский режим</string>
+
+    <!-- Register -->
+    <string name="register_title">Создать аккаунт</string>
+    <string name="register_subtitle">Зарегистрируйтесь, чтобы получить доступ ко всем режимам</string>
+    <string name="register_username_hint">Имя пользователя</string>
+    <string name="register_password_hint">Пароль</string>
+    <string name="register_birthdate_hint">Дата рождения</string>
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="register_login_link">Уже есть аккаунт? Войти</string>
+    <string name="register_username_min_length">Имя должно быть не менее 3 символов</string>
+    <string name="register_password_min_length">Пароль должен быть не менее 6 символов</string>
+    <string name="register_select_birthdate">Выберите дату рождения</string>
+    <string name="register_age_min">Возраст должен быть от 5 лет</string>
+    <string name="register_age_min_message">Для регистрации необходимо быть старше 5 лет</string>
+    <string name="register_success">Регистрация успешна!</string>
+    <string name="register_error">Ошибка регистрации</string>
+    <string name="register_user_exists">Пользователь с таким именем уже существует</string>
+    <string name="register_age_hint_default">Выберите дату рождения</string>
+    <string name="register_age_hint_18">Вам %d лет. Доступны все режимы!</string>
+    <string name="register_age_hint_16">⚠ Вам %d лет. Доступны не все режимы</string>
+    <string name="register_age_hint_10">⚠ Вам %d лет. Доступны только Детский и Подростковый режимы</string>
+    <string name="register_age_hint_5">⚠ Вам %d лет. Доступен только Детский режим</string>
+    <string name="register_age_hint_min">Вам должно быть минимум 5 лет для регистрации</string>
+
+    <!-- Date Picker -->
+    <string name="date_picker_title">Выберите дату рождения</string>
+    <string name="date_picker_year">Год</string>
+    <string name="date_picker_month">Месяц</string>
+    <string name="date_picker_day">День</string>
+    <string name="date_picker_confirm">Выбрать</string>
+    <string name="date_picker_cancel">Отмена</string>
+
+    <!-- Game -->
+    <string name="game_toolbar_title">Бутылочка</string>
+    <string name="game_mode_children">Дети</string>
+    <string name="game_mode_teen">Подросток</string>
+    <string name="game_mode_adult">Взрослый</string>
+    <string name="game_mode_adult_plus">18+</string>
+    <string name="game_mode_sex">Секс</string>
+    <string name="game_mode_changed">Режим: %s</string>
+    <string name="game_mode_unavailable">Режим недоступен</string>
+    <string name="game_mode_unlock_message">Режим "%s" будет доступен в %d лет</string>
+    <string name="game_welcome_guest">Гостевой режим\nНажмите на бутылку, чтобы получить задание!</string>
+    <string name="game_welcome_user">Добро пожаловать, %s!\nВаш возраст: %d лет\nНажмите на бутылку, чтобы начать!</string>
+    <string name="game_welcome_default">Нажмите на бутылку, чтобы начать!</string>
+    <string name="game_task_start">Начать игру!</string>
+    <string name="game_task_close">Понятно!</string>
+    <string name="game_guest_mode">Гостевой режим: доступен только детский режим</string>
+    <string name="game_mode_auto_changed">Режим изменен на %s (вам %d лет)</string>
+    <string name="game_stats_reset">Статистика сброшена</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_user_info">👤 Пользователь: %s</string>
+    <string name="settings_user_guest">👤 Пользователь: Гость</string>
+    <string name="settings_user_name">Имя: %s</string>
+    <string name="settings_user_guest_name">Имя: Гость</string>
+    <string name="settings_user_email">Email: %s</string>
+    <string name="settings_user_guest_email">Email: guest@temp.com</string>
+    <string name="settings_user_age">Возраст: %d лет</string>
+    <string name="settings_user_guest_age">Возраст: 0 лет</string>
+    <string name="settings_user_mode">Режим: %s</string>
+    <string name="settings_stats_title">Статистика</string>
+    <string name="settings_stats_tasks">Заданий выполнено:</string>
+    <string name="settings_stats_clear">🗑️ Сбросить статистику</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_logout">🚪 Выйти</string>
+
+    <!-- About -->
+    <string name="about_title">О приложении</string>
+    <string name="about_version">Версия</string>
+    <string name="about_description">Приложение для веселых компаний с различными режимами игры</string>
+    <string name="about_modes_title">🎮 Режимы игры</string>
+    <string name="about_mode_children">👶 Детский (0+)</string>
+    <string name="about_mode_teen">🧑 Подростковый (10+)</string>
+    <string name="about_mode_adult">👨 Взрослый (16+)</string>
+    <string name="about_mode_adult_plus">🔞 18+</string>
+    <string name="about_mode_sex">🔥 Секс (18+)</string>
+    <string name="about_developer">💻 Разработано с любовью ❤️</string>
+    <string name="about_donate">☕ Поддержать проект</string>
+    <string name="about_error">Ошибка при открытии ссылки: </string>
+    <string name="about_error_browser">Не найден браузер для открытия ссылки</string>
+    <string name="about_donatUrl">https://pay.cloudtips.ru/p/29e9b5ab</string>
+    <string name="about_close">Закрыть</string>
+
+    <!-- Exit -->
+    <string name="exit_title">Выход</string>
+    <string name="exit_message">Что вы хотите сделать?</string>
+    <string name="exit_logout">Выйти из аккаунта</string>
+    <string name="exit_app">Выйти из приложения</string>
+    <string name="exit_cancel">Отмена</string>
 </resources>

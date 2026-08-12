@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Игра в бутылочку"
+            android:text="@string/app_name"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="@color/primary"
@@ -36,12 +36,12 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:hint="@string/login_username_hint"
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
-                android:hint="Пароль"
+                android:hint="@string/login_password_hint"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +63,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Войти"
+            android:text="@string/login_button"
             android:textAllCaps="false"
             app:cornerRadius="8dp" />
 
@@ -71,7 +71,7 @@
             android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Нет аккаунта? Зарегистрироваться"
+            android:text="@string/login_register_link"
             android:layout_marginTop="16dp"
             android:textColor="@color/primary"
             android:clickable="true"
@@ -84,22 +84,11 @@
             android:background="@android:color/darker_gray"
             android:layout_marginVertical="24dp" />
 
-        <!-- Тестовый вход (для разработки) -->
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/btnTestLogin"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="56dp"-->
-<!--            android:text="Тестовый вход (18+)"-->
-<!--            android:textAllCaps="false"-->
-<!--            style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
-<!--            app:cornerRadius="8dp"-->
-<!--            android:layout_marginTop="8dp" />-->
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuest"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Продолжить как гость"
+            android:text="@string/login_guest_button"
             android:textAllCaps="false"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:cornerRadius="8dp" />

@@ -1,11 +1,13 @@
 package ru.github.bottle.auth
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import ru.github.bottle.R
 import ru.github.bottle.data.repository.UserRepository
 import ru.github.bottle.databinding.ActivityLoginBinding
 import ru.github.bottle.game.GameActivity
@@ -23,11 +25,82 @@ class LoginActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             if (userRepository.isLoggedIn()) {
-                navigateToGame()
+                val user = userRepository.getUser()
+                if (user != null) {
+                    navigateToGame()
+                    return@launch
+                } else {
+                    userRepository.logout()
+                }
+            }
+
+            val lastUsername = getLastUsername()
+            if (lastUsername.isNotEmpty()) {
+                binding.etUsername.setText(lastUsername)
             }
         }
 
         setupClickListeners()
+    }
+
+    private fun saveLastUsername(username: String) {
+        val prefs = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
+        prefs.edit().putString("last_username", username).apply()
+    }
+
+    private fun getLastUsername(): String {
+        val prefs = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
+        return prefs.getString("last_username", "") ?: ""
+    }
+
+    private fun loginUser(username: String, password: String) {
+        lifecycleScope.launch {
+            try {
+                val user = userRepository.findUserByUsername(username)
+
+                if (user != null) {
+                    val isPasswordCorrect = userRepository.checkPassword(username, password)
+
+                    if (isPasswordCorrect) {
+                        saveLastUsername(username)
+                        userRepository.loginUser(user)
+
+                        val message = if (user.age >= 18) {
+                            getString(R.string.login_welcome_user, user.username)
+                        } else {
+                            getString(R.string.login_welcome_user_children, user.username)
+                        }
+
+                        Toast.makeText(
+                            this@LoginActivity,
+                            message,
+                            Toast.LENGTH_LONG
+                        ).show()
+                        navigateToGame()
+                    } else {
+                        binding.etPassword.error = getString(R.string.login_wrong_password)
+                        Toast.makeText(
+                            this@LoginActivity,
+                            R.string.login_wrong_password,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    binding.etUsername.error = getString(R.string.login_user_not_found)
+                    Toast.makeText(
+                        this@LoginActivity,
+                        R.string.login_user_not_found,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this@LoginActivity,
+                    getString(R.string.login_error) + ": ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -36,11 +109,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupClickListeners() {
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
+            val username = binding.etUsername.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
-            if (validateInput(email, password)) {
-                loginUser(email, password)
+            if (validateInput(username, password)) {
+                loginUser(username, password)
             }
         }
 
@@ -51,98 +124,45 @@ class LoginActivity : AppCompatActivity() {
         binding.tvRegister.setOnClickListener {
             startActivity(RegisterActivity.getIntent(this))
         }
-
-        // Тестовый вход
-//        binding.btnTestLogin.setOnClickListener {
-//            lifecycleScope.launch {
-//                val testUser = User(
-//                    id = System.currentTimeMillis().toString(),
-//                    email = "test@test.com",
-//                    username = "Тестовый пользователь",
-//                    age = 25,
-//                    isGuest = false
-//                )
-//                userRepository.saveUser(testUser)
-//                Toast.makeText(
-//                    this@LoginActivity,
-//                    "Тестовый вход (18+) выполнен",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//                navigateToGame()
-//            }
-//        }
     }
 
-    private fun validateInput(email: String, password: String): Boolean {
-        if (email.isEmpty()) {
-            binding.etEmail.error = "Введите email"
-            return false
-        }
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.etEmail.error = "Введите корректный email"
+    private fun validateInput(username: String, password: String): Boolean {
+        if (username.isEmpty()) {
+            binding.etUsername.error = getString(R.string.login_invalid_username)
             return false
         }
         if (password.isEmpty()) {
-            binding.etPassword.error = "Введите пароль"
+            binding.etPassword.error = getString(R.string.login_invalid_password)
             return false
         }
         return true
     }
 
-    private fun loginUser(email: String, password: String) {
-        lifecycleScope.launch {
-            try {
-                // Проверяем, есть ли пользователь с таким email
-                val user = userRepository.getUser()
-
-                if (user != null && user.email == email) {
-                    // Пользователь найден - входим
-                    userRepository.loginUser(user)
-
-                    val message = if (user.age >= 18) {
-                        "Добро пожаловать, ${user.username}! Доступны все режимы"
-                    } else {
-                        "Добро пожаловать, ${user.username}! Доступен только детский режим"
-                    }
-
-                    Toast.makeText(
-                        this@LoginActivity,
-                        message,
-                        Toast.LENGTH_LONG
-                    ).show()
-                    navigateToGame()
-                } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Пользователь не найден. Проверьте email или зарегистрируйтесь.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    navigateToGame()
-                }
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this@LoginActivity,
-                    "Ошибка входа: ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-    }
-
     private fun loginAsGuest() {
         lifecycleScope.launch {
             try {
+                val existingUser = userRepository.getUser()
+                if (existingUser?.isGuest == true) {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        R.string.login_welcome_guest,
+                        Toast.LENGTH_LONG
+                    ).show()
+                    navigateToGame()
+                    return@launch
+                }
+
                 userRepository.saveGuestUser()
                 Toast.makeText(
                     this@LoginActivity,
-                    "Добро пожаловать, Гость! Доступен только детский режим",
+                    R.string.login_welcome_guest,
                     Toast.LENGTH_LONG
                 ).show()
                 navigateToGame()
             } catch (e: Exception) {
                 Toast.makeText(
                     this@LoginActivity,
-                    "Ошибка: ${e.message}",
+                    getString(R.string.login_error) + ": ${e.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }

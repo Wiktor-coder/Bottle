@@ -6,7 +6,7 @@
     android:paddingTop="30dp"
     android:background="@drawable/background_children">
 
-    <!-- Toolbar с прозрачным фоном -->
+    <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Бутылочка"
+            android:text="@string/game_toolbar_title"
             android:textColor="@color/primary"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -27,7 +27,7 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <!-- Кнопка настроек (вместо logout) -->
+    <!-- Кнопка настроек -->
     <ImageButton
         android:id="@+id/btnSettings"
         android:layout_width="48dp"
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="@id/toolbar"
         app:layout_constraintTop_toTopOf="@id/toolbar" />
 
-    <!-- Бутылка (кликабельная) -->
+    <!-- Бутылка -->
     <ImageView
         android:id="@+id/ivBottle"
         android:layout_width="220dp"
@@ -49,57 +49,95 @@
         android:contentDescription="Бутылка"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@id/btnGroupMode"
+        app:layout_constraintBottom_toTopOf="@id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintVertical_bias="0.4" />
 
-    <!-- MaterialButtonGroup для переключения режимов (внизу) -->
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/btnGroupMode"
-        style="@style/Widget.Material3.MaterialButtonGroup.Connected"
-        android:layout_width="wrap_content"
+    <!-- Горизонтальный скролл для кнопок режимов -->
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        app:singleSelection="true"
-        app:selectionRequired="true"
+        android:scrollbars="none"
+        android:overScrollMode="always"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnModeChildren"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Дети"
-            android:textAllCaps="false"
-            style="?attr/materialButtonOutlinedStyle" />
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnModeTeen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Подросток"
-            android:textAllCaps="false"
-            style="?attr/materialButtonOutlinedStyle" />
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/btnGroupMode"
+                style="@style/Widget.Material3.MaterialButtonGroup.Connected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnModeAdult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Взрослый"
-            android:textAllCaps="false"
-            style="?attr/materialButtonOutlinedStyle" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeChildren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_mode_children"
+                    android:textAllCaps="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    style="?attr/materialButtonOutlinedStyle" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnModeAdultPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="18+"
-            android:textAllCaps="false"
-            style="?attr/materialButtonOutlinedStyle" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeTeen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_mode_teen"
+                    android:textAllCaps="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    style="?attr/materialButtonOutlinedStyle" />
 
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeAdult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_mode_adult"
+                    android:textAllCaps="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeAdultPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_mode_adult_plus"
+                    android:textAllCaps="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_mode_sex"
+                    android:textAllCaps="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    style="?attr/materialButtonOutlinedStyle" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
