@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -75,6 +76,46 @@ class GameActivity : AppCompatActivity() {
         setupListeners()
         showWelcomeMessage()
         loadStats()
+
+        // Центрируем кнопки после загрузки
+        binding.horizontalScrollView.postDelayed ({
+            centerModeButtons()
+        }, 100)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        // Сбрасываем padding перед перецентрированием
+        binding.horizontalScrollView.setPadding(0, 0, 0, 0)
+        // Перецентрируем при повороте с задержкой
+        binding.horizontalScrollView.postDelayed({
+            centerModeButtons()
+        }, 200)
+    }
+
+    private fun centerModeButtons() {
+        val scrollView = binding.horizontalScrollView
+        val buttonsContainer = scrollView.getChildAt(0) as? LinearLayout ?: return
+
+        // Сначала сбрасываем padding
+        scrollView.setPadding(0, 0, 0, 0)
+
+        // Ждем, пока layout измерится
+        scrollView.post {
+            val scrollViewWidth = scrollView.width
+            val contentWidth = buttonsContainer.width
+
+            if (scrollViewWidth > 0 && contentWidth > 0) {
+                if (contentWidth < scrollViewWidth) {
+                    // Если контент уже помещается - центрируем через padding
+                    val padding = (scrollViewWidth - contentWidth) / 2
+                    scrollView.setPadding(padding, 0, padding, 0)
+                } else {
+                    // Если контент шире экрана - показываем без отступов
+                    scrollView.setPadding(16, 0, 16, 0)
+                }
+            }
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -90,10 +131,6 @@ class GameActivity : AppCompatActivity() {
         currentRotation = savedInstanceState.getFloat(KEY_CURRENT_ROTATION)
         tasksCompleted = savedInstanceState.getInt(KEY_TASKS_COMPLETED)
         binding.ivBottle.rotation = currentRotation
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
     }
 
     private suspend fun checkUserAndSetup() {
@@ -160,8 +197,8 @@ class GameActivity : AppCompatActivity() {
                 GameMode.CHILDREN -> R.drawable.background_children
                 GameMode.TEEN -> R.drawable.background_teen
                 GameMode.ADULT -> R.drawable.background_adult
-                GameMode.ADULT_PLUS -> R.drawable.background_adult_plus
-                GameMode.SEX -> R.drawable.background_adult_plus
+                GameMode.ADULT_PLUS -> R.drawable.background_abut_plus
+                GameMode.SEX -> R.drawable.background_sex
             }
         } catch (_: Exception) {
             android.R.color.white
