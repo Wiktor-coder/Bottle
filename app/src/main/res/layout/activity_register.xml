@@ -41,9 +41,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUsername"
+                style="@style/TextInputEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_username_hint"
+                android:textColor="@color/black"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,9 +59,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
+                style="@style/TextInputEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_password_hint"
+                android:textColor="@color/black"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,11 +78,13 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etBirthDate"
+                style="@style/TextInputEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_birthdate_hint"
                 android:inputType="none"
                 android:focusable="false"
+                android:textColor="@color/black"
                 android:clickable="true"
                 android:cursorVisible="false"
                 android:drawableStart="@drawable/ic_calendar"

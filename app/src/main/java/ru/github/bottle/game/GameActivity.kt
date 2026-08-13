@@ -4,8 +4,11 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
 import android.os.Vibrator
+import android.os.VibratorManager
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.LinearLayout
@@ -13,22 +16,26 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
+import androidx.core.net.toUri
+import androidx.core.os.BundleCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
+import ru.github.bottle.BuildConfig
 import ru.github.bottle.R
 import ru.github.bottle.auth.LoginActivity
+import ru.github.bottle.data.repository.UserRepository
 import ru.github.bottle.databinding.ActivityGameBinding
 import ru.github.bottle.databinding.BottomSheetTaskBinding
 import ru.github.bottle.databinding.DialogSettingsBinding
-import ru.github.bottle.data.repository.UserRepository
 import ru.github.bottle.models.GameMode
 import ru.github.bottle.models.User
 import ru.github.bottle.utils.Task
 import ru.github.bottle.utils.TasksProvider
-import ru.github.bottle.BuildConfig
 import kotlin.random.Random
 
 class GameActivity : AppCompatActivity() {
@@ -61,7 +68,13 @@ class GameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         savedInstanceState?.let {
-            currentMode = it.getSerializable(KEY_CURRENT_MODE) as? GameMode ?: GameMode.CHILDREN
+            currentMode = savedInstanceState.let { bundle ->
+                BundleCompat.getSerializable(
+                    bundle,
+                    KEY_CURRENT_MODE,
+                    GameMode::class.java
+                )
+            } ?: GameMode.CHILDREN
             currentRotation = it.getFloat(KEY_CURRENT_ROTATION)
             tasksCompleted = it.getInt(KEY_TASKS_COMPLETED)
             binding.ivBottle.rotation = currentRotation
@@ -127,7 +140,13 @@ class GameActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        currentMode = savedInstanceState.getSerializable(KEY_CURRENT_MODE) as? GameMode ?: GameMode.CHILDREN
+        currentMode = savedInstanceState.let { bundle ->
+            BundleCompat.getSerializable(
+                bundle,
+                KEY_CURRENT_MODE,
+                GameMode::class.java
+            )
+        } ?: GameMode.CHILDREN
         currentRotation = savedInstanceState.getFloat(KEY_CURRENT_ROTATION)
         tasksCompleted = savedInstanceState.getInt(KEY_TASKS_COMPLETED)
         binding.ivBottle.rotation = currentRotation
@@ -386,9 +405,11 @@ class GameActivity : AppCompatActivity() {
         settingsDialog?.show()
 
         dialogBinding.btnUserInfo.setOnClickListener {
-            val isVisible = dialogBinding.layoutUserDetails.visibility == View.VISIBLE
-            dialogBinding.layoutUserDetails.visibility = if (isVisible) View.GONE else View.VISIBLE
-            dialogBinding.btnUserInfo.icon = if (isVisible) {
+            // 1. Тогглим видимость (если было true, станет false, и наоборот)
+            dialogBinding.layoutStatsDetails.isVisible = !dialogBinding.layoutStatsDetails.isVisible
+
+            // 2. Меняем иконку в зависимости от нового состояния видимости
+            dialogBinding.btnStats.icon = if (dialogBinding.layoutStatsDetails.isVisible) {
                 ContextCompat.getDrawable(this, R.drawable.ic_expand_more)
             } else {
                 ContextCompat.getDrawable(this, R.drawable.ic_expand_less)
@@ -396,9 +417,11 @@ class GameActivity : AppCompatActivity() {
         }
 
         dialogBinding.btnStats.setOnClickListener {
-            val isVisible = dialogBinding.layoutStatsDetails.visibility == View.VISIBLE
-            dialogBinding.layoutStatsDetails.visibility = if (isVisible) View.GONE else View.VISIBLE
-            dialogBinding.btnStats.icon = if (isVisible) {
+            // 1. Тогглим видимость (если было true, станет false, и наоборот)
+            dialogBinding.layoutStatsDetails.isVisible = !dialogBinding.layoutStatsDetails.isVisible
+
+            // 2. Меняем иконку в зависимости от нового состояния видимости
+            dialogBinding.btnStats.icon = if (dialogBinding.layoutStatsDetails.isVisible) {
                 ContextCompat.getDrawable(this, R.drawable.ic_expand_more)
             } else {
                 ContextCompat.getDrawable(this, R.drawable.ic_expand_less)
@@ -418,6 +441,10 @@ class GameActivity : AppCompatActivity() {
 
         dialogBinding.btnAbout.setOnClickListener {
             showAboutDialog()
+        }
+
+        dialogBinding.btnDonat.setOnClickListener {
+            openDonateLink()
         }
 
         dialogBinding.btnLogout.setOnClickListener {
@@ -450,32 +477,17 @@ class GameActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
             .setTitle(R.string.about_title)
             .setMessage(message)
+            .setPositiveButton(R.string.about_close, null)
+            .create()
 
-        builder.setPositiveButton(R.string.about_donate) { _, _ ->
-            openDonateLink()
-        }
-
-        builder.setNegativeButton(R.string.about_close, null)
         builder.show()
     }
 
     private fun openDonateLink() {
         try {
             val donateUrl = getString(R.string.about_donatUrl)
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = android.net.Uri.parse(donateUrl)
-
-            // Проверяем, есть ли приложение для открытия ссылки
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            } else {
-                // Если браузер не найден, показываем сообщение
-                Toast.makeText(
-                    this,
-                    getString(R.string.about_error_browser),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            val intent = Intent(Intent.ACTION_VIEW, donateUrl.toUri())
+            startActivity(intent)
         } catch (e: Exception) {
             Toast.makeText(
                 this,
@@ -517,10 +529,29 @@ class GameActivity : AppCompatActivity() {
 
         animator.addListener(object : android.animation.Animator.AnimatorListener {
             override fun onAnimationStart(animation: android.animation.Animator) {
-                val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                if (vibrator.hasVibrator()) {
-                    vibrator.vibrate(100)
+                // 1. Получаем объект Vibrator безопасным способом в зависимости от версии Android
+                val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    val vibratorManager = getSystemService<VibratorManager>()
+                    vibratorManager?.defaultVibrator
+                } else {
+                    @Suppress("DEPRECATION")
+                    getSystemService<Vibrator>()
                 }
+
+                // 2. Запускаем вибрацию с учетом версий
+                vibrator?.let {
+                    if (it.hasVibrator()) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            // Новый способ (Android 8.0+) через VibrationEffect
+                            it.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE))
+                        } else {
+                            // Старый способ для древних версий Android
+                            @Suppress("DEPRECATION")
+                            it.vibrate(100)
+                        }
+                    }
+                }
+
                 bottomSheetDialog?.dismiss()
             }
 

@@ -2,7 +2,6 @@
 <resources>
     <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@android:color/white</item>
@@ -22,19 +21,32 @@
         <item name="android:windowIsFloating">false</item>
     </style>
 
+    <!-- Стиль для полей ввода -->
+    <style name="TextInputEditTextStyle" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <item name="android:textColorHighlight">@color/primary</item>
+        <item name="android:background">#33000000</item> <!-- Полупрозрачный фон -->
+    </style>
+
+    <!-- Стиль для TextInputLayout -->
+    <style name="OutlinedBoxStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">#33000000</item> <!-- 10% черный -->
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="hintTextColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="Theme.BottleGame" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@android:color/white</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent</item>
         <item name="colorSecondaryVariant">@color/accent</item>
         <item name="colorOnSecondary">@android:color/black</item>
-        <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
-
-        <!-- Стиль для кнопок в ToggleGroup -->
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.OutlinedButton</item>
     </style>
 

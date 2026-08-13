@@ -165,6 +165,20 @@
             app:icon="@drawable/ic_info"
             app:iconGravity="textStart" />
 
+        <!-- Кнопка "Поддержать проект" -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDonat"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="@string/donat"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:iconGravity="textStart" />
+
         <!-- Разделитель -->
         <View
             android:layout_width="match_parent"
