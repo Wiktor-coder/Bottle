@@ -406,10 +406,10 @@ class GameActivity : AppCompatActivity() {
 
         dialogBinding.btnUserInfo.setOnClickListener {
             // 1. Тогглим видимость (если было true, станет false, и наоборот)
-            dialogBinding.layoutStatsDetails.isVisible = !dialogBinding.layoutStatsDetails.isVisible
+            dialogBinding.layoutUserDetails.isVisible = !dialogBinding.layoutUserDetails.isVisible
 
             // 2. Меняем иконку в зависимости от нового состояния видимости
-            dialogBinding.btnStats.icon = if (dialogBinding.layoutStatsDetails.isVisible) {
+            dialogBinding.btnUserInfo.icon = if (dialogBinding.layoutUserDetails.isVisible) {
                 ContextCompat.getDrawable(this, R.drawable.ic_expand_more)
             } else {
                 ContextCompat.getDrawable(this, R.drawable.ic_expand_less)
