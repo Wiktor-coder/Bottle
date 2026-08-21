@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ボトルゲーム</string>
+
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="close">閉じる</string>
+    <string name="save">保存</string>
+    <string name="delete">削除</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+
+    <!-- Login -->
+    <string name="login_title">ログイン</string>
+    <string name="login_loading">ログイン中…</string>
+    <string name="login_username_hint">ユーザー名</string>
+    <string name="login_password_hint">パスワード</string>
+    <string name="login_button">ログイン</string>
+    <string name="login_register_link">アカウントをお持ちでない方は新規登録</string>
+    <string name="login_guest_button">ゲストとして続行</string>
+    <string name="login_invalid_username">ユーザー名を入力してください</string>
+    <string name="login_invalid_password">パスワードを入力してください</string>
+    <string name="login_user_not_found">ユーザーが見つかりません</string>
+    <string name="login_wrong_password">パスワードが間違っています</string>
+    <string name="login_error">ログインエラー</string>
+    <string name="login_welcome_guest">ようこそ、ゲスト様！子供向けモードのみ利用可能です</string>
+    <string name="login_welcome_user">ようこそ、%s様！すべてのモードが利用可能です</string>
+    <string name="login_welcome_user_children">ようこそ、%s様！子供向けモードのみ利用可能です</string>
+
+    <!-- Register -->
+    <string name="register_title">アカウント作成</string>
+    <string name="register_subtitle">すべてのゲームモードを利用するには登録してください</string>
+    <string name="register_username_hint">ユーザー名</string>
+    <string name="register_password_hint">パスワード</string>
+    <string name="register_birthdate_hint">生年月日</string>
+    <string name="register_button">新規登録</string>
+    <string name="register_login_link">すでにアカウントをお持ちの方はログイン</string>
+    <string name="register_username_min_length">ユーザー名は3文字以上で入力してください</string>
+    <string name="register_password_min_length">パスワードは6文字以上で入力してください</string>
+    <string name="register_select_birthdate">生年月日を選択してください</string>
+    <string name="register_age_min">年齢は5歳以上である必要があります</string>
+    <string name="register_age_min_message">登録には5歳以上である必要があります</string>
+    <string name="register_success">登録が完了しました！</string>
+    <string name="register_error">登録エラー</string>
+    <string name="register_user_exists">このユーザー名はすでに使用されています</string>
+    <string name="register_age_hint_default">生年月日を選択してください</string>
+    <string name="register_age_hint_18">%d歳です。すべてのモードが利用可能です！</string>
+    <string name="register_age_hint_16">⚠ %d歳です。一部のモードは利用できません</string>
+    <string name="register_age_hint_10">⚠ %d歳です。子供向けとティーンモードのみ利用可能です</string>
+    <string name="register_age_hint_5">⚠ %d歳です。子供向けモードのみ利用可能です</string>
+    <string name="register_age_hint_min">登録には5歳以上である必要があります</string>
+
+    <!-- Date Picker -->
+    <string name="date_picker_title">生年月日を選択</string>
+    <string name="date_picker_year">年</string>
+    <string name="date_picker_month">月</string>
+    <string name="date_picker_day">日</string>
+    <string name="date_picker_confirm">確定</string>
+    <string name="date_picker_cancel">キャンセル</string>
+
+    <!-- Game -->
+    <string name="game_toolbar_title">ボトル</string>
+    <string name="game_mode_children">キッズ</string>
+    <string name="game_mode_teen">ティーン</string>
+    <string name="game_mode_adult">アダルト</string>
+    <string name="game_mode_adult_plus">18+</string>
+    <string name="game_mode_sex">セックス</string>
+    <string name="game_mode_changed">モード: %s</string>
+    <string name="game_mode_unavailable">モードは利用できません</string>
+    <string name="game_mode_unlock_message">モード「%s」は%d歳で利用可能になります</string>
+    <string name="game_welcome_guest">ゲストモード\nボトルをタップしてタスクを取得！</string>
+    <string name="game_welcome_user">ようこそ、%s様！\n年齢: %d歳\nボトルをタップして開始！</string>
+    <string name="game_welcome_default">ボトルをタップして開始！</string>
+    <string name="game_task_start">ゲームを開始！</string>
+    <string name="game_task_close">了解！</string>
+    <string name="game_guest_mode">ゲストモード: 子供向けモードのみ利用可能</string>
+    <string name="game_mode_auto_changed">モードが%sに変更されました（%d歳）</string>
+    <string name="game_stats_reset">統計がリセットされました</string>
+
+    <!-- Settings -->
+    <string name="settings_title">設定</string>
+    <string name="settings_user_info">👤 ユーザー: %s</string>
+    <string name="settings_user_guest">👤 ユーザー: ゲスト</string>
+    <string name="settings_user_name">名前: %s</string>
+    <string name="settings_user_guest_name">名前: ゲスト</string>
+    <string name="settings_user_email">メール: %s</string>
+    <string name="settings_user_guest_email">メール: guest@temp.com</string>
+    <string name="settings_user_age">年齢: %d歳</string>
+    <string name="settings_user_guest_age">年齢: 0歳</string>
+    <string name="settings_user_mode">モード: %s</string>
+    <string name="settings_stats_title">📊 統計</string>
+    <string name="settings_stats_tasks">完了したタスク:</string>
+    <string name="settings_stats_clear">🗑️ 統計をリセット</string>
+    <string name="settings_about">ℹ️ アプリについて</string>
+    <string name="settings_stats_progress">残り%d（全%d）</string>
+    <string name="settings_logout">🚪 ログアウト</string>
+    <string name="settings_language">🌐 言語</string>
+
+    <!-- About -->
+    <string name="about_title">アプリについて</string>
+    <string name="about_version">バージョン</string>
+    <string name="about_description">さまざまなゲームモードのある楽しいパーティーゲーム</string>
+    <string name="about_modes_title">🎮 ゲームモード</string>
+    <string name="about_mode_children">👶 子供向け (0+)</string>
+    <string name="about_mode_teen">🧑 ティーン (10+)</string>
+    <string name="about_mode_adult">👨 アダルト (16+)</string>
+    <string name="about_mode_adult_plus">🔞 18+</string>
+    <string name="about_mode_sex">🔥 セックス (18+)</string>
+    <string name="about_developer">💻 愛を込めて開発 ❤️</string>
+    <string name="about_donate">☕ プロジェクトを支援</string>
+    <string name="about_error">リンクを開くエラー: </string>
+    <string name="about_error_browser">リンクを開くブラウザが見つかりません</string>
+    <string name="about_donatUrl">https://pay.cloudtips.ru/p/29e9b5ab</string>
+    <string name="about_close">閉じる</string>
+
+    <!-- Exit -->
+    <string name="exit_title">ログアウト</string>
+    <string name="exit_message">何をしますか？</string>
+    <string name="exit_logout">ログアウト</string>
+    <string name="exit_app">アプリを終了</string>
+    <string name="exit_cancel">キャンセル</string>
+    <string name="donat">☕ プロジェクトを支援</string>
+
+    <!-- Language -->
+    <string name="language_russian">ロシア語</string>
+    <string name="language_english">英語</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">韓国語</string>
+    <string name="language_chinese">中国語</string>
+    <string name="language_changed">言語が%sに変更されました。適用するにはアプリを再起動してください。</string>
+
+    <!-- 子供向けタスク (0+) -->
+    <string-array name="tasks_children">
+        <item>音楽に合わせて体操や楽しいストレッチをしよう！</item>
+        <item>椅子の上（または周り）で元気な音楽に合わせて1分間馬のようにジャンプしよう！</item>
+        <item>前方に3回転がりをしよう（スペースと柔らかい床がある場合）！</item>
+        <item>卵を温めている鳥を表現しよう。巣として柔らかいオットマンや枕を使おう！</item>
+        <item>ほうきに乗って魔法の呪文を唱えながら飛び回ろう！</item>
+        <item>その場に立ったまま変なダンスを踊ろう！</item>
+        <item>道を転がるパンになりきろう（仰向けからうつ伏せに転がる）！</item>
+        <item>どんなポーズでも30秒間像のように動かずにいよう！</item>
+        <item>他の人が当てる簡単な職業を表現しよう（医者、料理人、運転手、建設作業員）！</item>
+        <item>他のプレイヤーが当てる動物を表現しよう！</item>
+        <item>言葉を使わずに好きなアニメキャラクターを表現しよう！</item>
+        <item>おもちゃの結婚式で司会者になり、おもちゃたちにお祝いの言葉を述べよう！</item>
+        <item>天気について話している玄関先の不機嫌なおばあさんを表現しよう！</item>
+        <item>大切なファッションショーのモデルになりきろう！</item>
+        <item>ロボットやペンギンのように部屋の中を歩き回ろう！</item>
+        <item>プレイヤーの一人の物まねをして、誰だか当ててもらおう！</item>
+        <item>鏡になろう：前にいる人の動きを繰り返そう！</item>
+        <item>面白い声で（ネズミや巨人の声で）子供向けの歌のサビを歌おう！</item>
+        <item>学校の発表会のように、短い詩や数え歌を感情を込めて言おう！</item>
+        <item>各プレイヤーにかわいいニックネームをつけよう（例：「バナナ船長」や「ヨーグルト姫」）！</item>
+        <item>各プレイヤーに素敵な褒め言葉を一つ言おう！</item>
+        <item>好きなアイスクリームの味を言い、それがどんな感じか表現しよう！</item>
+        <item>自分の部屋を3つの言葉で説明しよう！</item>
+        <item>今すぐこの部屋の新しい名前を考えよう！</item>
+        <item>自分のペットや好きなおもちゃについて話そう！</item>
+        <item>他の人が選んだ歌を「ララ」だけを使って歌おう！</item>
+        <item>すごく酸っぱいものを食べる様子を表現しよう！</item>
+        <item>週末の朝に起きる様子を表現しよう！</item>
+        <item>自分の人生で一番面白い話をしよう！</item>
+    </string-array>
+
+    <!-- ティーン向けタスク (10-15歳) -->
+    <string-array name="tasks_teen">
+        <item>このパーティーの短いビデオレビューをブロガーのように撮ろう！</item>
+        <item>頭に鍋をのせて真剣なセルフィーを撮ろう（ホストのスマホに残る）！</item>
+        <item>未来のプロフェッショナルスタイリストとして各プレイヤーの服装を評価しよう！</item>
+        <item>エイリアンジャーナリストとして予想外の質問をしよう！</item>
+        <item>透明な掃除機を売るモチベーションスピーカーになりきろう！</item>
+        <item>UFO着陸現場のレポーターのようにちょうど1分間振る舞おう！</item>
+        <item>各プレイヤーについて馬鹿げた噂を考えよう（不快な話題はなし）！</item>
+        <item>普通の水を味わう気取った批評家になりきろう！</item>
+        <item>SNSで話題のトレンドダンスを踊ろう（好きなのを選んで）！</item>
+        <item>誰も見ていないときに使う自分の得意技を見せよう！</item>
+        <item>ジョークに出てくる種を売ろうとするガキ大将になりきろう！</item>
+        <item>ボディビルダーのようにポーズをとり、さまざまな筋肉群を見せよう！</item>
+        <item>普通の椅子の面白い広告スローガンを考えよう！</item>
+        <item>初めてレモンを食べる人になりきろう！</item>
+        <item>各プレイヤーと変なポーズでセルフィーを撮ろう！</item>
+        <item>デートの準備を早送りで見せよう！</item>
+        <item>他のプレイヤーが当てる有名人になりきろう！</item>
+        <item>自分について2つの本当の話と1つの嘘の話をしよう。他の人は嘘を見抜くこと！</item>
+        <item>みんなが大好きだけど自分は退屈だと思う映画は？その理由を説明しよう！</item>
+        <item>どこにでもテレポートできるなら、このパーティーを離れる？</item>
+        <item>ビーチでの休暇か都市旅行か？どっち？なぜ？</item>
+        <item>7歳のとき何になりたかった？今の現実とどれくらい違う？</item>
+        <item>自分が好きで他の人が変だと思う食べ物の組み合わせは？</item>
+        <item>今でも懐かしい子供の頃のお菓子は？</item>
+        <item>お小遣いで買った一番バカなものは？</item>
+        <item>何を選ぶ？フライドポテトかピザを永遠に諦めるか？</item>
+        <item>どんな香りが幸せな気分にさせる？</item>
+        <item>宝くじに当たったら、最初に買う完全に無駄なものは？</item>
+        <item>今リュックの中に入っている一番変なものは？</item>
+        <item>この部屋にテーマソングがあるなら、入口で何が流れる？</item>
+        <item>ゾンビ黙示録で誰が一番長く生き残る？なぜ？</item>
+        <item>一番よく使う絵文字とその本当の意味は？</item>
+        <item>朝一番に開くアプリは（正直に）？</item>
+        <item>一瞬で楽器を習得できるなら、どれを選ぶ？</item>
+        <item>一番成功した料理の実験は？</item>
+        <item>テレビシリーズの「罪悪感のある楽しみ」は？</item>
+        <item>1週間、何を失うことを選ぶ？携帯電話か財布か？</item>
+        <item>後悔している流行は？</item>
+        <item>誰にも見られずにできるなら、明日どんな趣味を始める？</item>
+        <item>できるだけ長くプランクをキープしよう（ホストが記録）！</item>
+        <item>壁で逆立ちを試してみよう（任意、友達に手伝ってもらってもOK）！</item>
+        <item>腕立て伏せを10回しよう（完全に任意）！</item>
+        <item>自分が絶対にできる柔軟運動を見せよう！</item>
+        <item>ブリッジをしよう（背中に自信がある場合）！</item>
+        <item>体重が似ているプレイヤーと腕相撲をしよう（相互の同意がある場合のみ）！</item>
+        <item>開脚を試してみよう（できる範囲で）！</item>
+        <item>最後にリピート再生で聴いた曲は？</item>
+        <item>メッセージに一番早く返信するのは誰？</item>
+        <item>今ポケットやバッグに入っている一番変なものは？</item>
+        <item>いつも10分遅刻するか、30分早く着くか？</item>
+        <item>今まで食べた中で一番の食べ物とそれはどこで？</item>
+        <item>カラオケで歌う曲は（シャワーの中だけでも）？</item>
+    </string-array>
+
+    <!-- アダルト向けタスク (16-17歳) -->
+    <string-array name="tasks_adult">
+        <item>各プレイヤーに型破りなナンパのフレーズを使ってみよう！</item>
+        <item>各プレイヤーに近づいて馬鹿げたアドバイスをしよう！</item>
+        <item>誰かの目をじっと見つめてからウインクしよう！</item>
+        <item>自分の身体のサイズを全員に伝えよう：身長、体重、その他のパラメーター！</item>
+        <item>ひざまずいて、自分の一番恥ずかしい話を全員に告白しよう！</item>
+        <item>一人のプレイヤーに面白いものを買わせようとするけど、見せないで！</item>
+        <item>旅に関する面白い空想話をしよう！</item>
+        <item>全員の願い事を考えよう！</item>
+        <item>食べ物を面白い方法で食べよう（バナナ、トマト、キュウリ）！</item>
+        <item>各プレイヤーに遊び心のある悪口を言おう！</item>
+        <item>自分の変わったことを話してプレイヤーを驚かせよう！</item>
+        <item>ゲーム内で誰かを尾行する様子を見せよう！</item>
+        <item>人に好かれる方法を全員に教えよう！</item>
+        <item>一番面白い写真を見つけてアバターに設定しよう！</item>
+        <item>プレイヤーの一人を例に、自分がどうやってナンパするか見せよう！</item>
+        <item>各プレイヤーを遊び心のある悪口で「ロースト」しよう！</item>
+        <item>プレイヤーの一人に会いたくてたまらない様子を見せよう！</item>
+        <item>一番よく嘘をつくことを告白しよう！</item>
+        <item>SNSに面白いステータスを書こう！</item>
+        <item>ジムで印象づけようとしている人の真似をしよう！</item>
+        <item>プレイヤーにスクワットを10回させよう！</item>
+        <item>自分の弱みや弱点を共有しよう！</item>
+        <item>一人のプレイヤーにあなたのタスクを考えてもらおう！</item>
+        <item>報われない恋愛の話を全員にしよう！</item>
+        <item>全員に面白いニックネームを考えよう！</item>
+        <item>本を一冊取り、できるだけ仰々しく朗読しよう！</item>
+        <item>天気予報を非常に演劇的に伝えよう！</item>
+        <item>誰かと映画のラブシーンを演じよう！</item>
+        <item>今でも恥ずかしいことを全員に話そう！</item>
+        <item>各プレイヤーの好きな性格の特徴を言おう！</item>
+        <item>誰かに頬にキスしよう！</item>
+        <item>変わった話を全員にしよう！</item>
+        <item>面白い猿の真似をしよう！</item>
+        <item>くすぐったい場所を指で示そう！</item>
+        <item>各プレイヤーの未来を占ってみよう！</item>
+        <item>腰を振りながら面白い歩き方をしよう！</item>
+        <item>各プレイヤーについて嫌いなところを告白しよう！</item>
+        <item>疲れたふりをしてから、誰かにナンパしよう！</item>
+        <item>好きなファッションスタイルを全員に伝えよう！</item>
+        <item>プレゼントをもらった時の顔をしよう！</item>
+        <item>各プレイヤーに変な趣味を考えよう！</item>
+        <item>完璧な一日の計画を立てて、全員に共有しよう！</item>
+        <item>自分を一番簡単に元気にする方法を説明しよう！</item>
+        <item>誰かに頬にキスしよう！</item>
+        <item>どんな質問にも正直に答えよう！</item>
+        <item>テレビシリーズの「罪悪感のある楽しみ」は？</item>
+        <item>いつも10分遅刻するか、30分早く着くか？</item>
+        <item>私たちの中で一番有名人になりそうなのは誰で、その理由は？</item>
+        <item>生涯同じ朝食を食べなければならないなら、何を選ぶ？</item>
+        <item>一週間、何を失うことを選ぶ？携帯電話か財布か？</item>
+        <item>ギャラリーの最後の写真で、実際に見せられるのはどれ？</item>
+        <item>一瞬で楽器を学べるなら、どれを選ぶ？</item>
+        <item>後悔している流行は？</item>
+        <item>一番上手にハグするのは誰？</item>
+        <item>誰にも見られずにできるなら、明日どんな趣味を始める？</item>
+        <item>今日が映画なら、トレイラーに絶対入る瞬間は？</item>
+    </string-array>
+
+    <!-- 18+ タスク -->
+    <string-array name="tasks_adult_plus">
+        <item>とても下品なジョークを言ってみよう！</item>
+        <item>みんなに一番セクシーな声を見せよう！</item>
+        <item>誰かの目をじっと見つめてからウインクして唇を舐めよう！</item>
+        <item>ひざまずいて、自分の罪の一つを全員に告白しよう！</item>
+        <item>アウターのボタンを一つ外して、そのまま座っていよう！</item>
+        <item>異性のプレイヤー全員にお尻を叩かせよう！</item>
+        <item>一人のプレイヤーにパンツを買わせようとするけど、脱がないで！</item>
+        <item>実現したいベッドでのファンタジーを話そう！</item>
+        <item>異性の全プレイヤーにボトルゲームの願いを考えよう！</item>
+        <item>食べ物をエロティックに食べよう（バナナ、トマト、キュウリ）！</item>
+        <item>各プレイヤーに嫌なことを言おう！</item>
+        <item>みんなが楽しめるように熱く挑発的に踊ろう！</item>
+        <item>自分について何かを明かしてプレイヤーを驚かせよう！</item>
+        <item>被害者を尾行するマニアックを表現しよう！</item>
+        <item>異性を誘惑する方法を全員に教えよう！</item>
+        <item>一番恥ずかしい写真を見つけてアバターに設定しよう！</item>
+        <item>ヴィクトリアズ・シークレットのファッションショーのモデルになりきろう！</item>
+        <item>一人のプレイヤーを例に異性とのフリートを実演しよう！</item>
+        <item>酔った時の自分の行動を表現しよう！</item>
+        <item>服を脱がずにストリップを踊ろう！</item>
+        <item>各プレイヤーを鋭い悪口で「ロースト」しよう！</item>
+        <item>自分のお尻を叩いて、どれだけ好きか言おう！</item>
+        <item>今どんな下着を着ているか全員に教えよう！</item>
+        <item>体を撫でながら一人のプレイヤーを見つめよう！</item>
+        <item>他のプレイヤーに下着の一部を見せよう！</item>
+        <item>SNSに下品なステータスを書こう！</item>
+        <item>自分の熱いベッドでのファンタジーを全員に話そう！</item>
+        <item>全プレイヤーがベッドでどう振る舞うか想像してみよう！</item>
+        <item>本を一冊取り、できるだけ官能的に朗読しよう！</item>
+        <item>ランダムな番号に電話して別れたいと言おう！</item>
+        <item>トワークを踊ろう！</item>
+        <item>誰かにキスマークをつけよう！</item>
+        <item>天気予報を非常に挑発的で熱い方法で伝えよう！</item>
+        <item>誰かと映画のラブシーンを演じよう！</item>
+        <item>各プレイヤーの好きな身体の部位を言おう！</item>
+        <item>好きなプレイヤーにキスしよう！</item>
+        <item>みんなに何か不適切な話をしよう！</item>
+        <item>ムラムラした猿の真似をしよう！</item>
+        <item>一番敏感な場所を指で示そう！</item>
+        <item>自分の脇の匂いを嗅いでみよう！</item>
+        <item>ファム・ファタールかプレイボーイになりきろう！</item>
+        <item>匿名の集まりに来たふりをしよう！</item>
+        <item>世界最古の職業の従事者になりきろう！</item>
+        <item>腰を振りながらできるだけ熱く歩こう！</item>
+        <item>酔ったふりをしてから誰かにナンパしよう！</item>
+        <item>誰かとディープキスしよう！</item>
+        <item>ボトルゲームで一番やりたいことを全員に話そう！</item>
+        <item>各プレイヤーの一番熱い身体の部位は？</item>
+        <item>ボトルに強制されたら今ここで誰にキスする？</item>
+        <item>触れずに人ができる一番魅力的なことは？</item>
+        <item>周りを驚かせる自分の一番のフェチは？</item>
+        <item>この部屋の誰かとキスしたことは？（はい/いいえ）</item>
+        <item>キスした一番クレイジーな場所は？</item>
+        <item>名前を出さずに最高のキスを説明しよう！</item>
+        <item>今連絡先で一番魅力的な人は誰？</item>
+        <item>危険なメッセージを送ってすぐ後悔したことは？</item>
+        <item>どんなに熱い人でもあなたにとって重要な「ストップサイン」は？</item>
+        <item>何か起こる前にフリートした最長期間は？</item>
+        <item>他の人を嫉妬させるために誰かにキスしたことは？</item>
+        <item>一番注目された服装は？それがわかっていた？</item>
+        <item>見られるべきでない人にフリートを見られたことは？</item>
+        <item>理想のファーストキス：シチュエーションとか全部？</item>
+        <item>私たちの中で一番素敵な笑顔は誰？一人選んで！</item>
+        <item>ほとんどの人が口にしないけれど魅力的だと思うことは？</item>
+        <item>誰も知らない夏の恋愛はあった？</item>
+        <item>誰かに使われて成功した一番大胆なナンパ文句は？</item>
+        <item>キスが人への気持ちをどれくらい早く変えた？</item>
+        <item>変なものでキスの練習をしたことは？何で？</item>
+        <item>口に出して言ったことのない理想のデートは？</item>
+        <item>一番予想外のときめきは？</item>
+        <item>人に最初に目が行く身体的特徴は？</item>
+        <item>一晩で二人とキスしたことは？</item>
+        <item>この輪の中で誰かのために実際にする一番ロマンチックなことは？</item>
+        <item>初めて恋をした人、その人は知っている？</item>
+        <item>送った一番大胆なメッセージは？</item>
+        <item>今でも思い出す「ほとんど恋愛」は？</item>
+        <item>最近一番下までスクロールしたプロフィールと何を探していた？</item>
+        <item>デートを避けるために忙しいふりをしたことは？</item>
+        <item>魅力的な人の注意を引くためにした一番恥ずかしいことは？</item>
+        <item>同時に二人好きになったことは？どうなった？</item>
+        <item>人が綺麗だからという理由だけで無視した「レッドフラグ」は？</item>
+        <item>人に興味を失った一番つまらない理由は？</item>
+        <item>誰かをじっと見ているところを見つかったことは？どうなった？</item>
+        <item>「必死に見えない」ためにわざと返信しなかった期間は？</item>
+        <item>親友に隠している秘密は？</item>
+        <item>メッセージを送ってきた一番予想外の人は？</item>
+        <item>出席者の誰かが夢に出てきた？話して！</item>
+        <item>一番強い嫉妬と、それは誰のことで？</item>
+        <item>パートナーの電話を覗いたことは？何を見つけた？</item>
+        <item>結婚式や家族の集まりでの一番大胆なフリートは？</item>
+        <item>人生で一番早いときめきは？</item>
+        <item>欲しいものを得るために誰かにフリートしたことは？</item>
+        <item>人生で一番気まずいデートは？</item>
+        <item>名前も知らない誰かにキスしたことは？</item>
+        <item>愛する人のためにしたことで、冷静な時には絶対に認めないことは？</item>
+        <item>自分が「予備」だったことがあり、それを知っていた？</item>
+        <item>一番劇的な別れは？</item>
+        <item>友情を救うために自分の気持ちについて嘘をついたことは？</item>
+    </string-array>
+
+    <!-- セックスタスク（画像付き） -->
+    <string-array name="tasks_sex">
+        <item>光る三角形のポーズは古典的なミッショナリーを彷彿とさせる。女性が仰向けに寝て、男性が上に乗る。でもポイントは、男性が膝をついて、女性が腰を彼に向かって持ち上げること。つまり男性は動かず、女性がすべての仕事をする。だからこれはミッショナリーとは全く違う！</item>
+        <item>\'Xの文字\' 男性が仰向けに寝て、女性は彼に背を向けて彼の上に座り、それから彼の上に横たわる。彼女は脚を伸ばして彼の肩にのせ、体はベッドの上、男性の脚の間に置く。つまりXの文字のような形になる。その後、女性は上下に滑り始める。さらに彼女は男性の脚をてこにして振幅を増やすことができる。</item>
+        <item>\'涅槃\' 女性が仰向けに寝て、脚を伸ばし、頭の上のベッドを掴む。挿入後、彼女は脚を一緒に閉じ、男性は逆に脚を広げる。彼らは一緒に動き、女性が太ももを締めることで、クリトリスが自然に刺激される。</item>
+        <item>\'ロック\' 女性は何かの上（テーブル、洗濯機など）の一番端に座り、手を後ろにつく。男性は彼女の前に立ち、彼女は脚で彼の太ももを抱きしめる。これがロックのすべてだ。</item>
+        <item>\'滑走\' 男性が仰向けに寝て、女性が彼の上に乗り、脚を揃える。ポイントは、女性が彼の体の上を上下に滑ること。</item>
+        <item>\'モンキー\' 男性が仰向けに寝て、膝を顎に引き寄せる。女性は彼に背を向けて彼の上に座り、脚に体重をかけて上下に動く。彼女が脚により多くの体重をかけるほど、あなたは楽になる。ただし、このポーズは決して楽ではないことを覚えておいて！しかし、非常に深く入ることができる。ただし、女性は十分に強く、並外れたバランス感覚を持っている必要がある。彼女があなたの手首を掴めば、少しは楽になる。</item>
+        <item>\'バタフライ\' 女性が適当な家具の上に仰向けに寝る。男性は彼女の前に立ち、彼女は脚を彼の肩にのせる。女性は同じ家具に手をついて腰を持ち上げやすくし、彼は彼女のお尻を支えてプロセスを簡単にする。</item>
+        <item>\'欲望への上昇\' 男性が立ち上がり、太ももを開き、膝を少し曲げる。女性が彼の前に立つ。男性は女性を自分の前に持ち上げ、彼女は脚で彼を抱きしめる。</item>
+        <item>\'バランス\' 男性が仰向けに寝て、脚を開く。女性は彼の太ももの間に座り、彼は彼女の太ももを掴む。このポーズではリズムは男性が決める。しかし女性は深さを調整することができる。</item>
+        <item>\'割れた竹\' 女性は片方の脚を男性の肩にのせる。男性は彼女の太ももを支え、英雄的に挿入し、同時に彼女の上げた脚と自分自身を支える。彼女の手は自由なので、好きなことができる。</item>
+        <item>\'眠れる天使\' 女性は横向きに寝て丸まり、男性は同じポーズで彼女の後ろに横たわる。</item>
+        <item>\'ブリッジ\' 男性がブリッジのポーズをとり、彼女が上に座る。彼女に脚に体重をかけるように伝えよう。</item>
+        <item>\'クリップ\' 男性が仰向けに寝て、脚を揃える。女性が上に座り、後ろに傾いて手をつく。ここでもあなたは自由に手を使うことができる。</item>
+        <item>\'タイト\' 女性が横向きに寝て、あなたが彼女の後ろにいるが、今回は彼女が脚を開く。両方の参加者が手を使う余地がある。</item>
+        <item>\'二階建て\' 男性が仰向けに寝て、女性が彼に背を向けて彼の上に横たわる。彼女は肘をついて後ろに倒れ、背中を彼の胸に押し付ける。女性は男性の膝に足をのせ、男性は彼女の中で動く。このポーズは別のポーズに移行するのに適している。</item>
+        <item>\'誘惑\' 女性は膝をついて座り、手を頭の上に伸ばして後ろに倒れる。男性は膝をつき、女性に挿入して脚を伸ばす。</item>
+        <item>\'忍び寄る虎\' 男性は脚がベッドではなく床に着くように仰向けに寝る。女性は脚を開いて男性に背を向けて彼の上に座る。彼女は深さと速度を選ぶことができ、手も自由に使える。</item>
+        <item>\'ヒーロー\' 女性は仰向けに寝て、膝を顎に引き寄せ、脚を天井に向ける。男性は彼女の向かいに膝をついて座る。彼は手で彼女の脚を支える。</item>
+        <item>\'ドルフィン\' 女性は骨盤を天井に向けて持ち上げ、肩で自分を支え、頭はベッドに置く。男性は彼女の膝の間に立ち、彼女のお尻を支える。動きは非常に慎重でなければならない！彼女の脚が支えから離れるように、彼女の腰をさらに高く持ち上げることもできる。</item>
+        <item>\'フロッグ\' 男性はベッドの端に座り、足を床につける。女性は彼に背を向けてベッドの端に座り、脚はベッドの上に置く。彼女は上下に動き、彼は念のため彼女を支える。</item>
+        <item>\'ジュニパー\' 女性は仰向けに寝て、脚を開いて伸ばす。男性は彼女の膝の間に座り、脚も伸ばす。彼は彼女の腰を持ち上げて完了。</item>
+        <item>\'プルーグ\' 女性は足を床につけ、肘をベッドにのせる。男性は後ろから近づき、彼女の脚の間に立ち、彼女は脚を床と平行に伸ばす。</item>
+        <item>\'フック\' 男性は横向きに寝る。女性は彼の前に丸まり、彼女の脚が彼の頭の近くに来るようにする。彼女は膝を胸に引き寄せ、彼の脚を抱きしめる。そして手で彼の脚を抱きしめ、肘をつく。</item>
+        <item>\'クラシック\' 女性は仰向けに寝て、脚を少し開く。男性は彼女の上に乗り、手で自分を支える。</item>
+        <item>\'膝の上で\' 男性と女性は向かい合って膝をつく。彼女は太ももを開き、男性の首に手を回す。彼も彼女を抱きしめ、慎重に膝を動かす。</item>
+        <item>\'クロス\' 女性は仰向けに寝て、片方の脚を伸ばし、もう片方の脚を膝で曲げる。男性は彼女の前に座り、片方の脚を彼女の伸ばした脚の後ろに置き、曲げた脚を手で支える。かなり複雑な説明だ。</item>
+        <item>\'ラウンジャー\' 男性は座り、後ろに手をついて脚を伸ばす。肘を少し曲げてもよい。女性は上に横たわり、脚を彼の肩にのせて腰を動かす。</item>
+        <item>\'横たわるロータス\' 女性は仰向けに寝て、脚をロータスのポーズで組む。男性は彼女の脚の間に収まり、上から挿入する。彼女の腰の下に枕を置いて角度を変えることができる。</item>
+        <item>\'官能的な脚\' パートナーは向かい合って立ち、女性は片方の脚を男性の肩にのせる。彼女の便利のために、あなたはまず少ししゃがむことができる。そして女性はあなたの首に手を回し、あなたは彼女のお尻を支える。彼女が体操をしておらず、柔軟性が悪いと危険！</item>
+        <item>\'バランスとスクワット\' 女性はベッドの端に立ち、男性は彼女の後ろで床に立つ。彼女がしゃがむと、彼は彼女が狙うのを助ける。彼女はバランスを保つために彼の手を掴む。</item>
+        <item>\'魔法の山\' まず枕で山を作る。その後、女性はその横に膝をつき、胸を枕に預ける。男性は彼女の後ろに膝をつく。</item>
+        <item>\'バンドリエ\' 女性は仰向けに寝て、膝を胸に引き寄せる。男性は彼女の前に膝をつき、彼女は彼の胸に足をのせる。彼は前腕を彼女の脚にのせて完了。彼女の脚を胸に強く押し付けると、快感が増すはずだ。さらに、このポーズではGスポットが刺激される。</item>
+        <item>\'プロペラ\' 女性は仰向けに寝て、脚を伸ばして揃える。男性は彼女の脚の方に頭を向けて上に横たわる。これにはもちろん練習が必要だ。</item>
+        <item>\'ロックンローラー\' 女性は仰向けに寝て、脚が頭の上に来るように伸ばす（後ろに宙返りをするように）。男性は彼女の前に膝をつく。</item>
+        <item>\'ファン\' 女性はパートナーに背を向けて立ち、椅子などに肘をつく。男性は後ろから近づく。</item>
+        <item>\'ボート\' まず男性が仰向けに寝て、女性が彼の上に座る。その後、男性が座り、膝を自分に引き寄せ、女性も同じことをして、向かい合って座る。あなたの脚は彼女の体に押し付けられ、彼女の脚はあなたの脚のすぐ後ろになる。落ちないようにお互いの脚や自分の脚を支えることができる。</item>
+        <item>\'イーグル\' 男性はパートナーの前に膝をついて座り、脚を開く。彼女は仰向けに寝て、脚を大きく開く。彼は彼女の脚を支え、その後は自分の好きなようにする。</item>
+        <item>\'吊るされたハサミ\' 彼女はベッドの端に横向きに寝て、マットレスの上にはふくらはぎ、足首、脚だけがのっている。彼女は左手で自分を支え、彼は彼女の腰を支える。彼は彼女の左脚をまたぎ、彼女のもう一方の脚を空中に支えながら、彼女が文字通りベッドからぶら下がっているときに挿入する！</item>
+        <item>\'四つん這い\' 彼女は四つん這いになり、彼は後ろから膝をついて彼女の腰を支える。</item>
+        <item>\'凱旋門\' 男性が仰向けに寝て、女性がその上に座る。その後、彼は上半身を持ち上げて前に曲がり、彼女は彼の脚の上に背中がつくまで後ろに倒れる。</item>
+        <item>\'逆さまのカウガール\' 男性が仰向けに寝て、女性が彼に背を向けて彼の上に座る。彼女は彼の太ももに手をついて動きやすくする。</item>
+        <item>\'スーパー8\' 彼女は仰向けに寝て、脚を開く。腰の下に枕を入れてもよい。彼は上に横たわり、伸ばした腕で自分を支える。彼女は彼の腰や背中に手を置き、彼の動きに合わせて上がっていく。</item>
+        <item>\'アマゾン\' 男性は椅子に快適に座り、女性は彼に顔を向けて彼の上に座る。彼女の脚は床につくべきで、上下に動くことができる。</item>
+        <item>\'ドッグ\' 四つん這いのポーズのバリエーション。彼女はまだ四つん這いだが、前腕を床につけ、彼は後ろから挿入する。さらに良いのは、彼女の胸を愛撫できることだ。</item>
+        <item>\'クロスクロス\' 彼女は仰向けに寝て脚を組み、お尻はベッドの端にある。あなたは彼女の前に立ち、彼女の脚を手で掴む。必要に応じて脚を広げたり、再び組んだりできる。</item>
+        <item>\'ボートサイド\' 男性が仰向けに寝て、女性は脚を開いて彼の上に横向きに座る。これがこのポーズの名前の由来だ。彼女がすべての動きをコントロールする！</item>
+        <item>\'地滑り\' 彼女はうつ伏せになり、前腕をついて脚を伸ばす。脚は少し広げる。彼は彼女の脚の真後ろに座り、彼女の体を支え、その後45度後ろに傾く。これで中に入りやすくなる。</item>
+        <item>\'カタツムリ\' まず女性が仰向けに寝て、次に膝を胸に引き寄せ、パートナーの頭の後ろに脚を回す。彼は彼女の前に膝をつき、ベッドか彼女の肩に手をついて体重を支えながら挿入する。</item>
+        <item>\'グライド\' 男性は膝をついて座り、後ろに手をついて体重を支える。女性は仰向けに寝て、頭を枕にのせる。彼女は膝で彼の太ももを抱きしめて、最も良い角度を作る。彼女の手は自由なので、彼が動きを見守る間、彼女は自分の胸やクリトリスを愛撫することができる。</item>
+    </string-array>
+
+</resources>

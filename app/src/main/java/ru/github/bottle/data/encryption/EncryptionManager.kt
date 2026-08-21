@@ -1,6 +1,7 @@
 package ru.github.bottle.data.encryption
 
 import android.content.Context
+import android.util.Log
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.aead.AeadConfig
 import com.google.crypto.tink.aead.AeadKeyTemplates
@@ -15,6 +16,7 @@ class EncryptionManager private constructor(private val context: Context) {
     companion object {
         private const val KEYSTORE_NAME = "bottle_keystore"
         private const val PREF_NAME = "bottle_keyset"
+        private const val TAG = "EncryptionManager"
 
         @Volatile
         private var instance: EncryptionManager? = null
@@ -40,6 +42,7 @@ class EncryptionManager private constructor(private val context: Context) {
 
             keysetManager.keysetHandle.getPrimitive(Aead::class.java)
         } catch (e: GeneralSecurityException) {
+            Log.e(TAG, "Failed to initialize encryption", e)
             throw RuntimeException("Failed to initialize encryption", e)
         }
     }
@@ -62,7 +65,11 @@ class EncryptionManager private constructor(private val context: Context) {
             val plaintext = aead.decrypt(ciphertext, associatedData)
             String(plaintext, StandardCharsets.UTF_8)
         } catch (e: GeneralSecurityException) {
-            throw RuntimeException("Decryption failed", e)
+            Log.e(TAG, "Decryption failed", e)
+            // Если не удалось расшифровать, возвращаем исходные данные
+            encryptedData
+            // Изначальный вариан
+//            throw RuntimeException("Decryption failed", e)
         }
     }
 }

@@ -113,6 +113,7 @@
             android:padding="16dp"
             android:visibility="gone">
 
+            <!-- Количество выполненных заданий -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,6 +138,31 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- Прогресс заданий -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Прогресс заданий:"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvTasksProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Осталось 0 из 0"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <!-- Кнопка сброса статистики -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnClearStats"
@@ -149,6 +175,22 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+
+        <!-- Кнопка "Язык" (НОВАЯ) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLanguage"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="@string/settings_language"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_language"
+            app:iconGravity="textStart"
+            app:iconTint="@color/primary" />
 
         <!-- Кнопка "О приложении" -->
         <com.google.android.material.button.MaterialButton
@@ -176,8 +218,7 @@
             android:padding="16dp"
             android:text="@string/donat"
             android:textAllCaps="false"
-            android:textSize="14sp"
-            app:iconGravity="textStart" />
+            android:textSize="14sp" />
 
         <!-- Разделитель -->
         <View

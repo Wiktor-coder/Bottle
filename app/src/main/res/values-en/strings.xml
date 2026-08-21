@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bottle Game</string>
+
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Login -->
+    <string name="login_title">Sign In</string>
+    <string name="login_loading">Signing in...</string>
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Sign In</string>
+    <string name="login_register_link">Don\'t have an account? Sign up</string>
+    <string name="login_guest_button">Continue as Guest</string>
+    <string name="login_invalid_username">Please enter your username</string>
+    <string name="login_invalid_password">Please enter your password</string>
+    <string name="login_user_not_found">User not found</string>
+    <string name="login_wrong_password">Wrong password</string>
+    <string name="login_error">Login error</string>
+    <string name="login_welcome_guest">Welcome, Guest! Only children\'s mode is available</string>
+    <string name="login_welcome_user">Welcome, %s! All modes are available</string>
+    <string name="login_welcome_user_children">Welcome, %s! Only children\'s mode is available</string>
+
+    <!-- Register -->
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Sign up to access all game modes</string>
+    <string name="register_username_hint">Username</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_birthdate_hint">Date of Birth</string>
+    <string name="register_button">Sign Up</string>
+    <string name="register_login_link">Already have an account? Sign in</string>
+    <string name="register_username_min_length">Username must be at least 3 characters</string>
+    <string name="register_password_min_length">Password must be at least 6 characters</string>
+    <string name="register_select_birthdate">Please select your date of birth</string>
+    <string name="register_age_min">You must be at least 5 years old</string>
+    <string name="register_age_min_message">You must be at least 5 years old to register</string>
+    <string name="register_success">Registration successful!</string>
+    <string name="register_error">Registration error</string>
+    <string name="register_user_exists">Username already exists</string>
+    <string name="register_age_hint_default">Select your date of birth</string>
+    <string name="register_age_hint_18">You are %d years old. All modes available!</string>
+    <string name="register_age_hint_16">⚠ You are %d years old. Some modes are not available</string>
+    <string name="register_age_hint_10">⚠ You are %d years old. Only Children\'s and Teen modes available</string>
+    <string name="register_age_hint_5">⚠ You are %d years old. Only Children\'s mode available</string>
+    <string name="register_age_hint_min">You must be at least 5 years old to register</string>
+
+    <!-- Date Picker -->
+    <string name="date_picker_title">Select Date of Birth</string>
+    <string name="date_picker_year">Year</string>
+    <string name="date_picker_month">Month</string>
+    <string name="date_picker_day">Day</string>
+    <string name="date_picker_confirm">Confirm</string>
+    <string name="date_picker_cancel">Cancel</string>
+
+    <!-- Game -->
+    <string name="game_toolbar_title">Bottle</string>
+    <string name="game_mode_children">Kids</string>
+    <string name="game_mode_teen">Teen</string>
+    <string name="game_mode_adult">Adult</string>
+    <string name="game_mode_adult_plus">18+</string>
+    <string name="game_mode_sex">Sex</string>
+    <string name="game_mode_changed">Mode: %s</string>
+    <string name="game_mode_unavailable">Mode unavailable</string>
+    <string name="game_mode_unlock_message">Mode &quot;%s&quot; will be available at age %d</string>
+    <string name="game_welcome_guest">Guest mode\nTap the bottle to get a task!</string>
+    <string name="game_welcome_user">Welcome, %s!\nYour age: %d years\nTap the bottle to start!</string>
+    <string name="game_welcome_default">Tap the bottle to start!</string>
+    <string name="game_task_start">Start Game!</string>
+    <string name="game_task_close">Got it!</string>
+    <string name="game_guest_mode">Guest mode: only children\'s mode available</string>
+    <string name="game_mode_auto_changed">Mode changed to %s (you are %d years old)</string>
+    <string name="game_stats_reset">Stats reset</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_user_info">👤 User: %s</string>
+    <string name="settings_user_guest">👤 User: Guest</string>
+    <string name="settings_user_name">Name: %s</string>
+    <string name="settings_user_guest_name">Name: Guest</string>
+    <string name="settings_user_email">Email: %s</string>
+    <string name="settings_user_guest_email">Email: guest@temp.com</string>
+    <string name="settings_user_age">Age: %d years</string>
+    <string name="settings_user_guest_age">Age: 0 years</string>
+    <string name="settings_user_mode">Mode: %s</string>
+    <string name="settings_stats_title">📊 Statistics</string>
+    <string name="settings_stats_tasks">Tasks completed:</string>
+    <string name="settings_stats_clear">🗑️ Reset stats</string>
+    <string name="settings_about">ℹ️ About</string>
+    <string name="settings_stats_progress">%d left of %d</string>
+    <string name="settings_logout">🚪 Sign out</string>
+    <string name="settings_language">🌐 Language</string>
+
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="about_version">Version</string>
+    <string name="about_description">A fun party game with various game modes</string>
+    <string name="about_modes_title">🎮 Game Modes</string>
+    <string name="about_mode_children">👶 Children (0+)</string>
+    <string name="about_mode_teen">🧑 Teen (10+)</string>
+    <string name="about_mode_adult">👨 Adult (16+)</string>
+    <string name="about_mode_adult_plus">🔞 18+</string>
+    <string name="about_mode_sex">🔥 Sex (18+)</string>
+    <string name="about_developer">💻 Made with love ❤️</string>
+    <string name="about_donate">☕ Support the project</string>
+    <string name="about_error">Error opening link: </string>
+    <string name="about_error_browser">No browser found to open link</string>
+    <string name="about_donatUrl">https://pay.cloudtips.ru/p/29e9b5ab</string>
+    <string name="about_close">Close</string>
+
+    <!-- Exit -->
+    <string name="exit_title">Sign out</string>
+    <string name="exit_message">What do you want to do?</string>
+    <string name="exit_logout">Sign out</string>
+    <string name="exit_app">Exit app</string>
+    <string name="exit_cancel">Cancel</string>
+    <string name="donat">☕ Support the project</string>
+
+    <!-- Language -->
+    <string name="language_russian">Russian</string>
+    <string name="language_english">English</string>
+    <string name="language_japanese">Japanese</string>
+    <string name="language_korean">Korean</string>
+    <string name="language_chinese">Chinese</string>
+    <string name="language_changed">Language changed to %s. Please restart the app to apply.</string>
+
+    <!-- Children\'s Tasks (0+) -->
+    <string-array name="tasks_children">
+        <item>Do some exercises or fun stretching to music!</item>
+        <item>Jump on a chair (or around it) like on a horse to energetic music for a minute!</item>
+        <item>Do three forward rolls (if there\'s space and a soft floor)!</item>
+        <item>Show a bird hatching eggs. Use a soft pouf or pillows as a nest!</item>
+        <item>Ride a broomstick while chanting a magic spell!</item>
+        <item>Dance a weird dance while standing in one place!</item>
+        <item>Pretend to be a bun rolling down the road (roll from back to stomach)!</item>
+        <item>Freeze like a statue in any pose for 30 seconds!</item>
+        <item>Show a simple profession for others to guess (doctor, cook, driver, builder)!</item>
+        <item>Pretend to be an animal that other players will guess!</item>
+        <item>Show your favorite cartoon character without words!</item>
+        <item>Pretend to be a host at a doll wedding, congratulating the toys!</item>
+        <item>Show a grumpy old woman at the entrance discussing the weather!</item>
+        <item>Pretend to be a model at an important fashion show!</item>
+        <item>Walk around the room like a robot or a penguin!</item>
+        <item>Impersonate one of the players so they can be recognized!</item>
+        <item>Be a mirror: repeat the movements of the person in front of you!</item>
+        <item>Sing the chorus of any children\'s song in a funny voice (mouse or giant voice)!</item>
+        <item>Recite a short poem or counting rhyme with expression, like at a school concert!</item>
+        <item>Give each player a cute nickname (e.g., &quot;Captain Banana&quot; or &quot;Princess Yogurt&quot;)!</item>
+        <item>Say one nice compliment to each player!</item>
+        <item>Name your favorite ice cream flavor and show what it feels like!</item>
+        <item>Describe your room in three words!</item>
+        <item>Come up with a new name for this room right now!</item>
+        <item>Tell about your pet or favorite toy!</item>
+        <item>Sing a song chosen by others using only the syllable &quot;la-la&quot;!</item>
+        <item>Show how you eat something very sour!</item>
+        <item>Show how you wake up on a weekend morning!</item>
+        <item>Tell the funniest story from your life!</item>
+    </string-array>
+
+    <!-- Teen Tasks (10-15 years) -->
+    <string-array name="tasks_teen">
+        <item>Shoot a short video review of this party like a blogger!</item>
+        <item>Take a super serious selfie with a pot on your head (stays on the host\'s phone)!</item>
+        <item>Rate each player\'s outfit as a professional stylist of the future!</item>
+        <item>Ask unexpected questions as an alien journalist!</item>
+        <item>Impersonate a motivational speaker selling invisible vacuum cleaners!</item>
+        <item>Act like a reporter at a UFO landing site for exactly one minute!</item>
+        <item>Make up a ridiculous rumor about each player (no offensive topics)!</item>
+        <item>Impersonate a pompous critic tasting plain water!</item>
+        <item>Dance a popular trending dance from social media (your choice)!</item>
+        <item>Show your signature moves that you use when no one is watching!</item>
+        <item>Impersonate a thug from jokes trying to sell sunflower seeds!</item>
+        <item>Pose like a bodybuilder, showing off different muscle groups!</item>
+        <item>Come up with a funny advertising slogan for an ordinary chair!</item>
+        <item>Impersonate someone trying a lemon for the first time!</item>
+        <item>Take a selfie with each player in a ridiculous pose!</item>
+        <item>Show how you get ready for a date in fast-forward!</item>
+        <item>Impersonate a celebrity that other players will guess!</item>
+        <item>Tell two true stories about yourself and one false. Others must guess the lie!</item>
+        <item>What movie does everyone love but you find boring? Explain why!</item>
+        <item>If you could teleport anywhere, would you leave this party?</item>
+        <item>Beach vacation or city tour? Why?</item>
+        <item>What did you want to be at age 7, and how far is it from reality now?</item>
+        <item>What food combination do you love that others find weird?</item>
+        <item>What childhood treat do you still miss?</item>
+        <item>The dumbest purchase you made with pocket money?</item>
+        <item>What would you choose: give up french fries or pizza forever?</item>
+        <item>What smell makes you happy?</item>
+        <item>If you won the lottery, what useless thing would you buy first?</item>
+        <item>What\'s the weirdest thing in your backpack right now?</item>
+        <item>If this room had its own theme song, what would play at the entrance?</item>
+        <item>Who here would survive the longest in a zombie apocalypse and why?</item>
+        <item>What emoji do you use most and what does it really mean?</item>
+        <item>What app do you open first in the morning (honestly)?</item>
+        <item>If you could instantly learn any instrument, which would you choose?</item>
+        <item>Your most successful culinary experiment?</item>
+        <item>Your &quot;guilty pleasure&quot; TV show?</item>
+        <item>What would you rather lose for a week: your phone or your wallet?</item>
+        <item>What trend did you follow that you now regret?</item>
+        <item>What hobby would you take up tomorrow if no one could see you?</item>
+        <item>Hold a plank for as long as you can (recorded by the host)!</item>
+        <item>Try a handstand against the wall (optional, you can ask a friend for help)!</item>
+        <item>Do 10 push-ups (strictly voluntary)!</item>
+        <item>Show a flexibility exercise that you definitely know how to do!</item>
+        <item>Do a bridge (if you\'re confident in your back)!</item>
+        <item>Arm wrestle with a player of similar weight (only with mutual consent)!</item>
+        <item>Try to do the splits (as far as you can)!</item>
+        <item>What song did you last listen to on repeat?</item>
+        <item>Who among us replies fastest to messages?</item>
+        <item>What\'s the weirdest thing in your pocket or bag right now?</item>
+        <item>Are you always 10 minutes late or 30 minutes early?</item>
+        <item>The best food you\'ve ever tried and where was it?</item>
+        <item>What song do you sing at karaoke (even if you only do it in the shower)?</item>
+    </string-array>
+
+    <!-- Adult Tasks (16-17 years) -->
+    <string-array name="tasks_adult">
+        <item>Hit on each player using unconventional pick-up lines!</item>
+        <item>Approach each person and give them ridiculous advice!</item>
+        <item>Stare into any player\'s eyes, then wink at them!</item>
+        <item>Tell everyone your body measurements: height, weight and other parameters!</item>
+        <item>Kneel down and confess your funniest embarrassing moment to everyone!</item>
+        <item>Try to convince one player to buy your funny item, but don\'t show it!</item>
+        <item>Tell a funny travel fantasy story!</item>
+        <item>Make a wish for all the players!</item>
+        <item>Eat any food in a funny way (banana, tomato, cucumber)!</item>
+        <item>Say a playful insult to each player!</item>
+        <item>Surprise the players by revealing something unusual about yourself!</item>
+        <item>Show how you would stalk someone in a game!</item>
+        <item>Tell everyone how to impress a person!</item>
+        <item>Find your funniest photo and set it as your avatar!</item>
+        <item>Demonstrate how you flirt using one of the players as an example!</item>
+        <item>&quot;Roast&quot; each player with playful insults!</item>
+        <item>Show how much you\'ve missed one of the players!</item>
+        <item>Confess what you most often lie about!</item>
+        <item>Write a funny status on social media!</item>
+        <item>Impersonate someone trying to impress at the gym!</item>
+        <item>Have a player do 10 squats!</item>
+        <item>Share your weaknesses and vulnerable spots!</item>
+        <item>Let one player come up with a task for you!</item>
+        <item>Tell everyone your unrequited love story!</item>
+        <item>Come up with funny nicknames for all players!</item>
+        <item>Take any book and read it as pompously as possible!</item>
+        <item>Give a weather forecast in a very theatrical way!</item>
+        <item>Act out a love scene from a movie with any player!</item>
+        <item>Tell everyone about something you\'re still ashamed of!</item>
+        <item>Say what character trait you like in each player!</item>
+        <item>Kiss any player on the cheek!</item>
+        <item>Tell everyone some unusual story!</item>
+        <item>Impersonate a funny monkey!</item>
+        <item>Point to the spots on your body most ticklish!</item>
+        <item>Tell each person what their future holds!</item>
+        <item>Walk in a funny way, swaying your hips!</item>
+        <item>Confess what you don\'t like about each player!</item>
+        <item>Pretend to be tired, then hit on any player!</item>
+        <item>Tell everyone what fashion style you like!</item>
+        <item>Show the face you make when you receive a gift!</item>
+        <item>Invent a weird hobby for each player!</item>
+        <item>Plan the perfect day and share it with everyone!</item>
+        <item>Explain how to cheer you up the easiest way!</item>
+        <item>Kiss one player on the cheek!</item>
+        <item>Answer any question honestly!</item>
+        <item>What\'s your &quot;guilty pleasure&quot; TV show?</item>
+        <item>Would you rather always be 10 minutes late or 30 minutes early?</item>
+        <item>Who among us is most likely to become famous and for what?</item>
+        <item>If you had to eat the same breakfast for life, what would you choose?</item>
+        <item>What would you rather lose for a week: your phone or your wallet?</item>
+        <item>What\'s the last photo in your gallery you\'d actually risk showing us?</item>
+        <item>If you could instantly learn to play an instrument, which one?</item>
+        <item>What trend did you follow that you now regret?</item>
+        <item>Who among us gives the best hugs?</item>
+        <item>What hobby would you take up tomorrow if no one could see you?</item>
+        <item>If today were a movie, what moment would definitely be in the trailer?</item>
+    </string-array>
+
+    <!-- 18+ Tasks -->
+    <string-array name="tasks_adult_plus">
+        <item>Tell a very dirty joke!</item>
+        <item>Show everyone your sexiest voice!</item>
+        <item>Look any player in the eyes, then wink and lick your lips!</item>
+        <item>Kneel down and confess one of your sins to everyone!</item>
+        <item>Unbutton any button on your outerwear and sit like that!</item>
+        <item>Let every player of the opposite sex slap your butt!</item>
+        <item>Try to convince one player to buy your underwear, but don\'t take them off!</item>
+        <item>Tell a bedroom fantasy you want to make real!</item>
+        <item>Make a wish for all players of the opposite sex!</item>
+        <item>Eat any food erotically (banana, tomato, cucumber)!</item>
+        <item>Say something nasty to each player!</item>
+        <item>Dance hot and provocatively so everyone enjoys it!</item>
+        <item>Shock the players by revealing something about yourself!</item>
+        <item>Show a maniac stalking their victim!</item>
+        <item>Tell everyone how to seduce someone of the opposite sex!</item>
+        <item>Find your most embarrassing photo and set it as your avatar!</item>
+        <item>Impersonate a model at a Victoria\'s Secret fashion show!</item>
+        <item>Show how you flirt with the opposite sex using one player as an example!</item>
+        <item>Show how you act when you\'re drunk!</item>
+        <item>Dance a striptease without taking off your clothes!</item>
+        <item>&quot;Roast&quot; each player with biting insults!</item>
+        <item>Slap your own butt and say how much you like it!</item>
+        <item>Tell everyone what underwear you\'re wearing right now!</item>
+        <item>Stroke your body while looking one player in the eyes!</item>
+        <item>Show pieces of your underwear to other players!</item>
+        <item>Write any dirty status on your social media!</item>
+        <item>Tell everyone your hot bedroom fantasy!</item>
+        <item>Imagine how all the players behave in bed!</item>
+        <item>Take any book and read it as steamily as possible!</item>
+        <item>Call a random number and say you want to break up!</item>
+        <item>Dance twerk!</item>
+        <item>Give any player a hickey!</item>
+        <item>Give a weather forecast in a very provocative and hot way!</item>
+        <item>Act out a love scene from a movie with any player!</item>
+        <item>Say what body part you like about each player!</item>
+        <item>Kiss any player you want!</item>
+        <item>Tell everyone some indecent story!</item>
+        <item>Impersonate a horny monkey!</item>
+        <item>Point to the spots on your body that are most sensitive!</item>
+        <item>Smell your armpits!</item>
+        <item>Impersonate a femme fatale or playboy!</item>
+        <item>Act like you came to an anonymous meeting!</item>
+        <item>Impersonate the world\'s oldest profession worker!</item>
+        <item>Walk as hotly as possible, swaying your hips!</item>
+        <item>Pretend to be drunk and then hit on any player!</item>
+        <item>French kiss with any player!</item>
+        <item>Tell everyone what you want to do most during the bottle game!</item>
+        <item>What body part is the hottest on each player?</item>
+        <item>Who here would you kiss right now if the bottle forced you?</item>
+        <item>The most attractive thing a person can do without touching you?</item>
+        <item>Your biggest fetish that surprises people?</item>
+        <item>Have you kissed anyone in this room? (yes/no)</item>
+        <item>The craziest place you\'ve kissed someone?</item>
+        <item>Describe your best kiss without naming names!</item>
+        <item>Who\'s the most attractive person in your contacts right now?</item>
+        <item>Have you ever sent a risky message and immediately regretted it?</item>
+        <item>What &quot;stop signal&quot; is critical for you, no matter how hot the person is?</item>
+        <item>The longest time you flirted before something happened?</item>
+        <item>Have you ever kissed someone to make another person jealous?</item>
+        <item>What outfit got you the most attention, and did you know it would?</item>
+        <item>Have you been caught flirting by people who shouldn\'t have seen?</item>
+        <item>Your ideal first kiss: setting and everything?</item>
+        <item>Who among us has the coolest smile? Pick one!</item>
+        <item>What do you find attractive that most people keep quiet about?</item>
+        <item>Have you ever had a summer romance that no one knew about?</item>
+        <item>The boldest pickup line someone used on you that worked?</item>
+        <item>How quickly did a kiss change your feelings about someone?</item>
+        <item>Have you ever practiced kissing on something ridiculous? What?</item>
+        <item>Your fantasy date you\'ve never said out loud?</item>
+        <item>Your most unexpected crush?</item>
+        <item>What physical feature do you notice first in a person?</item>
+        <item>Have you kissed two different people in one evening?</item>
+        <item>The most romantic thing you\'d actually do for someone in this circle?</item>
+        <item>The first person you fell in love with, and do they know?</item>
+        <item>The boldest message you\'ve ever sent?</item>
+        <item>What &quot;almost-relationship&quot; do you still think about?</item>
+        <item>Whose profile did you scroll to the bottom of recently, and what were you looking for?</item>
+        <item>Have you ever pretended to be busy to avoid a date?</item>
+        <item>The most embarrassing thing you did to get someone attractive\'s attention?</item>
+        <item>Have you ever liked two people at once? How did it end?</item>
+        <item>What &quot;red flag&quot; did you ignore just because the person was hot?</item>
+        <item>The pettiest reason you lost interest in someone?</item>
+        <item>Have you ever been caught staring at someone? What happened?</item>
+        <item>How long did you deliberately not reply to someone to &quot;not seem desperate&quot;?</item>
+        <item>A secret you\'ve kept from your best friend?</item>
+        <item>Who\'s the most unexpected person who messaged you?</item>
+        <item>Has anyone here appeared in your dreams? Tell us!</item>
+        <item>The strongest jealousy you\'ve felt, and who was it about?</item>
+        <item>Have you ever looked through a partner\'s phone? What did you find?</item>
+        <item>The boldest flirt at a wedding or family gathering?</item>
+        <item>The fastest crush in your life?</item>
+        <item>Have you ever flirted with someone to get what you want?</item>
+        <item>The most awkward date of your life?</item>
+        <item>Have you kissed someone whose name you didn\'t know?</item>
+        <item>What did you do for a loved one that you\'d never admit to sober?</item>
+        <item>Have you ever been a &quot;backup plan&quot; and knew it?</item>
+        <item>The most dramatic breakup you\'ve ever had?</item>
+        <item>Have you ever lied about your feelings to save a friendship?</item>
+    </string-array>
+
+    <!-- Sex Tasks (with pictures) -->
+    <string-array name="tasks_sex">
+        <item>The Shining Triangle pose resembles the classic missionary position: the woman lies on her back and the man is on top. But the twist is that the man rests on his knees while the woman lifts her hips toward him. So the man doesn\'t move, the woman does all the work herself. So it\'s nothing like the missionary position!</item>
+        <item>\'The Letter X\' The man lies on his back, the woman turns around and sits on him with her back to him, then lies down on him. She stretches out her legs and puts them on his shoulders, while her body is on the bed between the man\'s legs. So it forms a letter X. Then the woman starts sliding up and down. She can also use the man\'s legs as leverage to increase the amplitude.</item>
+        <item>\'Nirvana\' The woman lies on her back, stretches out her legs and holds onto the bed above her head. After penetration, she brings her legs together while the man spreads his. They move together, and because the woman squeezes her thighs, it naturally stimulates the clitoris.</item>
+        <item>\'The Lock\' The woman sits on something (a table, a washing machine — you get the idea), on the very edge, and leans back on her hands. The man stands in front of her, and she wraps her legs around his thighs. That\'s the whole lock.</item>
+        <item>\'Sliding\' The man lies on his back, the woman is on top of him with her legs together. The essence is that the woman slides up and down along his body.</item>
+        <item>\'Monkey\' The man lies on his back, pulling his knees to his chin. The woman sits on him with her back to him, rests on her legs and moves up and down. The more weight she shifts onto her legs, the easier it is for you. Although keep in mind: this pose is never easy! But you can penetrate really deep. However, there\'s one catch: the woman must be strong enough and have an extraordinary sense of balance. If she grabs your wrists like in the picture, it\'ll be a bit easier.</item>
+        <item>\'Butterfly\' The woman lies on her back on suitable furniture. The man stands in front of her, and she puts her legs on his shoulders. The woman supports herself with her hands on the same furniture to make it easier to lift her hips, and he holds her butt to simplify the process.</item>
+        <item>\'Ascent to Desire\' So, the man stands up, spreads his thighs, and bends his knees slightly. The woman stands in front of him. The man lifts the woman in front of him, and she wraps her legs around him.</item>
+        <item>\'Balancing\' The man lies on his back, spreading his legs. The woman sits on top between his thighs, and he in turn holds her by the hips. In this position, the man sets the rhythm. But the woman can regulate the depth.</item>
+        <item>\'Split Bamboo\' The woman puts her leg on the man\'s shoulder. The man holds her thigh and heroically penetrates, while also supporting her raised leg and himself. Since her hands are free, she can do whatever she wants with them.</item>
+        <item>\'Sleeping Angel\' The woman lies on her side and curls up in a ball, and the man lies behind her in the same position.</item>
+        <item>\'Bridge\' The man does a bridge, and his partner sits on top — the rest is obvious. Tell her to shift her weight to her legs.</item>
+        <item>\'Paperclip\' The man lies on his back with his legs together. The woman sits on top, leans back and rests on her hands. Here you can also use your hands as you wish.</item>
+        <item>\'Tight\' The girl lies on her side, you\'re behind her, but this time she spreads her legs. Plenty of room for using hands — for both participants.</item>
+        <item>\'Two-Story\' The man lies on his back, and the woman lies on top of him with her back to him. She leans back on her elbows, pressing her back to his chest. The woman rests her feet on the man\'s knees, and the man moves inside her. This pose is good for transitioning to another position — it happens naturally.</item>
+        <item>\'Temptation\' The woman sits on her knees and leans back, stretching her arms above her head. The man kneels, penetrates the woman, and stretches out his legs.</item>
+        <item>\'Crouching Tiger\' The man lies on his back so that his feet are on the floor rather than the bed. The woman sits on the man with her back to him, spreading her legs. She can choose the depth and speed, and also have fun with her hands.</item>
+        <item>\'Hero\' The woman lies on her back, pulling her knees to her chin, with her legs pointing at the ceiling. The man kneels opposite her. He supports her legs with his hands.</item>
+        <item>\'Dolphin\' The woman lifts her pelvis toward the ceiling and supports herself on her shoulders, while her head rests on the bed. The man is between her knees and supports her by the butt. The movements must be very, very careful! You can even lift her hips higher so her legs lift off the support.</item>
+        <item>\'Frog\' The man sits on the edge of the bed, feet on the floor. The woman sits on the edge in front of him with her back to him, legs staying on the bed. She moves up and down, and he supports her just in case.</item>
+        <item>\'Juniper\' The woman lies on her back, spreading and stretching her legs. The man sits between her knees, also stretching out his legs. He lifts her hips — and it\'s done.</item>
+        <item>\'Plow\' The woman stands with her feet on the floor and leans on the bed with her elbows. The man approaches from behind, stands between her legs, and she stretches her legs parallel to the floor.</item>
+        <item>\'Hook\' The man lies on his side. The woman curls up in front of him so that her legs are near his head. She pulls her knees to her chest and wraps her arms around his legs, supporting herself on her elbow.</item>
+        <item>\'Classic\' The woman lies on her back, legs slightly apart. The man lies on top of her, supporting himself with his hands.</item>
+        <item>\'On Knees\' The man and woman kneel facing each other. She spreads her thighs and wraps her arms around the man\'s neck. He also embraces her and carefully moves his knees.</item>
+        <item>\'Cross\' The woman lies on her back, stretching out one leg and bending the other at the knee. The man sits in front of her, placing one leg behind her outstretched leg and holding her bent leg with his hand. Quite a confusing description.</item>
+        <item>\'Lounge Chair\' The man sits, leaning back on his hands and stretching out his legs. He can bend his arms slightly at the elbows. The woman lies on top, throwing her legs over his shoulders, and moves her hips.</item>
+        <item>\'Reclining Lotus\' The woman lies on her back, crossing her legs in a lotus position. The man positions himself between her legs and penetrates from above. A pillow can be placed under her hips to change the angle.</item>
+        <item>\'Lustful Leg\' Partners stand facing each other, and the woman throws one leg over the man\'s shoulder. For her convenience, you can squat down a bit first. Then the woman holds onto your neck, and you hold onto her butt. Dangerous if she doesn\'t do gymnastics and has poor flexibility!</item>
+        <item>\'Balance and Squats\' The woman stands on the edge of the bed, and the man stands on the floor behind her. Then she squats, and he helps her aim. She grabs his hands to keep balance.</item>
+        <item>\'Magic Mountain\' First you need to build a mountain of pillows. Then the woman kneels beside it and leans her chest on them. The man kneels behind her.</item>
+        <item>\'Bandolier\' The woman lies on her back, pulling her knees to her chest. The man kneels in front of her, and she places her feet on his chest. He rests his forearms on her legs — and it\'s done. If you press her legs harder to her chest, the pleasure should increase. Besides, the G-spot is stimulated in this pose.</item>
+        <item>\'Propeller\' The woman lies on her back, stretching and joining her legs. The man lies on top with his head toward her feet. This, of course, requires practice.</item>
+        <item>\'Rock-n-Roller\' The woman lies on her back and stretches her legs so they\'re above her head (like she\'s about to do a backflip). The man kneels in front of her.</item>
+        <item>\'Fan\' The woman stands with her back to her partner and leans on something with her elbows, like a chair. The man approaches from behind.</item>
+        <item>\'Boat\' First the man lies on his back, and the woman sits on him. Then the man sits up, pulls his knees toward himself, the woman does the same — and they sit face to face. Your legs will be pressed against her body, her legs right behind yours. You can hold onto each other\'s legs and your own to avoid falling.</item>
+        <item>\'Eagle\' The man kneels in front of his partner with his legs spread. She lies on her back with her legs spread wide. He holds her legs and does whatever he wants.</item>
+        <item>\'Suspended Scissors\' She lies on her side at the edge of the bed, with only her calves, ankles, and feet on the mattress. She supports herself with her left hand, and he holds her by the waist. He steps over her left leg and, holding her other leg in the air, enters her when she\'s literally hanging off the bed!</item>
+        <item>\'Doggy Style\' She gets on all fours, and he kneels behind her, holding her hips.</item>
+        <item>\'Triumphal Arch\' The man lies on his back, the woman sits on top of him. Then he lifts his upper body and leans forward — and she leans back until she lies with her back on his legs.</item>
+        <item>\'Reverse Cowgirl\' The man lies on his back, and the woman sits on top with her back to him. She can rest her hands on his thighs to move more easily.</item>
+        <item>\'Super 8\' She lies on her back with her legs spread — you can put a pillow under her lower back. He lies on top, supporting himself on outstretched arms. She places her hands on his hips or back and rises to meet his movements.</item>
+        <item>\'Amazon\' The man sits comfortably on a chair, the woman sits on him facing him. Her feet should be on the floor — this will allow her to move up and down.</item>
+        <item>\'Dog\' A variation of the doggy style pose. She\'s still on all fours, but she lowers herself onto her forearms, and he penetrates from behind. What else is great — you can caress her breasts.</item>
+        <item>\'Cross-Cross\' She lies on her back and crosses her legs, her butt somewhere at the edge of the bed. You stand in front of her, take her legs with your hands — and you can spread them and cross them again if you want.</item>
+        <item>\'Boat Side\' The man lies on his back, the woman sits on him sideways with her legs spread — hence the name of the position. She controls every movement!</item>
+        <item>\'Landslide\' The girl lies on her stomach, leaning on her forearms and stretching out her legs — they should be slightly spread apart. He sits right behind her legs and holds onto her torso, then leans back at a 45-degree angle — this makes it easier to enter.</item>
+        <item>\'Snail\' First the woman lies on her back, then she pulls her knees to her chest and throws her legs over her partner\'s head. He kneels in front of her and enters her, shifting his weight to his hands, which he rests on either the bed or his lady\'s shoulders.</item>
+        <item>\'Glide\' The man kneels and leans back, shifting his weight to his hands behind him. The woman lies on her back, resting her head on a pillow. She wraps her knees around his thighs to create the most favorable angle for penetration. Her hands are free, so she can have fun with her breasts and clitoris while the man watches the movement.</item>
+    </string-array>
+
+</resources>

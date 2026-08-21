@@ -11,6 +11,7 @@ import ru.github.bottle.R
 import ru.github.bottle.data.repository.UserRepository
 import ru.github.bottle.databinding.ActivityLoginBinding
 import ru.github.bottle.game.GameActivity
+import androidx.core.content.edit
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -44,16 +45,20 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun saveLastUsername(username: String) {
-        val prefs = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
-        prefs.edit().putString("last_username", username).apply()
+        val prefs = getSharedPreferences("login_prefs", MODE_PRIVATE)
+        prefs.edit { putString("last_username", username) }
     }
 
     private fun getLastUsername(): String {
-        val prefs = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("login_prefs", MODE_PRIVATE)
         return prefs.getString("last_username", "") ?: ""
     }
 
     private fun loginUser(username: String, password: String) {
+        // Блокируем кнопку и показываем индикатор загрузки
+        binding.btnLogin.isEnabled = false
+        binding.btnLogin.text = getString(R.string.login_loading)
+
         lifecycleScope.launch {
             try {
                 val user = userRepository.findUserByUsername(username)
@@ -99,6 +104,10 @@ class LoginActivity : AppCompatActivity() {
                     getString(R.string.login_error) + ": ${e.message}",
                     Toast.LENGTH_SHORT
                 ).show()
+            } finally {
+                // Разблокируем кнопку в любом случае
+                binding.btnLogin.isEnabled = true
+                binding.btnLogin.text = getString(R.string.login_button)
             }
         }
     }

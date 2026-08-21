@@ -1,22 +1,17 @@
 package ru.github.bottle.game
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
-import android.os.VibratorManager
 import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
+import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.core.os.BundleCompat
 import androidx.core.view.isVisible
@@ -34,21 +29,27 @@ import ru.github.bottle.databinding.BottomSheetTaskBinding
 import ru.github.bottle.databinding.DialogSettingsBinding
 import ru.github.bottle.models.GameMode
 import ru.github.bottle.models.User
+import ru.github.bottle.utils.LanguageManager
+import ru.github.bottle.utils.Logger
 import ru.github.bottle.utils.Task
 import ru.github.bottle.utils.TasksProvider
-import kotlin.random.Random
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private lateinit var userRepository: UserRepository
+    private lateinit var themeManager: ThemeManager
+    private lateinit var bottleAnimator: BottleAnimator
+
     private var currentMode: GameMode = GameMode.CHILDREN
     private var currentRotation = 0f
-    private var isSpinning = false
     private var bottomSheetDialog: BottomSheetDialog? = null
     private var bottomSheetBinding: BottomSheetTaskBinding? = null
     private var tasksCompleted = 0
     private var settingsDialog: AlertDialog? = null
     private var currentUser: User? = null
+
+    private val layoutListener =
+        ViewTreeObserver.OnGlobalLayoutListener { centerModeButtonsInternal() }
 
     companion object {
         private const val KEY_CURRENT_MODE = "current_mode"
@@ -56,6 +57,7 @@ class GameActivity : AppCompatActivity() {
         private const val KEY_TASKS_COMPLETED = "tasks_completed"
         private const val PREFS_NAME = "game_stats"
         private const val KEY_TASKS_STATS = "tasks_completed"
+        private const val TAG = "GameActivity"
 
         fun getIntent(context: Context): Intent {
             return Intent(context, GameActivity::class.java)
@@ -67,18 +69,11 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        savedInstanceState?.let {
-            currentMode = savedInstanceState.let { bundle ->
-                BundleCompat.getSerializable(
-                    bundle,
-                    KEY_CURRENT_MODE,
-                    GameMode::class.java
-                )
-            } ?: GameMode.CHILDREN
-            currentRotation = it.getFloat(KEY_CURRENT_ROTATION)
-            tasksCompleted = it.getInt(KEY_TASKS_COMPLETED)
-            binding.ivBottle.rotation = currentRotation
-        }
+        // Инициализация менеджеров
+        themeManager = ThemeManager(binding.root, binding.ivBottle)
+        bottleAnimator = BottleAnimator(binding.ivBottle, this)
+
+        restoreState(savedInstanceState)
 
         userRepository = UserRepository(this)
 
@@ -91,16 +86,29 @@ class GameActivity : AppCompatActivity() {
         loadStats()
 
         // Центрируем кнопки после загрузки
-        binding.horizontalScrollView.postDelayed ({
+        binding.horizontalScrollView.postDelayed({
             centerModeButtons()
         }, 100)
     }
 
+    private fun restoreState(savedInstanceState: Bundle?) {
+        savedInstanceState?.let {
+            currentMode = it.let { bundle ->
+                BundleCompat.getSerializable(
+                    bundle,
+                    KEY_CURRENT_MODE,
+                    GameMode::class.java
+                )
+            } ?: GameMode.CHILDREN
+            currentRotation = it.getFloat(KEY_CURRENT_ROTATION)
+            tasksCompleted = it.getInt(KEY_TASKS_COMPLETED)
+            binding.ivBottle.rotation = currentRotation
+        }
+    }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        // Сбрасываем padding перед перецентрированием
         binding.horizontalScrollView.setPadding(0, 0, 0, 0)
-        // Перецентрируем при повороте с задержкой
         binding.horizontalScrollView.postDelayed({
             centerModeButtons()
         }, 200)
@@ -108,25 +116,25 @@ class GameActivity : AppCompatActivity() {
 
     private fun centerModeButtons() {
         val scrollView = binding.horizontalScrollView
+        scrollView.viewTreeObserver.removeOnGlobalLayoutListener(layoutListener)
+        scrollView.viewTreeObserver.addOnGlobalLayoutListener(layoutListener)
+    }
+
+    private fun centerModeButtonsInternal() {
+        val scrollView = binding.horizontalScrollView
         val buttonsContainer = scrollView.getChildAt(0) as? LinearLayout ?: return
 
-        // Сначала сбрасываем padding
         scrollView.setPadding(0, 0, 0, 0)
 
-        // Ждем, пока layout измерится
-        scrollView.post {
-            val scrollViewWidth = scrollView.width
-            val contentWidth = buttonsContainer.width
+        val scrollViewWidth = scrollView.width
+        val contentWidth = buttonsContainer.width
 
-            if (scrollViewWidth > 0 && contentWidth > 0) {
-                if (contentWidth < scrollViewWidth) {
-                    // Если контент уже помещается - центрируем через padding
-                    val padding = (scrollViewWidth - contentWidth) / 2
-                    scrollView.setPadding(padding, 0, padding, 0)
-                } else {
-                    // Если контент шире экрана - показываем без отступов
-                    scrollView.setPadding(16, 0, 16, 0)
-                }
+        if (scrollViewWidth > 0 && contentWidth > 0) {
+            if (contentWidth < scrollViewWidth) {
+                val padding = (scrollViewWidth - contentWidth) / 2
+                scrollView.setPadding(padding, 0, padding, 0)
+            } else {
+                scrollView.setPadding(16, 0, 16, 0)
             }
         }
     }
@@ -165,16 +173,12 @@ class GameActivity : AppCompatActivity() {
 
         if (currentMode == GameMode.CHILDREN) {
             val savedMode = userRepository.getGameMode()
-            if (user.canAccessMode(savedMode)) {
-                currentMode = savedMode
+            currentMode = if (user.canAccessMode(savedMode)) {
+                savedMode
             } else {
-                currentMode = when {
-                    user.age >= 18 -> GameMode.SEX
-                    user.age >= 16 -> GameMode.ADULT
-                    user.age >= 10 -> GameMode.TEEN
-                    else -> GameMode.CHILDREN
+                getDefaultModeForAge(user.age).also {
+                    userRepository.setGameMode(it)
                 }
-                userRepository.setGameMode(currentMode)
             }
         }
 
@@ -184,18 +188,15 @@ class GameActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.game_guest_mode, Toast.LENGTH_LONG).show()
         } else {
             val savedMode = userRepository.getGameMode()
-
-            if (user.canAccessMode(savedMode)) {
-                currentMode = savedMode
+            currentMode = if (user.canAccessMode(savedMode)) {
+                savedMode
             } else {
-                currentMode = when {
-                    user.age >= 18 -> GameMode.SEX
-                    user.age >= 16 -> GameMode.ADULT
-                    user.age >= 10 -> GameMode.TEEN
-                    else -> GameMode.CHILDREN
+                getDefaultModeForAge(user.age).also {
+                    userRepository.setGameMode(it)
                 }
-                userRepository.setGameMode(currentMode)
+            }
 
+            if (currentMode != savedMode) {
                 Toast.makeText(
                     this,
                     getString(R.string.game_mode_auto_changed, currentMode.displayName, user.age),
@@ -207,75 +208,7 @@ class GameActivity : AppCompatActivity() {
         updateButtonsAvailability()
         updateModeUI()
         updateButtonsState()
-        applyTheme(currentMode)
-    }
-
-    private fun applyTheme(mode: GameMode) {
-        val backgroundRes = try {
-            when (mode) {
-                GameMode.CHILDREN -> R.drawable.background_children
-                GameMode.TEEN -> R.drawable.background_teen
-                GameMode.ADULT -> R.drawable.background_adult
-                GameMode.ADULT_PLUS -> R.drawable.background_abut_plus
-                GameMode.SEX -> R.drawable.background_sex
-            }
-        } catch (_: Exception) {
-            android.R.color.white
-        }
-
-        try {
-            animateBackgroundChange(backgroundRes)
-        } catch (_: Exception) {
-            binding.root.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
-        }
-
-        val bottleRes = try {
-            when (mode) {
-                GameMode.CHILDREN -> R.drawable.ic_bottle_children
-                GameMode.TEEN -> R.drawable.ic_bottle_teen
-                GameMode.ADULT -> R.drawable.ic_bottle_adult
-                GameMode.ADULT_PLUS -> R.drawable.ic_bottle_adult_plus
-                GameMode.SEX -> R.drawable.ic_bottle_adult_plus
-            }
-        } catch (_: Exception) {
-            R.drawable.ic_bottle_teen
-        }
-
-        try {
-            animateBottleChange(bottleRes)
-        } catch (_: Exception) {
-            // Игнорируем
-        }
-    }
-
-    private fun animateBackgroundChange(newBackgroundRes: Int) {
-        binding.root.animate()
-            .alpha(0f)
-            .setDuration(300)
-            .withEndAction {
-                binding.root.setBackgroundResource(newBackgroundRes)
-                binding.root.animate()
-                    .alpha(1f)
-                    .setDuration(300)
-                    .start()
-            }
-            .start()
-    }
-
-    private fun animateBottleChange(newBottleRes: Int) {
-        binding.ivBottle.animate()
-            .scaleX(0f)
-            .scaleY(0f)
-            .setDuration(300)
-            .withEndAction {
-                binding.ivBottle.setImageResource(newBottleRes)
-                binding.ivBottle.animate()
-                    .scaleX(1f)
-                    .scaleY(1f)
-                    .setDuration(300)
-                    .start()
-            }
-            .start()
+        themeManager.applyTheme(currentMode)
     }
 
     private fun updateButtonsAvailability() {
@@ -321,40 +254,56 @@ class GameActivity : AppCompatActivity() {
                     R.id.btnModeSex -> GameMode.SEX
                     else -> return@addOnButtonCheckedListener
                 }
-
-                lifecycleScope.launch {
-                    val user = userRepository.getUser()
-
-                    if (user != null && user.canAccessMode(newMode)) {
-                        currentMode = newMode
-                        userRepository.setGameMode(currentMode)
-                        updateModeUI()
-                        applyTheme(currentMode)
-                        Toast.makeText(
-                            this@GameActivity,
-                            getString(R.string.game_mode_changed, newMode.displayName),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        val message = if (user != null) {
-                            user.getUnlockMessage(newMode)
-                        } else {
-                            getString(R.string.game_mode_unavailable)
-                        }
-                        Toast.makeText(
-                            this@GameActivity,
-                            message,
-                            Toast.LENGTH_LONG
-                        ).show()
-                        updateButtonsState()
-                    }
-                }
+                changeMode(newMode)
             }
         }
 
         binding.btnSettings.setOnClickListener {
             showSettingsDialog()
         }
+    }
+
+    private fun changeMode(newMode: GameMode) {
+        lifecycleScope.launch {
+            val user = userRepository.getUser()
+            if (user != null && user.canAccessMode(newMode)) {
+                userRepository.setGameMode(newMode)
+                animateModeTransition(newMode)
+                themeManager.applyTheme(currentMode)
+                Toast.makeText(
+                    this@GameActivity,
+                    getString(R.string.game_mode_changed, newMode.displayName),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val message = if (user != null) {
+                    user.getUnlockMessage(newMode)
+                } else {
+                    getString(R.string.game_mode_unavailable)
+                }
+                Toast.makeText(
+                    this@GameActivity,
+                    message,
+                    Toast.LENGTH_LONG
+                ).show()
+                updateButtonsState()
+            }
+        }
+    }
+
+    private fun animateModeTransition(newMode: GameMode) {
+        binding.btnGroupMode.animate()
+            .alpha(0f)
+            .setDuration(200)
+            .withEndAction {
+                currentMode = newMode
+                updateModeUI()
+                binding.btnGroupMode.animate()
+                    .alpha(1f)
+                    .setDuration(200)
+                    .start()
+            }
+            .start()
     }
 
     private fun showWelcomeMessage() {
@@ -385,16 +334,24 @@ class GameActivity : AppCompatActivity() {
             dialogBinding.btnUserInfo.text = userInfoText
 
             if (user != null) {
-                dialogBinding.tvUserInfoDetail.text = getString(R.string.settings_user_name, user.username)
+                dialogBinding.tvUserInfoDetail.text =
+                    getString(R.string.settings_user_name, user.username)
                 dialogBinding.tvUserAge.text = getString(R.string.settings_user_age, user.age)
-                dialogBinding.tvUserModeDetail.text = getString(R.string.settings_user_mode, currentMode.displayName)
+                dialogBinding.tvUserModeDetail.text =
+                    getString(R.string.settings_user_mode, currentMode.displayName)
             } else {
                 dialogBinding.tvUserInfoDetail.text = getString(R.string.settings_user_guest_name)
                 dialogBinding.tvUserAge.text = getString(R.string.settings_user_guest_age)
-                dialogBinding.tvUserModeDetail.text = getString(R.string.settings_user_mode, currentMode.displayName)
+                dialogBinding.tvUserModeDetail.text =
+                    getString(R.string.settings_user_mode, currentMode.displayName)
             }
 
             dialogBinding.tvTasksCount.text = tasksCompleted.toString()
+
+            // Показываем прогресс заданий
+            val remaining = TasksProvider.getRemainingTasksCount(this@GameActivity, currentMode)
+            val total = TasksProvider.getTasks(this@GameActivity, currentMode).size
+            dialogBinding.tvTasksProgress?.text = "Осталось $remaining из $total"
         }
 
         settingsDialog = AlertDialog.Builder(this, R.style.SettingsDialogTheme)
@@ -404,28 +361,16 @@ class GameActivity : AppCompatActivity() {
 
         settingsDialog?.show()
 
-        dialogBinding.btnUserInfo.setOnClickListener {
-            // 1. Тогглим видимость (если было true, станет false, и наоборот)
-            dialogBinding.layoutUserDetails.isVisible = !dialogBinding.layoutUserDetails.isVisible
+        setupSettingsDialogListeners(dialogBinding)
+    }
 
-            // 2. Меняем иконку в зависимости от нового состояния видимости
-            dialogBinding.btnUserInfo.icon = if (dialogBinding.layoutUserDetails.isVisible) {
-                ContextCompat.getDrawable(this, R.drawable.ic_expand_more)
-            } else {
-                ContextCompat.getDrawable(this, R.drawable.ic_expand_less)
-            }
+    private fun setupSettingsDialogListeners(dialogBinding: DialogSettingsBinding) {
+        dialogBinding.btnUserInfo.setOnClickListener {
+            toggleVisibility(dialogBinding.layoutUserDetails, dialogBinding.btnUserInfo)
         }
 
         dialogBinding.btnStats.setOnClickListener {
-            // 1. Тогглим видимость (если было true, станет false, и наоборот)
-            dialogBinding.layoutStatsDetails.isVisible = !dialogBinding.layoutStatsDetails.isVisible
-
-            // 2. Меняем иконку в зависимости от нового состояния видимости
-            dialogBinding.btnStats.icon = if (dialogBinding.layoutStatsDetails.isVisible) {
-                ContextCompat.getDrawable(this, R.drawable.ic_expand_more)
-            } else {
-                ContextCompat.getDrawable(this, R.drawable.ic_expand_less)
-            }
+            toggleVisibility(dialogBinding.layoutStatsDetails, dialogBinding.btnStats)
         }
 
         dialogBinding.btnClearStats.setOnClickListener {
@@ -450,11 +395,55 @@ class GameActivity : AppCompatActivity() {
         dialogBinding.btnLogout.setOnClickListener {
             showExitDialog()
         }
+
+        dialogBinding.btnLanguage.setOnClickListener {
+            showLanguageDialog()
+        }
     }
 
-    private fun getAppVersion(): String {
-       return BuildConfig.VERSION_NAME
+    private fun showLanguageDialog() {
+        val languages = LanguageManager.getAvailableLanguages(this)
+        val currentLanguage = LanguageManager.getCurrentLanguage(this)
+
+        val items = languages.values.toTypedArray()
+        val checkedItem = languages.keys.indexOf(currentLanguage)
+
+        AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
+            .setTitle(R.string.settings_language)
+            .setSingleChoiceItems(items, checkedItem) { dialog, which ->
+                val selectedLanguage = languages.keys.elementAt(which)
+
+                // ✅ Меняем язык и очищаем кэш заданий
+                LanguageManager.setLanguage(this, selectedLanguage)
+                TasksProvider.clearCache()
+
+                // Показываем сообщение о смене языка
+                val languageName = languages[selectedLanguage] ?: selectedLanguage
+                Toast.makeText(
+                    this,
+                    getString(R.string.language_changed, languageName),
+                    Toast.LENGTH_LONG
+                ).show()
+
+                dialog.dismiss()
+
+                // ✅ Перезапускаем Activity для применения языка
+                recreate()
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
     }
+
+    private fun toggleVisibility(layout: View, button: MaterialButton) {
+        layout.isVisible = !layout.isVisible
+        button.icon = if (layout.isVisible) {
+            ContextCompat.getDrawable(this, R.drawable.ic_expand_less)
+        } else {
+            ContextCompat.getDrawable(this, R.drawable.ic_expand_more)
+        }
+    }
+
+    private fun getAppVersion(): String = BuildConfig.VERSION_NAME
 
     private fun showAboutDialog() {
         val appVersion = getAppVersion()
@@ -474,33 +463,49 @@ class GameActivity : AppCompatActivity() {
             appendLine(getString(R.string.about_developer))
         }
 
-        val builder = AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
+        AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
             .setTitle(R.string.about_title)
             .setMessage(message)
             .setPositiveButton(R.string.about_close, null)
             .create()
-
-        builder.show()
+            .show()
     }
 
     private fun openDonateLink() {
         try {
             val donateUrl = getString(R.string.about_donatUrl)
             val intent = Intent(Intent.ACTION_VIEW, donateUrl.toUri())
-            startActivity(intent)
+
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                Toast.makeText(
+                    this,
+                    R.string.about_error_browser,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         } catch (e: Exception) {
+            Logger.e(TAG, "Failed to open donate link", e)
             Toast.makeText(
                 this,
-                getString(R.string.about_error) + "${e.message}",
+                getString(R.string.about_error) + e.message,
                 Toast.LENGTH_SHORT
             ).show()
         }
     }
 
     private fun showExitDialog() {
+        val user = currentUser
+        val message = if (user?.isGuest == true) {
+            "Вы вошли как гость. Прогресс не сохранится. Продолжить?"
+        } else {
+            getString(R.string.exit_message)
+        }
+
         AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
             .setTitle(R.string.exit_title)
-            .setMessage(R.string.exit_message)
+            .setMessage(message)
             .setPositiveButton(R.string.exit_logout) { _, _ ->
                 lifecycleScope.launch {
                     userRepository.logout()
@@ -517,64 +522,17 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun spinBottle() {
-        if (isSpinning) return
-        isSpinning = true
-
-        val randomRotation = Random.nextFloat() * 720 + 360
-        val finalRotation = currentRotation + randomRotation
-
-        val animator = ObjectAnimator.ofFloat(binding.ivBottle, "rotation", currentRotation, finalRotation)
-        animator.duration = 2000
-        animator.interpolator = AccelerateDecelerateInterpolator()
-
-        animator.addListener(object : android.animation.Animator.AnimatorListener {
-            override fun onAnimationStart(animation: android.animation.Animator) {
-                // 1. Получаем объект Vibrator безопасным способом в зависимости от версии Android
-                val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    val vibratorManager = getSystemService<VibratorManager>()
-                    vibratorManager?.defaultVibrator
-                } else {
-                    @Suppress("DEPRECATION")
-                    getSystemService<Vibrator>()
-                }
-
-                // 2. Запускаем вибрацию с учетом версий
-                vibrator?.let {
-                    if (it.hasVibrator()) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            // Новый способ (Android 8.0+) через VibrationEffect
-                            it.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE))
-                        } else {
-                            // Старый способ для древних версий Android
-                            @Suppress("DEPRECATION")
-                            it.vibrate(100)
-                        }
-                    }
-                }
-
-                bottomSheetDialog?.dismiss()
-            }
-
-            override fun onAnimationEnd(animation: android.animation.Animator) {
-                currentRotation = finalRotation
-                isSpinning = false
-                showRandomTask()
-                tasksCompleted++
-                saveStats()
-            }
-
-            override fun onAnimationCancel(animation: android.animation.Animator) {
-                isSpinning = false
-            }
-
-            override fun onAnimationRepeat(animation: android.animation.Animator) {}
-        })
-
-        animator.start()
+        bottleAnimator.setOnSpinEndListener {
+            showRandomTask()
+            tasksCompleted++
+            saveStats()
+        }
+        bottleAnimator.spin()
+        bottomSheetDialog?.dismiss()
     }
 
     private fun showRandomTask() {
-        val task = TasksProvider.getRandomTask(currentMode)
+        val task = TasksProvider.getRandomTask(this, currentMode)
         showTaskInBottomSheet(task, false)
     }
 
@@ -602,7 +560,8 @@ class GameActivity : AppCompatActivity() {
             getString(R.string.game_task_close)
         }
 
-        val bottomSheet = bottomSheetDialog?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+        val bottomSheet =
+            bottomSheetDialog?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
         bottomSheet?.let {
             val behavior = BottomSheetBehavior.from(it)
             behavior.peekHeight = 200
@@ -618,7 +577,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun updateModeUI() {
-        applyTheme(currentMode)
+        themeManager.applyTheme(currentMode)
         updateButtonsState()
     }
 
@@ -653,6 +612,15 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    private fun getDefaultModeForAge(age: Int): GameMode {
+        return when {
+            age >= 18 -> GameMode.SEX
+            age >= 16 -> GameMode.ADULT
+            age >= 10 -> GameMode.TEEN
+            else -> GameMode.CHILDREN
+        }
+    }
+
     private fun loadStats() {
         val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         tasksCompleted = prefs.getInt(KEY_TASKS_STATS, 0)
@@ -660,7 +628,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun saveStats() {
         val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        prefs.edit().putInt(KEY_TASKS_STATS, tasksCompleted).apply()
+        prefs.edit { putInt(KEY_TASKS_STATS, tasksCompleted) }
     }
 
     override fun onDestroy() {
