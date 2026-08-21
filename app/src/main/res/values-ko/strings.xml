@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">병 게임</string>
+
+    <!-- Common -->
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="close">닫기</string>
+    <string name="save">저장</string>
+    <string name="delete">삭제</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+
+    <!-- Login -->
+    <string name="login_title">로그인</string>
+    <string name="login_loading">로그인 중…</string>
+    <string name="login_username_hint">사용자 이름</string>
+    <string name="login_password_hint">비밀번호</string>
+    <string name="login_button">로그인</string>
+    <string name="login_register_link">계정이 없으신가요? 회원가입</string>
+    <string name="login_guest_button">게스트로 계속</string>
+    <string name="login_invalid_username">사용자 이름을 입력하세요</string>
+    <string name="login_invalid_password">비밀번호를 입력하세요</string>
+    <string name="login_user_not_found">사용자를 찾을 수 없습니다</string>
+    <string name="login_wrong_password">비밀번호가 틀렸습니다</string>
+    <string name="login_error">로그인 오류</string>
+    <string name="login_welcome_guest">환영합니다, 게스트! 어린이 모드만 사용 가능합니다</string>
+    <string name="login_welcome_user">환영합니다, %s님! 모든 모드를 사용할 수 있습니다</string>
+    <string name="login_welcome_user_children">환영합니다, %s님! 어린이 모드만 사용 가능합니다</string>
+
+    <!-- Register -->
+    <string name="register_title">계정 만들기</string>
+    <string name="register_subtitle">모든 게임 모드에 접근하려면 가입하세요</string>
+    <string name="register_username_hint">사용자 이름</string>
+    <string name="register_password_hint">비밀번호</string>
+    <string name="register_birthdate_hint">생년월일</string>
+    <string name="register_button">가입하기</string>
+    <string name="register_login_link">이미 계정이 있으신가요? 로그인</string>
+    <string name="register_username_min_length">사용자 이름은 3자 이상이어야 합니다</string>
+    <string name="register_password_min_length">비밀번호는 6자 이상이어야 합니다</string>
+    <string name="register_select_birthdate">생년월일을 선택하세요</string>
+    <string name="register_age_min">만 5세 이상이어야 합니다</string>
+    <string name="register_age_min_message">가입하려면 만 5세 이상이어야 합니다</string>
+    <string name="register_success">가입이 완료되었습니다!</string>
+    <string name="register_error">가입 오류</string>
+    <string name="register_user_exists">이미 사용 중인 사용자 이름입니다</string>
+    <string name="register_age_hint_default">생년월일을 선택하세요</string>
+    <string name="register_age_hint_18">%d세입니다. 모든 모드를 사용할 수 있습니다!</string>
+    <string name="register_age_hint_16">⚠ %d세입니다. 일부 모드를 사용할 수 없습니다</string>
+    <string name="register_age_hint_10">⚠ %d세입니다. 어린이 및 틴 모드만 사용 가능합니다</string>
+    <string name="register_age_hint_5">⚠ %d세입니다. 어린이 모드만 사용 가능합니다</string>
+    <string name="register_age_hint_min">가입하려면 만 5세 이상이어야 합니다</string>
+
+    <!-- Date Picker -->
+    <string name="date_picker_title">생년월일 선택</string>
+    <string name="date_picker_year">년</string>
+    <string name="date_picker_month">월</string>
+    <string name="date_picker_day">일</string>
+    <string name="date_picker_confirm">확인</string>
+    <string name="date_picker_cancel">취소</string>
+
+    <!-- Game -->
+    <string name="game_toolbar_title">병</string>
+    <string name="game_mode_children">어린이</string>
+    <string name="game_mode_teen">틴</string>
+    <string name="game_mode_adult">성인</string>
+    <string name="game_mode_adult_plus">18+</string>
+    <string name="game_mode_sex">섹스</string>
+    <string name="game_mode_changed">모드: %s</string>
+    <string name="game_mode_unavailable">모드를 사용할 수 없습니다</string>
+    <string name="game_mode_unlock_message">"%s" 모드는 %d세에 사용 가능합니다</string>
+    <string name="game_welcome_guest">게스트 모드\n병을 탭하여 작업을 받으세요!</string>
+    <string name="game_welcome_user">환영합니다, %s님!\n나이: %d세\n병을 탭하여 시작하세요!</string>
+    <string name="game_welcome_default">병을 탭하여 시작하세요!</string>
+    <string name="game_task_start">게임 시작!</string>
+    <string name="game_task_close">알겠어요!</string>
+    <string name="game_guest_mode">게스트 모드: 어린이 모드만 사용 가능</string>
+    <string name="game_mode_auto_changed">모드가 %s(으)로 변경되었습니다 (%d세)</string>
+    <string name="game_stats_reset">통계가 초기화되었습니다</string>
+
+    <!-- Settings -->
+    <string name="settings_title">설정</string>
+    <string name="settings_user_info">👤 사용자: %s</string>
+    <string name="settings_user_guest">👤 사용자: 게스트</string>
+    <string name="settings_user_name">이름: %s</string>
+    <string name="settings_user_guest_name">이름: 게스트</string>
+    <string name="settings_user_email">이메일: %s</string>
+    <string name="settings_user_guest_email">이메일: guest@temp.com</string>
+    <string name="settings_user_age">나이: %d세</string>
+    <string name="settings_user_guest_age">나이: 0세</string>
+    <string name="settings_user_mode">모드: %s</string>
+    <string name="settings_stats_title">📊 통계</string>
+    <string name="settings_stats_tasks">완료한 작업:</string>
+    <string name="settings_stats_clear">🗑️ 통계 초기화</string>
+    <string name="settings_about">ℹ️ 앱 정보</string>
+    <string name="settings_stats_progress">%d개 남음 (총 %d개)</string>
+    <string name="settings_logout">🚪 로그아웃</string>
+    <string name="settings_language">🌐 언어</string>
+
+    <!-- About -->
+    <string name="about_title">앱 정보</string>
+    <string name="about_version">버전</string>
+    <string name="about_description">다양한 게임 모드가 있는 재미있는 파티 게임</string>
+    <string name="about_modes_title">🎮 게임 모드</string>
+    <string name="about_mode_children">👶 어린이 (0+)</string>
+    <string name="about_mode_teen">🧑 틴 (10+)</string>
+    <string name="about_mode_adult">👨 성인 (16+)</string>
+    <string name="about_mode_adult_plus">🔞 18+</string>
+    <string name="about_mode_sex">🔥 섹스 (18+)</string>
+    <string name="about_developer">💻 사랑을 담아 개발 ❤️</string>
+    <string name="about_donate">☕ 프로젝트 지원</string>
+    <string name="about_error">링크 열기 오류: </string>
+    <string name="about_error_browser">링크를 열 브라우저를 찾을 수 없습니다</string>
+    <string name="about_donatUrl">https://pay.cloudtips.ru/p/29e9b5ab</string>
+    <string name="about_close">닫기</string>
+
+    <!-- Exit -->
+    <string name="exit_title">로그아웃</string>
+    <string name="exit_message">어떻게 하시겠습니까?</string>
+    <string name="exit_logout">로그아웃</string>
+    <string name="exit_app">앱 종료</string>
+    <string name="exit_cancel">취소</string>
+    <string name="donat">☕ 프로젝트 지원</string>
+
+    <!-- Language -->
+    <string name="language_russian">러시아어</string>
+    <string name="language_english">영어</string>
+    <string name="language_japanese">일본어</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_chinese">중국어</string>
+    <string name="language_changed">언어가 %s(으)로 변경되었습니다. 적용하려면 앱을 다시 시작하세요.</string>
+
+    <!-- 어린이용 작업 (0+) -->
+    <string-array name="tasks_children">
+        <item>음악에 맞춰 운동이나 재미있는 스트레칭을 해보세요!</item>
+        <item>의자 위(또는 주변)에서 말처럼 신나는 음악에 맞춰 1분 동안 점프해보세요!</item>
+        <item>앞으로 세 번 굴러보세요(공간과 부드러운 바닥이 있는 경우)!</item>
+        <item>알을 품고 있는 새를 보여주세요. 둥지로는 부드러운 푸프나 베개를 사용하세요!</item>
+        <item>빗자루를 타고 마법 주문을 외치며 달려보세요!</item>
+        <item>한 자리에서 서서 이상한 춤을 춰보세요!</item>
+        <item>길을 굴러가는 빵이 되어보세요(등에서 배로 굴러가기)!</item>
+        <item>어떤 자세든 30초 동안 동상처럼 움직이지 말아보세요!</item>
+        <item>다른 사람들이 맞출 수 있는 간단한 직업을 보여주세요(의사, 요리사, 운전사, 건축가)!</item>
+        <item>다른 플레이어들이 맞출 동물을 표현해보세요!</item>
+        <item>말 없이 좋아하는 만화 캐릭터를 표현해보세요!</item>
+        <item>인형 결혼식에서 사회자가 되어 인형들에게 축하 인사를 해보세요!</item>
+        <item>날씨에 대해 이야기하는 현관 앞 심술궂은 할머니를 표현해보세요!</item>
+        <item>중요한 패션쇼의 모델이 되어보세요!</item>
+        <item>로봇이나 펭귄처럼 방 안을 걸어보세요!</item>
+        <item>플레이어 중 한 명을 흉내 내어 알아맞혀 보세요!</item>
+        <item>거울이 되어보세요: 앞에 있는 사람의 움직임을 따라해보세요!</item>
+        <item>재미있는 목소리(생쥐나 거인 목소리)로 어린이 노래의 후렴을 불러보세요!</item>
+        <item>학교 발표회처럼 짧은 시나 구호를 감정을 담아 말해보세요!</item>
+        <item>각 플레이어에게 귀여운 별명을 지어주세요(예: &quot;바나나 선장&quot; 또는 &quot;요거트 공주&quot;)!</item>
+        <item>각 플레이어에게 칭찬을 하나씩 해주세요!</item>
+        <item>좋아하는 아이스크림 맛을 말하고 어떤 느낌인지 표현해보세요!</item>
+        <item>방을 세 단어로 설명해보세요!</item>
+        <item>지금 바로 이 방의 새 이름을 생각해보세요!</item>
+        <item>반려동물이나 좋아하는 장난감에 대해 이야기해보세요!</item>
+        <item>다른 사람들이 고른 노래를 &quot;라라&quot;만 사용해서 불러보세요!</item>
+        <item>아주 신 음식을 먹는 모습을 표현해보세요!</item>
+        <item>주말 아침에 일어나는 모습을 표현해보세요!</item>
+        <item>인생에서 가장 재미있는 이야기를 들려주세요!</item>
+    </string-array>
+
+    <!-- 틴 작업 (10-15세) -->
+    <string-array name="tasks_teen">
+        <item>블로거처럼 이 파티의 짧은 리뷰 영상을 찍어보세요!</item>
+        <item>머리에 냄비를 얹고 진지한 셀카를 찍어보세요 (진행자의 폰에 남음)!</item>
+        <item>미래의 전문 스타일리스트로서 각 플레이어의 옷차림을 평가해보세요!</item>
+        <item>외계인 기자로서 예상치 못한 질문을 던져보세요!</item>
+        <item>보이지 않는 청소기를 파는 동기부여 연설가가 되어보세요!</item>
+        <item>UFO 착륙 현장의 리포터처럼 정확히 1분 동안 행동해보세요!</item>
+        <item>각 플레이어에 대한 터무니없는 소문을 만들어보세요 (불쾌한 주제는 금지)!</item>
+        <item>일반 물을 맛보는 거만한 비평가가 되어보세요!</item>
+        <item>소셜 미디어에서 유행하는 인기 댄스를 춰보세요 (선택)!</item>
+        <item>아무도 볼 때 없는 때 사용하는 자신만의 시그니처 동작을 보여주세요!</item>
+        <item>개그에서 나오는 해바라기 씨를 팔려는 건달이 되어보세요!</item>
+        <item>보디빌더처럼 포즈를 취하며 다양한 근육군을 보여주세요!</item>
+        <item>평범한 의자의 재미있는 광고 슬로건을 생각해보세요!</item>
+        <item>레몬을 처음 먹어보는 사람이 되어보세요!</item>
+        <item>각 플레이어와 우스꽝스러운 포즈로 셀카를 찍어보세요!</item>
+        <item>데이트 준비를 빨리 감기로 보여주세요!</item>
+        <item>다른 플레이어들이 맞출 연예인이 되어보세요!</item>
+        <item>자신에 대한 두 개의 진실된 이야기와 하나의 거짓말을 하세요. 다른 사람들이 거짓말을 맞춰야 함!</item>
+        <item>모두가 좋아하지만 자신은 지루하다고 생각하는 영화는? 이유를 설명하세요!</item>
+        <item>어디든 순간이동할 수 있다면 이 파티를 떠나겠어요?</item>
+        <item>해변 휴가 vs 도시 여행? 왜?</item>
+        <item>7살 때 무엇이 되고 싶었고, 현재 현실과 얼마나 다른가요?</item>
+        <item>자신이 좋아하고 다른 사람들은 이상하다고 생각하는 음식 조합은?</item>
+        <item>아직도 그리운 어린 시절 간식은?</item>
+        <item>용돈으로 산 가장 바보 같은 물건은?</item>
+        <item>무엇을 선택하시겠어요? 감자튀김이나 피자를 영원히 포기하기?</item>
+        <item>어떤 냄새가 행복하게 만드나요?</item>
+        <item>복권에 당첨되면 가장 먼저 살 쓸모없는 물건은?</item>
+        <item>지금 배낭에 들어있는 가장 이상한 물건은?</item>
+        <item>이 방에 테마곡이 있다면 입구에서 어떤 노래가 흘러나올까요?</item>
+        <item>좀비 종말에서 누가 가장 오래 살아남을까요? 왜?</item>
+        <item>가장 많이 사용하는 이모지와 실제 의미는?</item>
+        <item>아침에 가장 먼저 여는 앱은 (솔직히)?</item>
+        <item>순간적으로 악기를 배울 수 있다면 어떤 것을 선택하시겠어요?</item>
+        <item>가장 성공한 요리 실험은?</item>
+        <item>시리즈 중 &quot;죄책감의 즐거움&quot;은?</item>
+        <item>일주일 동안 무엇을 잃을래요? 휴대폰 아니면 지갑?</item>
+        <item>후회하는 유행은?</item>
+        <item>아무도 볼 수 없다면 내일 어떤 취미를 시작하시겠어요?</item>
+        <item>가능한 오래 플랭크를 유지하세요 (진행자가 기록)!</item>
+        <item>벽에서 물구나무서기를 시도해보세요 (선택, 친구에게 도움을 요청해도 됨)!</item>
+        <item>팔굽혀펴기 10회 하기 (완전 자발적)!</item>
+        <item>자신이 확실히 할 수 있는 유연성 운동을 보여주세요!</item>
+        <item>브릿지를 해보세요 (허리에 자신이 있을 때)!</item>
+        <item>비슷한 체중의 플레이어와 팔씨름을 해보세요 (상호 동의가 있을 때만)!</item>
+        <item>가위질을 시도해보세요 (할 수 있는 만큼)!</item>
+        <item>마지막으로 반복 재생한 노래는?</item>
+        <item>메시지에 가장 빨리 답장하는 사람은 누구?</item>
+        <item>지금 주머니나 가방에 있는 가장 이상한 물건은?</item>
+        <item>항상 10분 늦게 도착하거나 30분 일찍 도착하나요?</item>
+        <item>가장 맛있게 먹었던 음식과 그 장소는?</item>
+        <item>노래방에서 부르는 노래는 (샤워실에서만 해도)?</item>
+    </string-array>
+
+    <!-- 성인 작업 (16-17세) -->
+    <string-array name="tasks_adult">
+        <item>각 플레이어에게 색다른 작업 멘트를 사용해보세요!</item>
+        <item>각 플레이어에게 다가가서 터무니없는 조언을 해보세요!</item>
+        <item>누군가의 눈을 뚫어지게 쳐다본 다음 윙크해보세요!</item>
+        <item>모두에게 신체 사이즈를 말해보세요: 키, 몸무게 및 기타 매개변수!</item>
+        <item>무릎을 꿇고 가장 웃긴 창피한 일을 모두에게 고백하세요!</item>
+        <item>한 플레이어에게 재미있는 물건을 사도록 설득하되 보여주지는 마세요!</item>
+        <item>여행에 대한 재미있는 공상 이야기를 해보세요!</item>
+        <item>모든 플레이어의 소원을 생각해보세요!</item>
+        <item>음식을 재미있는 방법으로 먹어보세요 (바나나, 토마토, 오이)!</item>
+        <item>각 플레이어에게 장난스러운 악담을 해보세요!</item>
+        <item>자신에 대해 특이한 점을 말해 플레이어들을 놀라게 하세요!</item>
+        <item>게임에서 누군가를 미행하는 모습을 보여주세요!</item>
+        <item>사람에게 호감을 사는 방법을 모두에게 알려주세요!</item>
+        <item>가장 웃긴 사진을 찾아 아바타로 설정하세요!</item>
+        <item>한 플레이어를 예로 들어 어떻게 작업하는지 보여주세요!</item>
+        <item>각 플레이어를 장난스러운 악담으로 &quot;디스&quot;하세요!</item>
+        <item>한 플레이어에게 얼마나 보고 싶은지 보여주세요!</item>
+        <item>가장 자주 거짓말하는 것이 무엇인지 고백하세요!</item>
+        <item>SNS에 재미있는 상태 메시지를 작성하세요!</item>
+        <item>헬스장에서 인상 주려는 사람의 흉내를 내보세요!</item>
+        <item>플레이어에게 스쿼트 10개를 시키세요!</item>
+        <item>자신의 약점과 취약한 부분을 공유하세요!</item>
+        <item>한 플레이어가 당신을 위한 작업을 생각하게 하세요!</item>
+        <item>짝사랑 이야기를 모두에게 들려주세요!</item>
+        <item>모든 플레이어에게 재미있는 별명을 지어주세요!</item>
+        <item>아무 책이나 골라서 최대한 거만하게 읽어보세요!</item>
+        <item>일기예보를 매우 연극적으로 전달하세요!</item>
+        <item>아무 플레이어와 영화의 러브씬을 연기하세요!</item>
+        <item>아직도 부끄러운 일에 대해 모두에게 말해보세요!</item>
+        <item>각 플레이어에게 좋아하는 성격 특성을 말해보세요!</item>
+        <item>아무 플레이어의 볼에 키스하세요!</item>
+        <item>모두에게 특이한 이야기를 해보세요!</item>
+        <item>재미있는 원숭이 흉내를 내보세요!</item>
+        <item>간지러운 부위를 손가락으로 가리키세요!</item>
+        <item>각 플레이어의 미래를 점쳐보세요!</item>
+        <item>골반을 흔들며 재미있게 걸어보세요!</item>
+        <item>각 플레이어에게 싫어하는 점을 고백하세요!</item>
+        <item>피곤한 척한 다음 아무 플레이어에게 작업 걸어보세요!</item>
+        <item>좋아하는 패션 스타일을 모두에게 알려주세요!</item>
+        <item>선물 받을 때의 얼굴을 보여주세요!</item>
+        <item>각 플레이어에게 이상한 취미를 생각해주세요!</item>
+        <item>완벽한 하루 계획을 세우고 모두와 공유하세요!</item>
+        <item>자신을 가장 쉽게 즐겁게 하는 방법을 설명하세요!</item>
+        <item>한 플레이어의 볼에 키스하세요!</item>
+        <item>어떤 질문에도 정직하게 답하세요!</item>
+        <item>시리즈 중 &quot;죄책감의 즐거움&quot;은?</item>
+        <item>항상 10분 늦게 도착하거나 30분 일찍 도착하시겠어요?</item>
+        <item>우리 중 누가 유명해질 가능성이 가장 높고 그 이유는?</item>
+        <item>평생 같은 아침을 먹어야 한다면 무엇을 선택하시겠어요?</item>
+        <item>일주일 동안 무엇을 잃을래요? 휴대폰 아니면 지갑?</item>
+        <item>갤러리에서 실제로 보여줄 용기가 있는 마지막 사진은?</item>
+        <item>순간적으로 악기를 배울 수 있다면 어떤 것을 선택하시겠어요?</item>
+        <item>후회하는 유행은?</item>
+        <item>누가 가장 포옹을 잘하나요?</item>
+        <item>아무도 볼 수 없다면 내일 어떤 취미를 시작하시겠어요?</item>
+        <item>오늘이 영화라면 트레일러에 꼭 들어갈 장면은?</item>
+    </string-array>
+
+    <!-- 18+ 작업 -->
+    <string-array name="tasks_adult_plus">
+        <item>아주 야한 농담을 해보세요!</item>
+        <item>모두에게 가장 섹시한 목소리를 보여주세요!</item>
+        <item>누군가의 눈을 뚫어지게 쳐다본 다음 윙크하고 입술을 핥아보세요!</item>
+        <item>무릎을 꿇고 자신의 죄 중 하나를 모두에게 고백하세요!</item>
+        <item>겉옷의 단추 하나를 풀고 그렇게 앉아있으세요!</item>
+        <item>이성 플레이어 모두에게 엉덩이를 맞게 하세요!</item>
+        <item>한 플레이어에게 팬티를 사도록 설득하되 벗지는 마세요!</item>
+        <item>실현하고 싶은 침대 판타지를 이야기해보세요!</item>
+        <item>이성 플레이어 모두에게 병 게임 소원을 생각해보세요!</item>
+        <item>음식을 에로틱하게 먹어보세요 (바나나, 토마토, 오이)!</item>
+        <item>각 플레이어에게 험담을 해보세요!</item>
+        <item>모두가 즐길 수 있도록 뜨겁고 도발적으로 춤춰보세요!</item>
+        <item>자신에 대해 뭔가를 폭로하여 플레이어들을 놀라게 하세요!</item>
+        <item>피해자를 미행하는 매니악을 표현해보세요!</item>
+        <item>이성을 유혹하는 방법을 모두에게 알려주세요!</item>
+        <item>가장 부끄러운 사진을 찾아 아바타로 설정하세요!</item>
+        <item>빅토리아 시크릿 패션쇼의 모델이 되어보세요!</item>
+        <item>한 플레이어를 예로 들어 이성과의 플러팅을 시연해보세요!</item>
+        <item>술 취했을 때의 행동을 표현해보세요!</item>
+        <item>옷을 벗지 않고 스트립을 춰보세요!</item>
+        <item>각 플레이어를 날카로운 악담으로 &quot;디스&quot;하세요!</item>
+        <item>자신의 엉덩이를 치고 얼마나 좋아하는지 말해보세요!</item>
+        <item>지금 어떤 속옷을 입고 있는지 모두에게 알려주세요!</item>
+        <item>몸을 쓰다듬으며 한 플레이어를 바라보세요!</item>
+        <item>다른 플레이어에게 속옷의 일부를 보여주세요!</item>
+        <item>SNS에 야한 상태 메시지를 작성하세요!</item>
+        <item>자신의 뜨거운 침대 판타지를 모두에게 이야기하세요!</item>
+        <item>모든 플레이어가 침대에서 어떻게 행동할지 상상해보세요!</item>
+        <item>아무 책이나 골라서 최대한 관능적으로 읽어보세요!</item>
+        <item>임의의 번호에 전화해서 헤어지고 싶다고 말하세요!</item>
+        <item>트월킹을 춰보세요!</item>
+        <item>누군가에게 뽀뽀 자국을 남기세요!</item>
+        <item>일기예보를 매우 도발적이고 뜨겁게 전달하세요!</item>
+        <item>아무 플레이어와 영화의 러브씬을 연기하세요!</item>
+        <item>각 플레이어의 좋아하는 신체 부위를 말해보세요!</item>
+        <item>원하는 플레이어에게 키스하세요!</item>
+        <item>모두에게 부적절한 이야기를 해보세요!</item>
+        <item>흥분한 원숭이 흉내를 내보세요!</item>
+        <item>가장 민감한 부위를 손가락으로 가리키세요!</item>
+        <item>자신의 겨드랑이 냄새를 맡아보세요!</item>
+        <item>팜므파탈이나 플레이보이가 되어보세요!</item>
+        <item>익명의 모임에 온 척 해보세요!</item>
+        <item>세계에서 가장 오래된 직업의 종사자가 되어보세요!</item>
+        <item>엉덩이를 흔들며 가능한 한 뜨겁게 걸어보세요!</item>
+        <item>취한 척한 다음 아무 플레이어에게 작업 걸어보세요!</item>
+        <item>아무 플레이어와 딥키스하세요!</item>
+        <item>병 게임에서 가장 하고 싶은 것을 모두에게 말해보세요!</item>
+        <item>각 플레이어의 가장 뜨거운 신체 부위는?</item>
+        <item>병이 강제한다면 지금 여기서 누구에게 키스하시겠어요?</item>
+        <item>만지지 않고 사람이 할 수 있는 가장 매력적인 것은?</item>
+        <item>주변을 놀라게 하는 당신의 가장 큰 페티시는?</item>
+        <item>이 방에 있는 누군가와 키스한 적이 있나요? (예/아니오)</item>
+        <item>키스한 가장 미친 장소는?</item>
+        <item>이름을 밝히지 않고 최고의 키스를 설명하세요!</item>
+        <item>지금 연락처에서 가장 매력적인 사람은 누구?</item>
+        <item>위험한 메시지를 보내고 바로 후회한 적이 있나요?</item>
+        <item>아무리 뜨거운 사람이라도 당신에게 중요한 &quot;스톱 신호&quot;는?</item>
+        <item>무언가 일어나기 전에 플러팅한 가장 긴 기간은?</item>
+        <item>다른 사람을 질투하게 만들기 위해 누군가에게 키스한 적이 있나요?</item>
+        <item>가장 많은 주목을 받은 의상은? 그럴 줄 알았나요?</item>
+        <item>보지 말아야 할 사람에게 플러팅을 들킨 적이 있나요?</item>
+        <item>이상적인 첫 키스: 상황과 모든 것?</item>
+        <item>우리 중 가장 멋진 미소를 가진 사람은? 한 명 골라!</item>
+        <item>대부분의 사람들이 입 밖에 내지 않지만 매력적이라고 생각하는 것은?</item>
+        <item>아무도 모르는 여름 로맨스가 있었나요?</item>
+        <item>누군가가 당신에게 사용한 가장 대담한 작업 멘트 중 성공한 것은?</item>
+        <item>키스가 사람에 대한 감정을 얼마나 빨리 바꿨나요?</item>
+        <item>이상한 것으로 키스 연습을 한 적이 있나요? 무엇으로?</item>
+        <item>입 밖에 낸 적 없는 판타지 데이트는?</item>
+        <item>가장 예상치 못한 좋아하는 사람은?</item>
+        <item>사람에게서 가장 먼저 눈에 띄는 신체적 특징은?</item>
+        <item>하룻밤에 두 명과 키스한 적이 있나요?</item>
+        <item>이 모임에서 누군가를 위해 실제로 할 가장 로맨틱한 일은?</item>
+        <item>처음으로 사랑에 빠진 사람, 그 사람은 알고 있나요?</item>
+        <item>보낸 가장 대담한 메시지는?</item>
+        <item>아직도 생각나는 &quot;거의 연애&quot;는?</item>
+        <item>최근에 가장 아래까지 스크롤한 프로필과 무엇을 찾고 있었나요?</item>
+        <item>데이트를 피하기 위해 바쁜 척한 적이 있나요?</item>
+        <item>매력적인 사람의 관심을 끌기 위해 한 가장 부끄러운 일은?</item>
+        <item>동시에 두 명을 좋아한 적이 있나요? 어떻게 끝났나요?</item>
+        <item>사람이 예쁘다는 이유만으로 무시한 &quot;레드 플래그&quot;는?</item>
+        <item>사람에게 흥미를 잃은 가장 사소한 이유는?</item>
+        <item>누군가를 빤히 쳐다보는 것이 들킨 적이 있나요? 어떻게 됐나요?</item>
+        <item>&quot;필사적이지 않게&quot; 보이기 위해 일부러 답장하지 않은 기간은?</item>
+        <item>베스트 프렌드에게 숨긴 비밀은?</item>
+        <item>메시지를 보낸 가장 예상치 못한 사람은?</item>
+        <item>참석자 중 누군가가 꿈에 나왔나요? 말해봐!</item>
+        <item>가장 강한 질투심과 그것은 누구에 대한 것이었나요?</item>
+        <item>파트너의 전화를 뒤진 적이 있나요? 무엇을 찾았나요?</item>
+        <item>결혼식이나 가족 모임에서 가장 대담한 플러팅은?</item>
+        <item>인생에서 가장 빠른 짝사랑은?</item>
+        <item>원하는 것을 얻기 위해 누군가에게 플러팅한 적이 있나요?</item>
+        <item>인생에서 가장 어색한 데이트는?</item>
+        <item>이름도 모르는 누군가와 키스한 적이 있나요?</item>
+        <item>사랑하는 사람을 위해 했지만 술에 취하지 않으면 절대 인정하지 않을 일은?</item>
+        <item>자신이 &quot;예비&quot;였던 적이 있고 그것을 알고 있었나요?</item>
+        <item>가장 극적인 이별은?</item>
+        <item>우정을 구하기 위해 자신의 감정에 대해 거짓말한 적이 있나요?</item>
+    </string-array>
+
+    <!-- 섹스 작업 (그림 포함) -->
+    <string-array name="tasks_sex">
+        <item>빛나는 삼각형 포즈는 고전적인 선교사 포즈를 연상시킨다: 여자가 등을 대고 누워 있고 남자가 위에 있다. 그러나 핵심은 남자가 무릎을 꿇고 여자가 엉덩이를 그를 향해 들어올린다는 것이다. 즉 남자는 움직이지 않고 여자가 모든 일을 한다. 그래서 선교사 포즈와는 전혀 다르다!</item>
+        <item>\'X자\' 남자가 등을 대고 누워 있고, 여자는 돌아서서 그 위에 등으로 앉은 다음 그 위에 눕는다. 그녀는 다리를 펴서 그의 어깨에 올리고, 몸은 남자의 다리 사이에 있는 침대 위에 둔다. 그래서 X자 모양이 된다. 그런 다음 여자는 위아래로 미끄러지기 시작한다. 게다가 그녀는 남자의 다리를 지렛대로 사용하여 진폭을 높일 수 있다.</item>
+        <item>\'열반\' 여자가 등을 대고 누워 다리를 펴고 머리 위의 침대를 잡는다. 삽입 후 그녀는 다리를 함께 모으고 남자는 반대로 다리를 벌린다. 그들은 함께 움직이고, 여자가 허벅지를 조이기 때문에 클리토리스가 자연스럽게 자극된다.</item>
+        <item>\'자물쇠\' 여자가 무언가 위에 (테이블, 세탁기 등) 가장자리에 앉아 손을 뒤로 짚는다. 남자가 그녀 앞에 서고, 그녀는 다리로 그의 허벅지를 감싼다. 이것이 자물쇠의 전부다.</item>
+        <item>\'활강\' 남자가 등을 대고 누워 있고, 여자가 그의 위에 다리를 모은 채 올라탄다. 핵심은 여자가 그의 몸 위를 위아래로 미끄러지는 것이다.</item>
+        <item>\'몽키\' 남자가 등을 대고 누워 무릎을 턱까지 끌어올린다. 여자는 그에게 등을 대고 그의 위에 앉아 다리에 체중을 싣고 위아래로 움직인다. 그녀가 다리에 더 많은 체중을 실을수록 당신은 더 편해진다. 하지만 이 포즈는 결코 쉽지 않다는 것을 명심하라! 하지만 매우 깊이 삽입할 수 있다. 하지만 한 가지 단점이 있다: 여자는 충분히 강하고 특출난 균형 감각을 가져야 한다. 그녀가 그림처럼 당신의 손목을 잡으면 조금 더 쉬워질 것이다.</item>
+        <item>\'나비\' 여자가 적당한 가구 위에 등을 대고 눕는다. 남자가 그녀 앞에 서고, 그녀는 다리를 그의 어깨에 올린다. 여자는 같은 가구에 손을 짚어 엉덩이를 들어 올리기 쉽게 하고, 그는 그녀의 엉덩이를 잡아 과정을 단순화한다.</item>
+        <item>\'욕망으로의 상승\' 남자가 일어서서 허벅지를 벌리고 무릎을 약간 구부린다. 여자가 그 앞에 선다. 남자는 여자를 자신 앞으로 들어 올리고, 그녀는 다리로 그를 감싼다.</item>
+        <item>\'균형\' 남자가 등을 대고 누워 다리를 벌린다. 여자는 그의 허벅지 사이에 앉고, 그는 그녀의 허벅지를 잡는다. 이 포즈에서는 남자가 리듬을 만든다. 하지만 여자는 깊이를 조절할 수 있다.</item>
+        <item>\'분할된 대나무\' 여자가 한쪽 다리를 남자의 어깨에 올린다. 남자는 그녀의 허벅지를 잡고 영웅적으로 삽입하며, 동시에 그녀의 들어올린 다리와 자신을 지탱한다. 그녀의 손은 자유롭기 때문에 원하는 것을 할 수 있다.</item>
+        <item>\'잠자는 천사\' 여자가 옆으로 누워 웅크리고, 남자는 같은 자세로 그녀 뒤에 눕는다.</item>
+        <item>\'브리지\' 남자가 브리지 자세를 취하고, 파트너가 그 위에 앉는다. 그녀에게 다리에 체중을 싣도록 전하라.</item>
+        <item>\'클립\' 남자가 등을 대고 누워 다리를 모은다. 여자가 위에 앉아 뒤로 기대어 손을 짚는다. 여기서 당신도 원하는 대로 손을 사용할 수 있다.</item>
+        <item>\'타이트\' 여자가 옆으로 눕고, 당신이 그녀 뒤에 있지만 이번에는 그녀가 다리를 벌린다. 두 참가자가 모두 손을 사용할 여지가 있다.</item>
+        <item>\'2층\' 남자가 등을 대고 누워 있고, 여자는 그에게 등을 대고 그의 위에 눕는다. 그녀는 팔꿈치로 뒤로 기대어 등을 그의 가슴에 밀착시킨다. 여자는 남자의 무릎에 발을 올리고, 남자는 그녀 안에서 움직인다. 이 포즈는 다른 포즈로 전환하기에 좋다.</item>
+        <item>\'유혹\' 여자는 무릎을 꿇고 앉아 팔을 머리 위로 뻗고 뒤로 기댄다. 남자는 무릎을 꿇고 여자에게 삽입하여 다리를 뻗는다.</item>
+        <item>\'숨겨진 호랑이\' 남자는 다리가 침대가 아닌 바닥에 닿도록 등을 대고 눕는다. 여자는 다리를 벌리고 남자에게 등을 대고 그의 위에 앉는다. 그녀는 깊이와 속도를 선택할 수 있으며 손을 가지고 놀 수도 있다.</item>
+        <item>\'히어로\' 여자는 등을 대고 누워 무릎을 턱까지 끌어올리고 다리는 천장을 향한다. 남자는 그녀 맞은편에 무릎을 꿇고 앉는다. 그는 손으로 그녀의 다리를 받친다.</item>
+        <item>\'돌핀\' 여자는 골반을 천장으로 들어 올리고 어깨로 자신을 지탱하며 머리는 침대에 댄다. 남자는 그녀의 무릎 사이에 서서 그녀의 엉덩이를 받친다. 움직임은 매우 조심스러워야 한다! 그녀의 다리가 지지대에서 떨어지도록 그녀의 엉덩이를 더 높이 들어 올릴 수도 있다.</item>
+        <item>\'프로그\' 남자는 침대 가장자리에 앉아 발을 바닥에 댄다. 여자는 그에게 등을 대고 침대 가장자리에 앉아 다리는 침대 위에 둔다. 그녀는 위아래로 움직이고, 그는 만일의 경우를 대비해 그녀를 받친다.</item>
+        <item>\'주니퍼\' 여자는 등을 대고 누워 다리를 벌려 뻗는다. 남자는 그녀의 무릎 사이에 앉아 다리도 뻗는다. 그는 그녀의 엉덩이를 들어 올리고 완료.</item>
+        <item>\'플라우\' 여자는 발을 바닥에 대고 팔꿈치를 침대에 댄다. 남자는 뒤에서 접근하여 그녀의 다리 사이에 서고, 그녀는 다리를 바닥과 평행하게 뻗는다.</item>
+        <item>\'후크\' 남자는 옆으로 눕는다. 여자는 그 앞에서 웅크려 그녀의 다리가 그의 머리 근처에 오게 한다. 그녀는 무릎을 가슴으로 끌어당기고 그의 다리를 감싼다. 그리고 손으로 그의 다리를 감싸고 팔꿈치를 댄다.</item>
+        <item>\'클래식\' 여자는 등을 대고 누워 다리를 약간 벌린다. 남자는 그녀 위에 올라타 손으로 자신을 지탱한다.</item>
+        <item>\'무릎 위에서\' 남자와 여자는 마주보고 무릎을 꿇는다. 그녀는 허벅지를 벌리고 남자의 목에 팔을 감는다. 그도 그녀를 안고 조심스럽게 무릎을 움직인다.</item>
+        <item>\'크로스\' 여자는 등을 대고 누워 한쪽 다리를 펴고 다른 쪽 다리는 무릎에서 구부린다. 남자는 그녀 앞에 앉아 한쪽 다리를 그녀의 펴진 다리 뒤에 두고 구부린 다리를 손으로 잡는다. 상당히 복잡한 설명이다.</item>
+        <item>\'라운저\' 남자는 앉아 뒤로 손을 짚고 다리를 뻗는다. 팔꿈치를 약간 구부려도 된다. 여자는 위에 누워 다리를 그의 어깨에 걸치고 엉덩이를 움직인다.</item>
+        <item>\'누워있는 연꽃\' 여자는 등을 대고 누워 다리를 연꽃 자세로 꼰다. 남자는 그녀의 다리 사이에 자리 잡고 위에서 삽입한다. 그녀의 엉덩이 아래에 베개를 넣어 각도를 변경할 수 있다.</item>
+        <item>\'관능적인 다리\' 파트너는 마주보고 서 있고, 여자는 한쪽 다리를 남자의 어깨에 올린다. 그녀의 편의를 위해 먼저 약간 쪼그려 앉을 수 있다. 그런 다음 여자는 당신의 목을 잡고, 당신은 그녀의 엉덩이를 잡는다. 그녀가 체조를 하지 않고 유연성이 좋지 않으면 위험하다!</item>
+        <item>\'균형과 스쿼트\' 여자는 침대 가장자리에 서고, 남자는 그녀 뒤에서 바닥에 선다. 그녀가 쪼그려 앉으면 그는 그녀가 조준하는 것을 돕는다. 그녀는 균형을 유지하기 위해 그의 손을 잡는다.</item>
+        <item>\'마법의 산\' 먼저 베개로 산을 만들어야 한다. 그런 다음 여자는 그 옆에 무릎을 꿇고 가슴을 베개에 기댄다. 남자는 그녀 뒤에 무릎을 꿇는다.</item>
+        <item>\'밴돌리어\' 여자는 등을 대고 누워 무릎을 가슴으로 끌어당긴다. 남자는 그녀 앞에 무릎을 꿇고, 그녀는 발을 그의 가슴에 올린다. 그는 팔뚝을 그녀의 다리에 대고 완료. 그녀의 다리를 가슴에 더 세게 누르면 쾌감이 증가할 것이다. 게다가 이 포즈에서는 G스팟이 자극된다.</item>
+        <item>\'프로펠러\' 여자는 등을 대고 누워 다리를 펴서 모은다. 남자는 그녀의 발쪽으로 머리를 향하게 하여 위에 눕는다. 이것은 물론 연습이 필요하다.</item>
+        <item>\'락앤롤러\' 여자는 등을 대고 누워 다리가 머리 위로 오도록 뻗는다 (마치 뒷공중제비를 하려는 것처럼). 남자는 그녀 앞에 무릎을 꿇는다.</item>
+        <item>\'팬\' 여자는 파트너에게 등을 대고 서서 의자 등에 팔꿈치를 댄다. 남자는 뒤에서 접근한다.</item>
+        <item>\'보트\' 먼저 남자가 등을 대고 누워 있고, 여자가 그 위에 앉는다. 그런 다음 남자가 앉아 무릎을 자신에게 끌어당기고, 여자도 같은 동작을 하여 마주보고 앉는다. 당신의 다리는 그녀의 몸에 밀착되고, 그녀의 다리는 당신의 다리 바로 뒤에 위치한다. 넘어지지 않도록 서로의 다리와 자신의 다리를 잡을 수 있다.</item>
+        <item>\'이글\' 남자는 파트너 앞에 무릎을 꿇고 앉아 다리를 벌린다. 그녀는 등을 대고 누워 다리를 넓게 벌린다. 그는 그녀의 다리를 잡고 자신이 원하는 대로 한다.</item>
+        <item>\'매달린 가위\' 그녀는 침대 가장자리에 옆으로 누워 매트리스 위에는 종아리, 발목, 발만 놓여 있다. 그녀는 왼손으로 자신을 지탱하고, 그는 그녀의 허리를 잡는다. 그는 그녀의 왼쪽 다리를 넘고, 그녀의 다른 다리를 공중에 지탱하면서 그녀가 말 그대로 침대에서 매달려 있을 때 삽입한다!</item>
+        <item>\'개 자세\' 그녀는 네 발로 서고, 그는 뒤에서 무릎을 꿇고 그녀의 엉덩이를 받친다.</item>
+        <item>\'개선문\' 남자가 등을 대고 누워 있고, 여자가 그 위에 앉는다. 그런 다음 그는 상체를 들어 앞으로 구부리고, 그녀는 그의 다리 위에 등이 닿을 때까지 뒤로 기댄다.</item>
+        <item>\'역 카우걸\' 남자가 등을 대고 누워 있고, 여자는 그에게 등을 대고 그의 위에 앉는다. 그녀는 그의 허벅지에 손을 얹어 더 쉽게 움직일 수 있다.</item>
+        <item>\'슈퍼 8\' 그녀는 등을 대고 누워 다리를 벌린다. 허리 아래에 베개를 넣어도 된다. 그는 위에 누워 뻗은 팔로 자신을 지탱한다. 그녀는 그의 엉덩이나 등에 손을 얹고 그의 움직임에 맞춰 올라간다.</item>
+        <item>\'아마존\' 남자는 의자에 편안히 앉고, 여자는 그를 마주보고 그의 위에 앉는다. 그녀의 발은 바닥에 닿아야 하며, 위아래로 움직일 수 있다.</item>
+        <item>\'독\' 개 자세의 변형. 그녀는 여전히 네 발로 서 있지만 팔뚝을 바닥에 대고, 그는 뒤에서 삽입한다. 더 좋은 점은 그녀의 가슴을 애무할 수 있다는 것이다.</item>
+        <item>\'크로스크로스\' 그녀는 등을 대고 누워 다리를 꼬고, 엉덩이는 침대 가장자리에 있다. 당신은 그녀 앞에 서서 그녀의 다리를 손으로 잡고 원할 때 벌리거나 다시 꼬을 수 있다.</item>
+        <item>\'보트 사이드\' 남자가 등을 대고 누워 있고, 여자는 다리를 벌려 그의 위에 옆으로 앉는다. 이것이 이 포즈의 이름이 유래된 이유다. 그녀가 모든 움직임을 통제한다!</item>
+        <item>\'산사태\' 그녀는 엎드려 팔뚝을 대고 다리를 뻗는다. 다리는 약간 벌린다. 그는 그녀의 다리 바로 뒤에 앉아 그녀의 몸통을 잡고 45도 뒤로 기댄다. 이렇게 하면 들어가기가 더 쉽다.</item>
+        <item>\'달팽이\' 먼저 여자가 등을 대고 누워 무릎을 가슴으로 끌어당기고 파트너의 머리 뒤로 다리를 감는다. 그는 그녀 앞에 무릎을 꿇고 침대나 그녀의 어깨에 손을 대고 체중을 지탱하며 삽입한다.</item>
+        <item>\'글라이드\' 남자는 무릎을 꿇고 앉아 뒤로 손을 대고 체중을 지탱한다. 여자는 등을 대고 누워 머리를 베개에 댄다. 그녀는 무릎으로 그의 허벅지를 감싸 가장 유리한 각도를 만든다. 그녀의 손은 자유롭기 때문에, 그가 움직임을 지켜보는 동안 그녀는 자신의 가슴과 클리토리스를 만질 수 있다.</item>
+    </string-array>
+
+</resources>

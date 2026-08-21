@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">瓶子游戏</string>
+
+    <!-- Common -->
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="close">关闭</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+
+    <!-- Login -->
+    <string name="login_title">登录</string>
+    <string name="login_loading">登录中…</string>
+    <string name="login_username_hint">用户名</string>
+    <string name="login_password_hint">密码</string>
+    <string name="login_button">登录</string>
+    <string name="login_register_link">没有账号？注册</string>
+    <string name="login_guest_button">以游客身份继续</string>
+    <string name="login_invalid_username">请输入用户名</string>
+    <string name="login_invalid_password">请输入密码</string>
+    <string name="login_user_not_found">用户未找到</string>
+    <string name="login_wrong_password">密码错误</string>
+    <string name="login_error">登录错误</string>
+    <string name="login_welcome_guest">欢迎，游客！仅可使用儿童模式</string>
+    <string name="login_welcome_user">欢迎，%s！所有模式均可使用</string>
+    <string name="login_welcome_user_children">欢迎，%s！仅可使用儿童模式</string>
+
+    <!-- Register -->
+    <string name="register_title">创建账号</string>
+    <string name="register_subtitle">注册以访问所有游戏模式</string>
+    <string name="register_username_hint">用户名</string>
+    <string name="register_password_hint">密码</string>
+    <string name="register_birthdate_hint">出生日期</string>
+    <string name="register_button">注册</string>
+    <string name="register_login_link">已有账号？登录</string>
+    <string name="register_username_min_length">用户名至少3个字符</string>
+    <string name="register_password_min_length">密码至少6个字符</string>
+    <string name="register_select_birthdate">请选择您的出生日期</string>
+    <string name="register_age_min">年龄必须满5岁</string>
+    <string name="register_age_min_message">注册需要年满5岁</string>
+    <string name="register_success">注册成功！</string>
+    <string name="register_error">注册错误</string>
+    <string name="register_user_exists">用户名已存在</string>
+    <string name="register_age_hint_default">选择您的出生日期</string>
+    <string name="register_age_hint_18">您 %d岁。所有模式均可使用！</string>
+    <string name="register_age_hint_16">⚠ 您 %d岁。部分模式不可用</string>
+    <string name="register_age_hint_10">⚠ 您 %d岁。仅可使用儿童和青少年模式</string>
+    <string name="register_age_hint_5">⚠ 您 %d岁。仅可使用儿童模式</string>
+    <string name="register_age_hint_min">注册需要年满5岁</string>
+
+    <!-- Date Picker -->
+    <string name="date_picker_title">选择出生日期</string>
+    <string name="date_picker_year">年</string>
+    <string name="date_picker_month">月</string>
+    <string name="date_picker_day">日</string>
+    <string name="date_picker_confirm">确认</string>
+    <string name="date_picker_cancel">取消</string>
+
+    <!-- Game -->
+    <string name="game_toolbar_title">瓶子</string>
+    <string name="game_mode_children">儿童</string>
+    <string name="game_mode_teen">青少年</string>
+    <string name="game_mode_adult">成人</string>
+    <string name="game_mode_adult_plus">18+</string>
+    <string name="game_mode_sex">性爱</string>
+    <string name="game_mode_changed">模式: %s</string>
+    <string name="game_mode_unavailable">模式不可用</string>
+    <string name="game_mode_unlock_message">模式「%s」将在 %d岁时可用</string>
+    <string name="game_welcome_guest">游客模式\n点击瓶子获取任务！</string>
+    <string name="game_welcome_user">欢迎，%s！\n年龄: %d岁\n点击瓶子开始！</string>
+    <string name="game_welcome_default">点击瓶子开始！</string>
+    <string name="game_task_start">开始游戏！</string>
+    <string name="game_task_close">明白了！</string>
+    <string name="game_guest_mode">游客模式：仅可使用儿童模式</string>
+    <string name="game_mode_auto_changed">模式已切换为 %s（您 %d岁）</string>
+    <string name="game_stats_reset">统计已重置</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="settings_user_info">👤 用户: %s</string>
+    <string name="settings_user_guest">👤 用户: 游客</string>
+    <string name="settings_user_name">姓名: %s</string>
+    <string name="settings_user_guest_name">姓名: 游客</string>
+    <string name="settings_user_email">邮箱: %s</string>
+    <string name="settings_user_guest_email">邮箱: guest@temp.com</string>
+    <string name="settings_user_age">年龄: %d岁</string>
+    <string name="settings_user_guest_age">年龄: 0岁</string>
+    <string name="settings_user_mode">模式: %s</string>
+    <string name="settings_stats_title">📊 统计</string>
+    <string name="settings_stats_tasks">已完成任务:</string>
+    <string name="settings_stats_clear">🗑️ 重置统计</string>
+    <string name="settings_about">ℹ️ 关于</string>
+    <string name="settings_stats_progress">剩余%d（共%d）</string>
+    <string name="settings_logout">🚪 退出</string>
+    <string name="settings_language">🌐 语言</string>
+
+    <!-- About -->
+    <string name="about_title">关于</string>
+    <string name="about_version">版本</string>
+    <string name="about_description">拥有多种游戏模式的欢乐派对游戏</string>
+    <string name="about_modes_title">🎮 游戏模式</string>
+    <string name="about_mode_children">👶 儿童 (0+)</string>
+    <string name="about_mode_teen">🧑 青少年 (10+)</string>
+    <string name="about_mode_adult">👨 成人 (16+)</string>
+    <string name="about_mode_adult_plus">🔞 18+</string>
+    <string name="about_mode_sex">🔥 性爱 (18+)</string>
+    <string name="about_developer">💻 用爱制作 ❤️</string>
+    <string name="about_donate">☕ 支持项目</string>
+    <string name="about_error">打开链接错误: </string>
+    <string name="about_error_browser">未找到打开链接的浏览器</string>
+    <string name="about_donatUrl">https://pay.cloudtips.ru/p/29e9b5ab</string>
+    <string name="about_close">关闭</string>
+
+    <!-- Exit -->
+    <string name="exit_title">退出</string>
+    <string name="exit_message">您想要做什么？</string>
+    <string name="exit_logout">退出账号</string>
+    <string name="exit_app">退出应用</string>
+    <string name="exit_cancel">取消</string>
+    <string name="donat">☕ 支持项目</string>
+
+    <!-- Language -->
+    <string name="language_russian">俄语</string>
+    <string name="language_english">英语</string>
+    <string name="language_japanese">日语</string>
+    <string name="language_korean">韩语</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_changed">语言已切换为 %s。请重启应用以应用更改。</string>
+
+    <!-- 儿童任务 (0+) -->
+    <string-array name="tasks_children">
+        <item>跟着音乐做运动或有趣的伸展运动！</item>
+        <item>在椅子上（或周围）像马一样随着动感音乐跳一分钟！</item>
+        <item>向前翻三个跟头（如果有空间和柔软的地板）！</item>
+        <item>展示正在孵蛋的鸟。用软垫或枕头作为鸟巢！</item>
+        <item>骑在扫帚上，念着魔法咒语！</item>
+        <item>站在原地跳奇怪的舞！</item>
+        <item>扮演在路上滚动的面包（从背部滚到腹部）！</item>
+        <item>摆出任何姿势，像雕像一样保持30秒不动！</item>
+        <item>展示一个简单的职业让其他人猜（医生、厨师、司机、建筑工人）！</item>
+        <item>扮演一个动物让其他玩家猜！</item>
+        <item>不用言语展示你最喜欢的卡通角色！</item>
+        <item>在玩偶婚礼上扮演主持人，祝贺玩偶们！</item>
+        <item>扮演在门口讨论天气的坏脾气老太太！</item>
+        <item>扮演重要时装秀上的模特！</item>
+        <item>像机器人或企鹅一样在房间里走动！</item>
+        <item>模仿其中一位玩家，让大家认出是谁！</item>
+        <item>成为镜子：重复你面前的人的动作！</item>
+        <item>用有趣的声音（老鼠或巨人的声音）唱任何儿歌的副歌！</item>
+        <item>像在学校演出一样，有感情地朗诵短诗或数数歌！</item>
+        <item>给每个玩家起一个可爱的昵称（例如：&quot;香蕉船长&quot;或&quot;酸奶公主&quot;）！</item>
+        <item>对每个玩家说一句赞美的话！</item>
+        <item>说出你最喜欢的冰淇淋口味，并展示它的触感！</item>
+        <item>用三个词描述你的房间！</item>
+        <item>立刻为这个房间想一个新名字！</item>
+        <item>讲讲你的宠物或最喜欢的玩具！</item>
+        <item>只用&quot;啦啦&quot;唱别人选的歌！</item>
+        <item>展示你吃很酸的东西的样子！</item>
+        <item>展示你在周末早晨醒来的样子！</item>
+        <item>讲述你生活中最有趣的故事！</item>
+    </string-array>
+
+    <!-- 青少年任务 (10-15岁) -->
+    <string-array name="tasks_teen">
+        <item>像博主一样拍摄这个派对的短视频评论！</item>
+        <item>头上顶个锅拍一张超严肃的自拍（留在主持人的手机里）！</item>
+        <item>以未来专业造型师的身份评价每位玩家的着装！</item>
+        <item>以外星记者的身份问出意想不到的问题！</item>
+        <item>扮演推销隐形吸尘器的励志演讲家！</item>
+        <item>像UFO着陆现场的记者一样表演整整一分钟！</item>
+        <item>为每个玩家编一个荒唐的谣言（不得涉及冒犯性话题）！</item>
+        <item>扮演品尝普通水的浮夸评论家！</item>
+        <item>跳一段社交媒体上流行的舞蹈（任选）！</item>
+        <item>展示你在没人看见时用的招牌动作！</item>
+        <item>扮演笑话里卖瓜子的地痞！</item>
+        <item>像健美运动员一样摆姿势，展示不同的肌肉群！</item>
+        <item>为普通椅子想一个有趣的广告标语！</item>
+        <item>扮演第一次吃柠檬的人！</item>
+        <item>和每个玩家摆出搞笑姿势自拍！</item>
+        <item>快进展示你如何准备约会！</item>
+        <item>扮演其他玩家会猜的名人！</item>
+        <item>讲两个关于自己的真实故事和一个谎言。其他人必须猜出哪个是假的！</item>
+        <item>大家都喜欢但你觉得无聊的电影是什么？解释原因！</item>
+        <item>如果能瞬间移动到任何地方，你会离开这个派对吗？</item>
+        <item>海滩度假还是城市旅行？为什么？</item>
+        <item>7岁时你想成为什么？现在离现实有多远？</item>
+        <item>你喜欢但别人觉得奇怪的食物组合是什么？</item>
+        <item>至今怀念的童年零食是什么？</item>
+        <item>用零花钱买的最蠢的东西是什么？</item>
+        <item>你会选择永远放弃薯条还是披萨？</item>
+        <item>什么气味让你感到幸福？</item>
+        <item>如果中了彩票，你会买的第一件完全没用的东西是什么？</item>
+        <item>现在背包里最奇怪的东西是什么？</item>
+        <item>如果这个房间有自己的主题曲，入口处会放什么歌？</item>
+        <item>谁会在僵尸末日中生存最久？为什么？</item>
+        <item>你最常用的表情符号是什么？它真正的含义是什么？</item>
+        <item>早上第一个打开的应用程序是（说实话）？</item>
+        <item>如果能瞬间学会一种乐器，你会选哪个？</item>
+        <item>最成功的烹饪实验是什么？</item>
+        <item>你看剧时的&quot;罪恶快感&quot;是什么？</item>
+        <item>你会选择在一周内失去什么：手机还是钱包？</item>
+        <item>你追随过但现在后悔的潮流是什么？</item>
+        <item>如果没人能看到你，明天你会开始什么爱好？</item>
+        <item>尽可能长时间保持平板支撑（主持人记录）！</item>
+        <item>尝试靠墙倒立（可选，可以请朋友帮忙）！</item>
+        <item>做10个俯卧撑（完全自愿）！</item>
+        <item>展示一个你肯定会做的柔韧性练习！</item>
+        <item>做拱桥（如果你对自己的背部有信心）！</item>
+        <item>与体重相似的玩家进行掰手腕（仅限双方同意）！</item>
+        <item>尝试劈叉（尽你所能）！</item>
+        <item>你最后重复播放的歌曲是什么？</item>
+        <item>我们中谁回消息最快？</item>
+        <item>现在你口袋或包里最奇怪的东西是什么？</item>
+        <item>你总是迟到10分钟还是早到30分钟？</item>
+        <item>你吃过最好的食物是什么？在哪里吃的？</item>
+        <item>你在卡拉OK唱什么歌（即使只在洗澡时唱）？</item>
+    </string-array>
+
+    <!-- 成人任务 (16-17岁) -->
+    <string-array name="tasks_adult">
+        <item>用不寻常的搭讪方式向每个玩家搭讪！</item>
+        <item>走近每个人，给他们荒谬的建议！</item>
+        <item>盯着任何玩家的眼睛，然后眨眼！</item>
+        <item>告诉所有人你的身体数据：身高、体重和其他参数！</item>
+        <item>跪下向所有人坦白你最搞笑的糗事！</item>
+        <item>试图说服一名玩家买你的有趣物品，但不要展示它！</item>
+        <item>讲一个有趣的旅行幻想故事！</item>
+        <item>为所有玩家许个愿！</item>
+        <item>以有趣的方式吃任何食物（香蕉、番茄、黄瓜）！</item>
+        <item>对每个玩家说一句玩笑式的坏话！</item>
+        <item>说出自己的不寻常之处来惊讶其他玩家！</item>
+        <item>展示你在游戏中如何跟踪某人！</item>
+        <item>告诉所有人如何给人留下好印象！</item>
+        <item>找到你最有趣的照片并设为头像！</item>
+        <item>以一名玩家为例展示你如何调情！</item>
+        <item>用玩笑式的话语&quot;炮轰&quot;每个玩家！</item>
+        <item>向一名玩家展示你有多想念对方！</item>
+        <item>坦白你最常撒谎的事情！</item>
+        <item>在社交媒体上写一个有趣的状态！</item>
+        <item>扮演一个试图在健身房给人留下深刻印象的人！</item>
+        <item>让一名玩家做10个深蹲！</item>
+        <item>分享你的弱点和软肋！</item>
+        <item>让一名玩家为你出任务！</item>
+        <item>告诉大家你的单相思故事！</item>
+        <item>为所有玩家取有趣的绰号！</item>
+        <item>拿起一本书，尽可能夸张地朗读！</item>
+        <item>以非常戏剧性的方式播报天气预报！</item>
+        <item>与任何玩家表演电影中的爱情场景！</item>
+        <item>告诉大家至今仍让你感到羞愧的事！</item>
+        <item>说出你在每个玩家身上喜欢的性格特征！</item>
+        <item>亲吻任何玩家的脸颊！</item>
+        <item>告诉大家一个不寻常的故事！</item>
+        <item>模仿一只有趣的猴子！</item>
+        <item>指出你身上最怕痒的地方！</item>
+        <item>告诉每个人他们的未来会怎样！</item>
+        <item>扭动臀部以有趣的方式走路！</item>
+        <item>坦白你不喜欢每个玩家的地方！</item>
+        <item>假装累了，然后向任何玩家搭讪！</item>
+        <item>告诉大家你喜欢什么时尚风格！</item>
+        <item>做出收到礼物时的表情！</item>
+        <item>为每个玩家想一个奇怪的爱好！</item>
+        <item>计划完美的一天并与所有人分享！</item>
+        <item>解释如何最快地让你开心起来！</item>
+        <item>亲吻一名玩家的脸颊！</item>
+        <item>诚实回答任何问题！</item>
+        <item>你看剧时的&quot;罪恶快感&quot;是什么？</item>
+        <item>你总是迟到10分钟还是早到30分钟？</item>
+        <item>我们中谁最有可能成名，因为什么？</item>
+        <item>如果一辈子只能吃同样的早餐，你会选什么？</item>
+        <item>你会选择在一周内失去什么：手机还是钱包？</item>
+        <item>你相册里最后一张真正敢给我们看的照片是什么？</item>
+        <item>如果能瞬间学会一种乐器，你会选哪个？</item>
+        <item>你追随过但现在后悔的潮流是什么？</item>
+        <item>我们中谁抱人抱得最好？</item>
+        <item>如果没人能看到你，明天你会开始什么爱好？</item>
+        <item>如果今天是部电影，哪个瞬间肯定会出现在预告片里？</item>
+    </string-array>
+
+    <!-- Задания 18+ -->
+    <string-array name="tasks_adult_plus">
+        <item>とても下品なジョークを言おう！</item>
+        <item>自分の一番セクシーな声をみんなに見せよう！</item>
+        <item>誰かの目を見つめてからウインクして唇を舐めよう！</item>
+        <item>ひざまずいて自分の罪の一つをみんなに告白しよう！</item>
+        <item>上着のボタンやファスナーを一つ外して、そのまま座っていよう！</item>
+        <item>異性の各プレイヤーにお尻を叩かせよう！</item>
+        <item>一人のプレイヤーに自分のパンツを買わせようとするけど、脱がないで！</item>
+        <item>実現したいベッドでの妄想を話そう！</item>
+        <item>異性の全プレイヤーにボトルゲームの願い事を考えよう！</item>
+        <item>エロティックに食べ物を食べよう（バナナ、トマト、キュウリ）！</item>
+        <item>各プレイヤーに嫌なことを言おう！</item>
+        <item>みんなが喜ぶように、熱く挑発的に踊ろう！</item>
+        <item>自分の驚くべきことを話してプレイヤーを衝撃させよう！</item>
+        <item>獲物を追跡する殺人鬼を表現しよう！</item>
+        <item>異性を誘惑する方法をみんなに教えよう！</item>
+        <item>一番恥ずかしい写真を見つけてアバターに設定しよう！</item>
+        <item>「ビクトリアズ・シークレット」のショーのモデルになりきろう！</item>
+        <item>一人のプレイヤーを例に、異性とどうやってイチャイチャするか見せよう！</item>
+        <item>酔った時の自分の振る舞いを見せよう！</item>
+        <item>服を脱がずにストリップを踊ろう！</item>
+        <item>各プレイヤーに毒舌を浴びせて「ロースト」しよう！</item>
+        <item>自分のお尻を叩きながら、それが好きだと言おう！</item>
+        <item>今どんな下着を着ているかみんなに教えよう！</item>
+        <item>自分の体を撫でながら、一人のプレイヤーを見つめよう！</item>
+        <item>他のプレイヤーに下着の一部を見せよう！</item>
+        <item>ソーシャルメディアに下品なステータスを書こう！</item>
+        <item>自分の熱いベッドでの妄想をみんなに話そう！</item>
+        <item>全プレイヤーがベッドでどう振る舞うか考えよう！</item>
+        <item>本を一冊手に取り、最高に熱く朗読しよう！</item>
+        <item>ランダムな番号に電話して別れたいと言おう！</item>
+        <item>トワークを踊ろう！</item>
+        <item>誰かにキスマークをつけよう！</item>
+        <item>天気予報を非常に挑発的で熱く伝えよう！</item>
+        <item>誰かと映画のラブシーンを演じよう！</item>
+        <item>各プレイヤーの好きな体の部位を言おう！</item>
+        <item>好きな誰にでもキスしよう！</item>
+        <item>みんなに下品な話をしよう！</item>
+        <item>ムラムラした猿の真似をしよう！</item>
+        <item>一番敏感なポイントを指で示そう！</item>
+        <item>自分の脇の匂いを嗅いでみよう！</item>
+        <item>ファム・ファタールかプレイボーイになりきろう！</item>
+        <item>匿名の集まりに来た人のふりをしよう！</item>
+        <item>世界最古の職業の従事者を表現しよう！</item>
+        <item>腰を振りながら、できるだけ熱く歩こう！</item>
+        <item>酔ったふりをしてから、誰かに言い寄ろう！</item>
+        <item>誰かとディープキスしよう！</item>
+        <item>ボトルゲームで何を一番したいかみんなに話そう！</item>
+        <item>各プレイヤーの一番ホットな体の部位は？</item>
+        <item>ボトルが命じたら、今すぐ誰にキスする？</item>
+        <item>体に触れずに人ができる一番魅力的なことは？</item>
+        <item>周りを驚かせる一番のフェチは？</item>
+        <item>この部屋の誰かとキスしたことは？（はい/いいえ）</item>
+        <item>キスした一番クレイジーな場所は？</item>
+        <item>名前を出さずに最高のキスを説明しよう！</item>
+        <item>今の連絡先で一番魅力的な人は？</item>
+        <item>リスクの高いメッセージを送ってすぐ後悔したことは？</item>
+        <item>どんなにホットな人でも、あなたにとっての「ストップサイン」は？</item>
+        <item>何かが起こるまでに一番長くイチャイチャしていた期間は？</item>
+        <item>他の人を嫉妬させるために誰かとキスしたことは？</item>
+        <item>一番注目を浴びた服装は？それとわかっていた？</item>
+        <item>見られるべきでない人にイチャイチャしているところを見られたことは？</item>
+        <item>理想のファーストキス：シチュエーションとか全部？</item>
+        <item>私たちの中で一番素敵な笑顔を持っているのは誰？一人選ばなきゃ！</item>
+        <item>大抵の人が言わない、あなたが魅力的だと思うことは？</item>
+        <item>誰も知らないサマー・ロマンスはあった？</item>
+        <item>誰かにされた一番大胆なナンパで、それが成功したのは？</item>
+        <item>キスがその人への気持ちをどれだけ早く変えたか？</item>
+        <item>変なものでキスの練習をしたことは？何で？</item>
+        <item>今まで口にしたことのないファンタジーデートは？</item>
+        <item>一番予想外の憧れの人は？</item>
+        <item>人を見るときに最初に気づく身体的特徴は？</item>
+        <item>一晩で二人の人とキスしたことは？</item>
+        <item>このサークルの誰かのために実際にやる最もロマンチックなことは？</item>
+        <item>最初に恋をした人は誰で、その人はそれを知っている？</item>
+        <item>送った一番大胆なメッセージは？</item>
+        <item>今でも思い出す「ほとんど関係」は？</item>
+        <item>最近、誰のプロフィールを一番下までスクロールした？何を探してた？</item>
+        <item>デートを避けるために忙しいふりをしたことは？</item>
+        <item>好きな人の注意を引くためにやった一番恥ずかしいことは？</item>
+        <item>一度に二人の人を好きになったことは？どうなった？</item>
+        <item>その人が綺麗だったからだけに無視した「レッドフラッグ」は？</item>
+        <item>人への興味を失った一番つまらない理由は？</item>
+        <item>誰かをじっと見ているところを捕まったことは？どうなった？</item>
+        <item>「しつこく見えないように」わざと返信を遅らせたことは？</item>
+        <item>親友から隠している秘密は？</item>
+        <item>一番予想外にメッセージを送ってきた人は？</item>
+        <item>誰かがあなたの夢に出てきたことは？話して！</item>
+        <item>一番強く嫉妬した経験は？誰のせいで？</item>
+        <item>パートナーの電話を覗いたことは？何を見つけた？</item>
+        <item>結婚式や家族の集まりでの大胆なイチャイチャは？</item>
+        <item>人生で一番早かった恋は？</item>
+        <item>欲しいものを得るために誰かとイチャイチャしたことは？</item>
+        <item>人生で一番気まずいデートは？</item>
+        <item>名前も知らない誰かとキスしたことは？</item>
+        <item>好きな人のためにやった、酔ってないと決して認めないことは？</item>
+        <item>「予備の選択肢」だったことは？それを知っていて？</item>
+        <item>一番劇的な別れの結末は？</item>
+        <item>友情を救うために自分の気持ちについて嘘をついたことは？</item>
+    </string-array>
+
+    <!-- 性爱任务（带图片） -->
+    <string-array name="tasks_sex">
+        <item>闪亮三角姿势让人想起经典传教士式：女人仰卧，男人在上。但关键在于男人跪着，女人将臀部抬高迎接他。也就是说男人不动，女人完成所有工作。所以这完全不同于传教士式！</item>
+        <item>\'X字母\' 男人仰卧，女人背对他跨坐上去，然后躺在他身上。她伸直双腿放在他的肩膀上，身体放在床上，置于男人的双腿之间。这样就形成了一个X形状。然后女人开始上下滑动。她还可以用男人的腿作为杠杆来增加幅度。</item>
+        <item>\'涅槃\' 女人仰卧，伸直双腿，抓住头上方的床。进入后，她将双腿并拢，男人则相反地将腿分开。他们一起移动，女人收紧大腿，自然刺激阴蒂。</item>
+        <item>\'锁\' 女人坐在某物的边缘（桌子、洗衣机等），双手向后撑着。男人站在她面前，她用双腿抱住他的大腿。这就是锁的全部。</item>
+        <item>\'滑行\' 男人仰卧，女人骑在他身上，双腿并拢。关键在于女人在他的身体上下滑动。</item>
+        <item>\'猴子\' 男人仰卧，膝盖拉到下巴。女人背对他坐在上面，用腿支撑身体并上下移动。她将更多重量转移到腿上，你就越轻松。但要记住：这种姿势绝非轻松！但可以进入得非常深。不过有一个问题：女人必须足够强壮，并拥有卓越的平衡感。如果她抓住你的手腕，会稍微容易一些。</item>
+        <item>\'蝴蝶\' 女人仰卧在适当的家具上。男人站在她面前，她把腿放在他的肩膀上。女人双手撑着同样的家具以便抬起臀部，他则托着她的屁股简化过程。</item>
+        <item>\'向欲望攀登\' 男人站立，张开大腿，微微弯曲膝盖。女人站在他面前。男人将女人举到自己面前，她用腿抱住他。</item>
+        <item>\'平衡\' 男人仰卧，张开双腿。女人坐在他大腿之间，他托着她的臀部。这个姿势由男人掌控节奏。但女人可以调节深度。</item>
+        <item>\'劈开的竹子\' 女人将一条腿放在男人的肩膀上。男人托住她的大腿，英勇地进入，同时支撑着她抬起的腿和自己。因为她的手是自由的，她可以做任何想做的事。</item>
+        <item>\'沉睡的天使\' 女人侧躺蜷缩，男人用同样的姿势躺在她身后。</item>
+        <item>\'桥\' 男人做桥式，女友坐在上面。让她把重量转移到腿上。</item>
+        <item>\'回形针\' 男人仰卧，双腿并拢。女人坐上去，向后倾斜用手撑着。你也可以随意使用你的手。</item>
+        <item>\'紧密\' 女人侧躺，你在她身后，但这次她张开双腿。双方参与者都有使用手的空间。</item>
+        <item>\'双层\' 男人仰卧，女人背对他躺在他身上。她用手肘向后撑，背靠着他的胸膛。女人的脚踩着男人的膝盖，男人在她体内移动。这个姿势很适合过渡到其他姿势。</item>
+        <item>\'诱惑\' 女人跪坐，向后倒，双手伸过头顶。男人跪着，进入女人并伸直腿。</item>
+        <item>\'潜行的老虎\' 男人仰卧，双脚着地而不是在床上。女人双腿张开背对他坐在他身上。她可以自由选择深度和速度，还可以用手玩耍。</item>
+        <item>\'英雄\' 女人仰卧，膝盖拉到下巴，双腿指向天花板。男人在她对面跪坐。他用手支撑着她的腿。</item>
+        <item>\'海豚\' 女人将骨盆抬向天花板，用肩膀支撑自己，头放在床上。男人站在她双膝之间，托住她的屁股。动作必须非常小心！甚至可以再抬高她的臀部，让她的脚离地。</item>
+        <item>\'青蛙\' 男人坐在床边，脚踩地板。女人背对他坐在床边，腿留在床上。她上下移动，他则以防万一扶着她。</item>
+        <item>\'杜松\' 女人仰卧，张开并伸直双腿。男人坐在她膝盖之间，也伸直腿。他抬起她的臀部，完成。</item>
+        <item>\'犁\' 女人双脚站在地上，手肘撑在床上。男人从后面靠近，站在她双腿之间，她将腿与地面平行伸直。</item>
+        <item>\'钩子\' 男人侧躺。女人在他面前蜷缩，让她的腿靠近他的头。她将膝盖拉到胸前，抱住他的腿。然后用手抱住他的腿，用手肘支撑。</item>
+        <item>\'经典\' 女人仰卧，微微张开双腿。男人趴在她身上，用手支撑自己。</item>
+        <item>\'跪姿\' 男人和女人面对面跪着。她张开大腿，双手环抱男人的脖子。他也抱住她，小心地移动膝盖。</item>
+        <item>\'十字\' 女人仰卧，一条腿伸直，另一条腿膝盖弯曲。男人坐在她面前，一条腿放在她伸直的腿后面，手扶着她弯曲的腿。描述相当复杂。</item>
+        <item>\'躺椅\' 男人坐着，双手向后撑，双腿伸直。手肘可以微微弯曲。女人躺上去，双腿搭在他肩膀上，移动臀部。</item>
+        <item>\'躺卧莲花\' 女人仰卧，双腿盘成莲花式。男人进入她双腿之间，从上方进入。可以在她臀部下面放个枕头改变角度。</item>
+        <item>\'好色的腿\' 伴侣面对面站立，女人将一条腿放在男人肩膀上。为了方便她，你可以先微微下蹲。然后女人双手环抱你的脖子，你托住她的屁股。如果她不做体操且柔韧性差，很危险！</item>
+        <item>\'平衡与深蹲\' 女人站在床边，男人站在她身后的地板上。她下蹲时，他帮她瞄准。她抓住他的手保持平衡。</item>
+        <item>\'魔法山\' 首先用枕头堆成一座山。然后女人跪在旁边，胸部靠在山上。男人在她身后跪下。</item>
+        <item>\'弹带\' 女人仰卧，膝盖拉到胸前。男人跪在她面前，她把脚放在他胸前。他用前臂靠在她的腿上，完成。如果更用力地将她的腿压向她的胸部，快感应该会增加。而且，这个姿势会刺激G点。</item>
+        <item>\'螺旋桨\' 女人仰卧，双腿并拢伸直。男人头朝她的腿趴在上面。这当然需要练习。</item>
+        <item>\'摇滚乐手\' 女人仰卧，伸直双腿，让它们越过头部（像要做后空翻）。男人跪在她面前。</item>
+        <item>\'扇子\' 女人背对伴侣，手肘撑在椅子上。男人从后面靠近。</item>
+        <item>\'小船\' 首先男人仰卧，女人坐上去。然后男人坐起来，把膝盖拉向自己，女人也做同样的事，面对面坐着。你的腿会压在她的身上，她的腿会在你的腿后面。可以抓住彼此的腿和自己的腿以免摔倒。</item>
+        <item>\'鹰\' 男人跪在伴侣面前，张开双腿。她仰卧，大大张开双腿。他托住她的腿，然后随心所欲。</item>
+        <item>\'悬挂的剪刀\' 她侧卧在床边，床垫上只有她的小腿和脚踝。她用左手支撑自己，他托住她的腰。他跨过她的左腿，托住她另一条悬空的腿，当她几乎从床上悬空时进入她！</item>
+        <item>\'狗式\' 她四肢着地，他从后面跪下，托住她的臀部。</item>
+        <item>\'凯旋门\' 男人仰卧，女人坐上去。然后他抬起上半身向前弯，她向后倒，直到背部靠在他的腿上。</item>
+        <item>\'反向女牛仔\' 男人仰卧，女人背对他坐上去。她可以把手撑在他的大腿上，这样更容易移动。</item>
+        <item>\'超级8\' 她仰卧，张开双腿，可以在腰下放个枕头。他趴上去，用伸直的手臂支撑自己。她把手放在他的臀部或背上，迎着他的动作向上。</item>
+        <item>\'亚马逊\' 男人舒服地坐在椅子上，女人面对他坐上去。她的脚应该踩在地上，这样她才能上下移动。</item>
+        <item>\'狗式变体\' 她仍然四肢着地，但前臂着地，他从后面进入。更好的是可以爱抚她的胸部。</item>
+        <item>\'交叉\' 她仰卧，双腿交叉，臀部在床边。你站在她面前，用手抓住她的腿，可以随意分开或再次交叉。</item>
+        <item>\'侧船\' 男人仰卧，女人侧坐上去，张开双腿，这就是这个姿势名字的由来。她掌控每一个动作！</item>
+        <item>\'滑坡\' 她俯卧，前臂支撑，双腿伸直，稍微分开。他直接坐在她腿后面，托住她的身体，然后向后倾斜45度，这样更容易进入。</item>
+        <item>\'蜗牛\' 首先女人仰卧，然后膝盖拉到胸前，双腿绕过伴侣的头。他跪在她面前，双手撑着床或她的肩膀来支撑体重，进入。</item>
+        <item>\'滑行\' 男人跪坐，向后靠，用手支撑体重。女人仰卧，头放在枕头上。她用膝盖环抱他的大腿，创造最佳角度。她的手是自由的，所以当男人关注运动时，她可以用手抚摸自己的胸部和阴蒂。</item>
+    </string-array>
+
+</resources>

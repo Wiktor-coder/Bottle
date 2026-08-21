@@ -1,6 +1,11 @@
 # 🍾 Игра "Бутылочка"
 
 [![CI](https://github.com/Wiktor-coder/Bottle/actions/runs/31589825024/job/94091968871)](https://github.com/Wiktor-coder/Bottle/actions/runs/31589825024/job/94091968871)
+[![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
+[![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=24)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Мобильное приложение "Игра в бутылочку" с возрастными режимами и заданиями для разных категорий игроков.
 
@@ -24,6 +29,16 @@
 - ✅ Безопасное шифрование данных пользователя(локальное хранение)
 - ✅ Полная офлайн-работа (без интернета)
 
+## ✨ Особенности
+
+- 🎯 **300+ уникальных заданий** — задания не повторяются, пока не будут пройдены все
+- 🌍 **Мультиязычность** — поддержка 5 языков: Русский, English, 日本語, 한국어, 中文
+- 👤 **Гостевой режим** — можно играть без регистрации
+- 🔐 **Безопасность** — все данные шифруются локально
+- 📊 **Статистика** — отслеживайте количество выполненных заданий
+- 🎨 **Адаптивный дизайн** — интерфейс меняется в зависимости от выбранного режима
+- 📱 **Полная офлайн-работа** — не требует интернета
+
 ## 📸 Скриншоты
 
 | Экран входа | Игровой экран | Настройки |
@@ -44,11 +59,20 @@
 - **Архитектура**: MVVM, Clean Architecture
 
 ## 🚀 Сборка
-
-### Требования
 - Android Studio Hedgehog или новее
 - JDK 17+
 - Gradle 8.7+
+
+## 📱 Требования
+
+| Минимальная версия Android | Целевая версия | Язык |
+|---------------------------|---------------|------|
+| Android 7.0 (API 24)      | Android 14    | Kotlin |
+
+### Разрешения
+Приложение запрашивает только необходимые разрешения:
+- `INTERNET` — для открытия ссылки доната
+- `VIBRATE` — для вибрации при вращении бутылки
 
 ### Локальная сборка
 ```bash
@@ -65,6 +89,11 @@ cd Bottle
 ./gradlew assembleRelease
 ```
 
+## 📄 Лицензия
+
+Этот проект распространяется под лицензией MIT.
+Подробнее см. в файле [LICENSE](LICENSE).
+
 ## 📦 Установка
 
 ### Android
@@ -75,6 +104,11 @@ cd Bottle
 ### Из исходников
 1. Откройте проект в Android Studio
 2. Нажмите Run ▶️
+
+## 📲 Скачать приложение
+
+- **[RuStore](https://www.rustore.ru/catalog/app/ru.github.bottle)** — официальный магазин приложений
+- **[GitHub Releases](https://github.com/Wiktor-coder/Bottle/releases)** — APK файлы
 
 ## 👥 Команда
 * Разработчик: Wiktor
@@ -93,6 +127,7 @@ cd Bottle
 Автор: [Wiktor-coder](https://github.com/Wiktor-coder)
 Email: [apostal333@gmail.com](apostal333@gmail.com)
 
-
+### Благодарности
+Спасибо всем, кто поддерживает проект! 🙏
 
 

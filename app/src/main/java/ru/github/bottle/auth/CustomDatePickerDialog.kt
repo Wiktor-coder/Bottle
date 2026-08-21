@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.NumberPicker
 import ru.github.bottle.R
+import ru.github.bottle.databinding.DialogDatePickerBinding
 import java.util.Calendar
 
 class CustomDatePickerDialog(
@@ -13,11 +14,23 @@ class CustomDatePickerDialog(
     private val onDateSelected: (year: Int, month: Int, day: Int) -> Unit
 ) : Dialog(context) {
 
-    private lateinit var yearPicker: NumberPicker
-    private lateinit var monthPicker: NumberPicker
-    private lateinit var dayPicker: NumberPicker
-    private lateinit var btnConfirm: Button
-    private lateinit var btnCancel: Button
+    companion object {
+        private const val DEFAULT_AGE = 18
+        private const val MAX_YEARS_BACK = 100
+        private const val MIN_MONTH = 1
+        private const val MAX_MONTH = 12
+        private const val MIN_DAY = 1
+        private const val DEFAULT_DAY = 1
+        private const val DEFAULT_MONTH = 1
+    }
+
+    private lateinit var binding: DialogDatePickerBinding
+
+//    private lateinit var yearPicker: NumberPicker
+//    private lateinit var monthPicker: NumberPicker
+//    private lateinit var dayPicker: NumberPicker
+//    private lateinit var btnConfirm: Button
+//    private lateinit var btnCancel: Button
 
     private var selectedYear: Int = 2000
     private var selectedMonth: Int = 0
@@ -25,13 +38,8 @@ class CustomDatePickerDialog(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialog_date_picker)
-
-        yearPicker = findViewById(R.id.npYear)
-        monthPicker = findViewById(R.id.npMonth)
-        dayPicker = findViewById(R.id.npDay)
-        btnConfirm = findViewById(R.id.btnConfirm)
-        btnCancel = findViewById(R.id.btnCancel)
+        binding = DialogDatePickerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupPickers()
         setupListeners()
@@ -41,31 +49,31 @@ class CustomDatePickerDialog(
         val calendar = Calendar.getInstance()
         val currentYear = calendar.get(Calendar.YEAR)
 
-        yearPicker.minValue = currentYear - 100
-        yearPicker.maxValue = currentYear
-        yearPicker.value = currentYear - 18
-        yearPicker.wrapSelectorWheel = false
+        binding.npYear.minValue = currentYear - MAX_YEARS_BACK
+        binding.npYear.maxValue = currentYear
+        binding.npYear.value = currentYear - DEFAULT_AGE
+        binding.npYear.wrapSelectorWheel = false
 
-        monthPicker.minValue = 1
-        monthPicker.maxValue = 12
-        monthPicker.value = 1
-        monthPicker.wrapSelectorWheel = false
+        binding.npMonth.minValue = MIN_MONTH
+        binding.npMonth.maxValue = MAX_MONTH
+        binding.npMonth.value = DEFAULT_MONTH
+        binding.npMonth.wrapSelectorWheel = false
 
-        dayPicker.minValue = 1
-        dayPicker.maxValue = 31
-        dayPicker.value = 1
-        dayPicker.wrapSelectorWheel = false
+        binding.npDay.minValue = MIN_DAY
+        binding.npDay.maxValue = 31
+        binding.npDay.value = DEFAULT_DAY
+        binding.npDay.wrapSelectorWheel = false
 
-        selectedYear = yearPicker.value
-        selectedMonth = monthPicker.value - 1
-        selectedDay = dayPicker.value
+        selectedYear = binding.npYear.value
+        selectedMonth = binding.npMonth.value - 1
+        selectedDay = binding.npDay.value
 
-        yearPicker.setOnValueChangedListener { _, _, newVal ->
+        binding.npYear.setOnValueChangedListener { _, _, newVal ->
             selectedYear = newVal
             updateDayPicker()
         }
 
-        monthPicker.setOnValueChangedListener { _, _, newVal ->
+        binding.npMonth.setOnValueChangedListener { _, _, newVal ->
             selectedMonth = newVal - 1
             updateDayPicker()
         }
@@ -73,11 +81,11 @@ class CustomDatePickerDialog(
 
     private fun updateDayPicker() {
         val daysInMonth = getDaysInMonth(selectedYear, selectedMonth)
-        dayPicker.maxValue = daysInMonth
-        if (dayPicker.value > daysInMonth) {
-            dayPicker.value = daysInMonth
+        binding.npDay.maxValue = daysInMonth
+        if (binding.npDay.value > daysInMonth) {
+            binding.npDay.value = daysInMonth
         }
-        selectedDay = dayPicker.value
+        selectedDay = binding.npDay.value
     }
 
     private fun getDaysInMonth(year: Int, month: Int): Int {
@@ -87,16 +95,16 @@ class CustomDatePickerDialog(
     }
 
     private fun setupListeners() {
-        btnConfirm.setOnClickListener {
+        binding.btnConfirm.setOnClickListener {
             onDateSelected(selectedYear, selectedMonth, selectedDay)
             dismiss()
         }
 
-        btnCancel.setOnClickListener {
+        binding.btnCancel.setOnClickListener {
             dismiss()
         }
 
-        dayPicker.setOnValueChangedListener { _, _, newVal ->
+        binding.npDay.setOnValueChangedListener { _, _, newVal ->
             selectedDay = newVal
         }
     }

@@ -62,7 +62,7 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.etBirthDate.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
                 imm.hideSoftInputFromWindow(binding.etBirthDate.windowToken, 0)
                 showCustomDatePicker()
             }
@@ -121,6 +121,18 @@ class RegisterActivity : AppCompatActivity() {
         return age
     }
 
+    private fun validateDate(birthDate: Date): Boolean {
+        val now = Calendar.getInstance()
+        val birth = Calendar.getInstance().apply { time = birthDate }
+
+        // Нельзя выбрать дату в будущем
+        if (birth.after(now)) {
+            binding.etBirthDate.error = "Дата не может быть в будущем"
+            return false
+        }
+        return true
+    }
+
     private fun validateInput(username: String, password: String): Boolean {
         if (username.isEmpty()) {
             binding.etUsername.error = getString(R.string.register_username_hint)
@@ -141,6 +153,11 @@ class RegisterActivity : AppCompatActivity() {
 
         if (selectedDate == null) {
             binding.etBirthDate.error = getString(R.string.register_select_birthdate)
+            return false
+        }
+
+        // Добавляем проверку даты
+        if (!validateDate(selectedDate!!)) {
             return false
         }
 

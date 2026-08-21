@@ -13,8 +13,8 @@ android {
         applicationId = "ru.github.bottle"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -72,6 +72,11 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.truth)
+    // Для тестов нужен контекст
+    testImplementation("androidx.test:core:1.5.0")
+    androidTestImplementation("androidx.test:core:1.5.0")
+    // Robolectric
+    testImplementation("org.robolectric:robolectric:4.11.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
