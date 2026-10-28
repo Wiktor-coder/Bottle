@@ -1,6 +1,7 @@
 package ru.github.bottle.utils
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Build
 import androidx.core.content.edit
 import ru.github.bottle.R
@@ -23,36 +24,44 @@ object LanguageManager {
         return prefs.getString(KEY_LANGUAGE, getDefaultLanguage()) ?: getDefaultLanguage()
     }
 
+    /**
+     * Сохраняет выбор языка. Применение локализации происходит при следующем
+     * создании Activity через [wrap] (attachBaseContext), поэтому вызывающий код
+     * должен пересоздать Activity (recreate).
+     */
     fun setLanguage(context: Context, languageCode: String) {
-        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val appContext = context.applicationContext
+        val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         prefs.edit { putString(KEY_LANGUAGE, languageCode) }
-        updateResources(context, languageCode)
+
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
 
         // Очищаем кэш заданий при смене языка
         TasksProvider.clearCache()
     }
 
-    fun updateResources(context: Context, languageCode: String) {
+    /**
+     * Оборачивает контекст Activity с выбранной локалью. Вызывается из
+     * Application.attachBaseContext, чтобы весь UI использовал выбранный язык,
+     * а не системный.
+     */
+    fun wrap(context: Context): Context {
+        val languageCode = getCurrentLanguage(context)
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
 
-        val resources = context.resources
-        val config = resources.configuration
-
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(locale)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            config.setLocale(locale)
             config.setLayoutDirection(locale)
-        } else {
-            @Suppress("DEPRECATION")
-            config.locale = locale
         }
-
-        resources.updateConfiguration(config, resources.displayMetrics)
+        return context.createConfigurationContext(config)
     }
 
+    /** Применяет сохраненный язык к глобальной локали процесса. */
     fun applyLanguage(context: Context) {
-        val languageCode = getCurrentLanguage(context)
-        updateResources(context, languageCode)
+        Locale.setDefault(Locale(getCurrentLanguage(context)))
     }
 
     private fun getDefaultLanguage(): String {

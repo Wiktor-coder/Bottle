@@ -434,4 +434,8 @@
         <item>\'滑行\' 男人跪坐，向后靠，用手支撑体重。女人仰卧，头放在枕头上。她用膝盖环抱他的大腿，创造最佳角度。她的手是自由的，所以当男人关注运动时，她可以用手抚摸自己的胸部和阴蒂。</item>
     </string-array>
 
+    <string name="guest_username">游客</string>
+    <string name="game_guest_mode_locked">游客模式：仅可使用儿童模式</string>
+    <string name="game_mode_available">模式可用</string>
+    <string name="game_exit_guest_message">您以游客身份登录。进度不会保存。是否继续？</string>
 </resources>
