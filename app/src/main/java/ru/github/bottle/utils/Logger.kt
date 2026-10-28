@@ -1,26 +1,32 @@
 package ru.github.bottle.utils
 
 import android.util.Log
-import java.util.Locale
 
 object Logger {
     private const val TAG_PREFIX = "BottleApp"
-    private const val LOG_ENABLED = true
+
+    // В release-сборке логи вырезаются ProGuard/R8 (см. proguard-rules.pro),
+    // здесь дополнительно используем флаг BuildConfig.DEBUG.
+    private var enabled: Boolean = true
+
+    fun setEnabled(enable: Boolean) {
+        enabled = enable
+    }
 
     fun d(tag: String, message: String) {
-        if (isLoggable()) {
+        if (enabled) {
             Log.d("$TAG_PREFIX/$tag", message)
         }
     }
 
     fun i(tag: String, message: String) {
-        if (isLoggable()) {
+        if (enabled) {
             Log.i("$TAG_PREFIX/$tag", message)
         }
     }
 
     fun w(tag: String, message: String, throwable: Throwable? = null) {
-        if (isLoggable()) {
+        if (enabled) {
             if (throwable != null) {
                 Log.w("$TAG_PREFIX/$tag", message, throwable)
             } else {
@@ -29,31 +35,12 @@ object Logger {
         }
     }
 
+    /** Ошибки логируем всегда, даже если debug-логи отключены. */
     fun e(tag: String, message: String, throwable: Throwable? = null) {
-        if (isLoggable()) {
-            if (throwable != null) {
-                Log.e("$TAG_PREFIX/$tag", message, throwable)
-            } else {
-                Log.e("$TAG_PREFIX/$tag", message)
-            }
+        if (throwable != null) {
+            Log.e("$TAG_PREFIX/$tag", message, throwable)
+        } else {
+            Log.e("$TAG_PREFIX/$tag", message)
         }
-    }
-
-    private fun isLoggable(): Boolean {
-        // Отключаем логи в тестовом окружении
-        try {
-            // Проверяем, запущены ли тесты
-            val isTest = System.getProperty("java.runtime.name")?.contains("Android") == false
-                    || System.getProperty("org.gradle.testing") != null
-                    || Thread.currentThread().stackTrace.any {
-                it.className.contains("Test") || it.className.contains("JUnit")
-            }
-            if (isTest) {
-                return false
-            }
-        } catch (_: Exception) {
-            return false
-        }
-        return LOG_ENABLED
     }
 }

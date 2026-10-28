@@ -1,6 +1,8 @@
 package ru.github.bottle.utils
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import ru.github.bottle.R
 import ru.github.bottle.models.GameMode
 import java.util.Locale
@@ -471,8 +473,11 @@ object TasksProvider {
     private val usedTasksMap = mutableMapOf<GameMode, MutableList<Task>>()
     private val tasksCache = mutableMapOf<GameMode, List<Task>>()
 
-    fun getTasks(context: Context, mode: GameMode): List<Task> {
-        return tasksCache.getOrPut(mode) {
+    // Блокировка для потокобезопасного доступа к мапам (вызовы возможны из разных корутин)
+    private val lock = Any()
+
+    fun getTasks(context: Context, mode: GameMode): List<Task> = synchronized(lock) {
+        tasksCache.getOrPut(mode) {
             getTasksFromResources(context, mode)
         }
     }
@@ -576,42 +581,71 @@ object TasksProvider {
     }
 
     fun getRandomTask(context: Context, mode: GameMode): Task {
-        val allTasks = getTasks(context, mode).toMutableList()
-        val usedTasks = usedTasksMap.getOrDefault(mode, mutableListOf())
+        // Итеративная логика без рекурсии (рекурсивный повтор мог привести к StackOverflow
+        // при пустом списке задач)
+        val allTasks = getTasks(context, mode)
 
-        if (usedTasks.size >= allTasks.size) {
-            usedTasksMap[mode] = mutableListOf()
-            return getRandomTask(context, mode)
+        if (allTasks.isEmpty()) {
+            Logger.w("TasksProvider", "No tasks available for mode: $mode")
+            return Task(context.getString(R.string.game_no_tasks))
         }
 
-        val availableTasks = allTasks.filter { !usedTasks.contains(it) }
+        synchronized(lock) {
+            var usedTasks = usedTasksMap.getOrPut(mode) { mutableListOf() }
 
-        if (availableTasks.isEmpty()) {
-            usedTasksMap[mode] = mutableListOf()
-            return getRandomTask(context, mode)
+            // Все задания использованы — начинаем новый круг
+            if (usedTasks.size >= allTasks.size) {
+                usedTasks.clear()
+            }
+
+            val availableTasks = allTasks.filter { it !in usedTasks }
+            val task = availableTasks.randomOrNull() ?: allTasks.random()
+
+            usedTasks.add(task)
+            return task
         }
-
-        val task = availableTasks.random()
-        usedTasksMap[mode] = (usedTasks + task).toMutableList()
-
-        return task
     }
 
     // Сброс всех использованных заданий
     fun resetAllTasks() {
-        usedTasksMap.clear()
+        synchronized(lock) {
+            usedTasksMap.clear()
+        }
     }
 
     fun getRemainingTasksCount(context: Context, mode: GameMode): Int {
         val allTasks = getTasks(context, mode)
-        val usedTasks = usedTasksMap.getOrDefault(mode, mutableListOf())
-        return allTasks.size - usedTasks.size
+        val usedCount = synchronized(lock) {
+            usedTasksMap[mode]?.count { used -> allTasks.contains(used) } ?: 0
+        }
+        return (allTasks.size - usedCount).coerceAtLeast(0)
+    }
+
+    /** Использованные задания для восстановления прогресса после перезапуска. */
+    fun getUsedTasks(mode: GameMode): List<Task> = synchronized(lock) {
+        usedTasksMap[mode]?.toList() ?: emptyList()
+    }
+
+    /** Восстановление прогресса из сохраненных данных (сериализация через Gson). */
+    fun restoreUsedTasks(mode: GameMode, json: String?) {
+        if (json.isNullOrBlank()) return
+        try {
+            val type = object : TypeToken<List<Task>>() {}.type
+            val tasks: List<Task> = Gson().fromJson(json, type) ?: return
+            synchronized(lock) {
+                usedTasksMap[mode] = tasks.toMutableList()
+            }
+        } catch (e: Exception) {
+            Logger.e("TasksProvider", "Failed to restore used tasks", e)
+        }
     }
 
     // Очистка кэша заданий (вызывается при смене языка)
     fun clearCache() {
-        tasksCache.clear()
-        usedTasksMap.clear()
+        synchronized(lock) {
+            tasksCache.clear()
+            usedTasksMap.clear()
+        }
         Logger.d("TasksProvider", "Cache cleared")
     }
 }

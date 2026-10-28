@@ -1,17 +1,23 @@
 package ru.github.bottle.models
 
+import android.content.Context
 import com.google.gson.annotations.SerializedName
-import java.util.Calendar
+import ru.github.bottle.R
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 
 enum class GameMode(
-    val displayName: String,
-    val minAge: Int
+    val minAge: Int,
+    val displayNameRes: Int
 ) {
-    CHILDREN("Детский", 0),
-    TEEN("Подростковый", 10),
-    ADULT("Взрослый", 16),
-    ADULT_PLUS("18+", 18),
-    SEX("Секс", 18)
+    CHILDREN(0, R.string.game_mode_children),
+    TEEN(10, R.string.game_mode_teen),
+    ADULT(16, R.string.game_mode_adult),
+    ADULT_PLUS(18, R.string.game_mode_adult_plus),
+    SEX(18, R.string.game_mode_sex);
+
+    fun displayName(context: Context): String = context.getString(displayNameRes)
 }
 
 data class User(
@@ -34,23 +40,29 @@ data class User(
     val createdAt: Long = System.currentTimeMillis()
 ) {
 
-    fun calculateAge(): User {
+    /**
+     * Пересчитывает возраст от даты рождения. Без этого возраст «застывает»
+     * на моменте регистрации и режимы разблокируются несвоевременно.
+     */
+    fun calculateAgeFromBirthDate(): User {
         if (birthDate == 0L || isGuest) {
             return this
         }
 
-        val birthCalendar = Calendar.getInstance().apply {
-            timeInMillis = birthDate
-        }
-        val currentCalendar = Calendar.getInstance()
+        val birth = Instant.ofEpochMilli(birthDate)
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate()
+        val today = LocalDate.now()
 
-        var newAge = currentCalendar.get(Calendar.YEAR) - birthCalendar.get(Calendar.YEAR)
-
-        if (currentCalendar.get(Calendar.DAY_OF_YEAR) < birthCalendar.get(Calendar.DAY_OF_YEAR)) {
+        // Корректный расчет: учитываем месяц и день, а не DAY_OF_YEAR
+        var newAge = today.year - birth.year
+        if (today.monthValue < birth.monthValue ||
+            (today.monthValue == birth.monthValue && today.dayOfMonth < birth.dayOfMonth)
+        ) {
             newAge--
         }
 
-        return this.copy(age = newAge)
+        return this.copy(age = newAge.coerceAtLeast(0))
     }
 
     fun canAccessMode(mode: GameMode): Boolean {
@@ -60,11 +72,16 @@ data class User(
         return age >= mode.minAge
     }
 
-    fun getUnlockMessage(mode: GameMode): String {
+    /** Локализованное сообщение о недоступности режима. */
+    fun getUnlockMessage(context: Context, mode: GameMode): String {
         return when {
-            isGuest -> "Гостевой режим: доступен только Детский режим"
-            age < mode.minAge -> "Режим \"${mode.displayName}\" будет доступен в ${mode.minAge} лет"
-            else -> "Режим доступен"
+            isGuest -> context.getString(R.string.game_guest_mode_locked)
+            age < mode.minAge -> context.getString(
+                R.string.game_mode_unlock_message,
+                mode.displayName(context),
+                mode.minAge
+            )
+            else -> context.getString(R.string.game_mode_available)
         }
     }
 }

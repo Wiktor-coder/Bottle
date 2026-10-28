@@ -434,4 +434,8 @@
         <item>\'グライド\' 男性は膝をついて座り、後ろに手をついて体重を支える。女性は仰向けに寝て、頭を枕にのせる。彼女は膝で彼の太ももを抱きしめて、最も良い角度を作る。彼女の手は自由なので、彼が動きを見守る間、彼女は自分の胸やクリトリスを愛撫することができる。</item>
     </string-array>
 
+    <string name="guest_username">ゲスト</string>
+    <string name="game_guest_mode_locked">ゲストモード: 子供向けモードのみ利用可能</string>
+    <string name="game_mode_available">モードは利用可能です</string>
+    <string name="game_exit_guest_message">ゲストでログイン中です。進捗は保存されません。続行しますか？</string>
 </resources>

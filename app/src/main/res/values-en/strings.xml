@@ -434,4 +434,8 @@
         <item>\'Glide\' The man kneels and leans back, shifting his weight to his hands behind him. The woman lies on her back, resting her head on a pillow. She wraps her knees around his thighs to create the most favorable angle for penetration. Her hands are free, so she can have fun with her breasts and clitoris while the man watches the movement.</item>
     </string-array>
 
+    <string name="guest_username">Guest</string>
+    <string name="game_guest_mode_locked">Guest mode: only children\'s mode available</string>
+    <string name="game_mode_available">Mode available</string>
+    <string name="game_exit_guest_message">You are logged in as a guest. Progress will not be saved. Continue?</string>
 </resources>

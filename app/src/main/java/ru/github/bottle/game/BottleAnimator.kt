@@ -18,6 +18,7 @@ class BottleAnimator(
     private var currentRotation = 0f
     private var isSpinning = false
     private var onSpinEnd: (() -> Unit)? = null
+    private var currentAnimator: ObjectAnimator? = null
 
     fun setOnSpinEndListener(listener: () -> Unit) {
         onSpinEnd = listener
@@ -30,29 +31,44 @@ class BottleAnimator(
         val randomRotation = Random.nextFloat() * 720 + 360
         val finalRotation = currentRotation + randomRotation
 
+        // Отменяем предыдущий аниматор, если он вдруг еще активен
+        currentAnimator?.cancel()
+
         val animator = ObjectAnimator.ofFloat(bottleView, "rotation", currentRotation, finalRotation)
         animator.duration = 2000
         animator.interpolator = AccelerateDecelerateInterpolator()
+        currentAnimator = animator
 
-        animator.addListener(object : android.animation.Animator.AnimatorListener {
+        animator.addListener(object : android.animation.AnimatorListenerAdapter() {
             override fun onAnimationStart(animation: android.animation.Animator) {
                 vibrate(100)
             }
 
             override fun onAnimationEnd(animation: android.animation.Animator) {
-                currentRotation = finalRotation
+                if (animation !== currentAnimator) return
+                currentRotation = bottleView.rotation
                 isSpinning = false
+                currentAnimator = null
                 onSpinEnd?.invoke()
             }
 
             override fun onAnimationCancel(animation: android.animation.Animator) {
+                if (animation !== currentAnimator) return
+                currentRotation = bottleView.rotation
                 isSpinning = false
+                currentAnimator = null
             }
-
-            override fun onAnimationRepeat(animation: android.animation.Animator) {}
         })
 
         animator.start()
+    }
+
+    /** Освобождение ресурсов (вызывать из Activity.onDestroy). */
+    fun release() {
+        currentAnimator?.cancel()
+        currentAnimator = null
+        onSpinEnd = null
+        isSpinning = false
     }
 
     private fun vibrate(duration: Long) {
